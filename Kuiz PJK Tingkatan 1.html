@@ -1,0 +1,1326 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kuiz PJK Tingkatan 1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Lexend:wght@400;500;600&display=swap');
+
+/* Susun atur: bar atas melekat (Semua Unit / Laman Utama), lajur tunggal 760px; kad bab berwarna ikut bab; kuiz satu soalan setiap skrin dengan rajah di atas. */
+:root {
+  --bg: #f6f2fb; --card: #ffffff; --card2: #efe8f8; --fg: #1d1a3a; --muted: #5a5580; --line: #d9cfee;
+  --brand: #c13a68; --brand-fg: #ffffff; --sun: #f2a93b;
+  --good: #17784f; --good-bg: #dff4e9; --bad: #b8302d; --bad-bg: #fde6e5;
+  --chS: 62%; --chL: 40%; --sS: 70%; --sL: 93%;
+  --head: 'Baloo 2', 'Trebuchet MS', system-ui, sans-serif;
+  --body: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15122b; --card: #1f1b3e; --card2: #2a2552; --fg: #f1eefc; --muted: #b4add8; --line: #3b3568;
+    --brand: #ff7ba3; --brand-fg: #1d1a3a; --sun: #ffc15a;
+    --good: #66dba5; --good-bg: #17382d; --bad: #ff9a96; --bad-bg: #432024;
+    --chS: 82%; --chL: 72%; --sS: 38%; --sL: 24%; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15122b; --card: #1f1b3e; --card2: #2a2552; --fg: #f1eefc; --muted: #b4add8; --line: #3b3568;
+  --brand: #ff7ba3; --brand-fg: #1d1a3a; --sun: #ffc15a;
+  --good: #66dba5; --good-bg: #17382d; --bad: #ff9a96; --bad-bg: #432024;
+  --chS: 82%; --chL: 72%; --sS: 38%; --sL: 24%; color-scheme: dark;
+}
+#app, .bab, .rv { --ch: hsl(var(--h, 340) var(--chS) var(--chL)); --chsoft: hsl(var(--h, 340) var(--sS) var(--sL)); }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--card); }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--head); line-height: 1.15; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--card); border-bottom: 1px solid var(--line); }
+.wrap { max-width: 760px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.top-in { display: flex; align-items: center; gap: 10px; padding-block: 9px; }
+.brand { font-family: var(--head); font-weight: 700; font-size: 17px; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.btn { border: 2px solid var(--line); background: var(--card); border-radius: 12px; padding: 8px 14px; font-weight: 500; font-size: 14px; text-decoration: none; color: var(--fg); display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 42px; }
+.btn:hover { border-color: var(--brand); }
+.btn.pri { background: var(--brand); border-color: var(--brand); color: var(--brand-fg); font-weight: 600; }
+.btn.pri:hover { filter: brightness(1.06); }
+.btn.sm { min-height: 38px; padding: 6px 12px; }
+.btn[hidden] { display: none; }
+main { padding-block: 18px 40px; }
+
+/* Laman bab */
+.hero { display: grid; gap: 8px; margin-bottom: 16px; }
+.hero h1 { font-size: clamp(28px, 7vw, 40px); font-weight: 800; }
+.hero p { color: var(--muted); max-width: 52ch; }
+.stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; flex: 1 1 110px; min-width: 0; }
+.stat b { display: block; font-family: var(--head); font-size: 24px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 12.5px; }
+.grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+.bab { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 14px; text-align: left; width: 100%; background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 14px; align-items: center; }
+.bab:hover { border-color: var(--ch); }
+.bab .no { height: 62px; border-radius: 14px; background: var(--chsoft); color: var(--ch); font-family: var(--head); font-weight: 800; font-size: 34px; display: grid; place-items: center; }
+.bab h3 { font-size: 18px; font-weight: 700; }
+.bab .meta { color: var(--muted); font-size: 12.5px; margin-top: 3px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.stars { display: inline-flex; gap: 2px; vertical-align: middle; }
+.stars svg { width: 15px; height: 15px; }
+.star-on { fill: var(--sun); stroke: var(--sun); }
+.star-off { fill: none; stroke: var(--line); }
+.weak { margin-top: 12px; display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--card2); border-radius: 16px; padding: 14px; }
+.weak p { flex: 1 1 200px; min-width: 0; }
+
+/* Dalam bab */
+.chead { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+.chead .no { width: 54px; height: 54px; flex: none; border-radius: 14px; background: var(--chsoft); color: var(--ch); font-family: var(--head); font-weight: 800; font-size: 30px; display: grid; place-items: center; }
+.chead h2 { font-size: clamp(22px, 5.5vw, 30px); font-weight: 800; }
+.chead small { color: var(--muted); font-size: 12.5px; }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--card2); padding: 5px; border-radius: 14px; margin-bottom: 16px; }
+.tab { border: 0; background: transparent; border-radius: 10px; padding: 10px; font-weight: 600; }
+.tab[aria-selected="true"] { background: var(--card); box-shadow: 0 1px 0 var(--line), 0 0 0 2px var(--ch) inset; color: var(--fg); }
+.note { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; }
+.note h3 { font-size: 19px; font-weight: 700; color: var(--ch); margin-bottom: 6px; }
+.note ul { margin: 0; padding-left: 20px; display: grid; gap: 5px; }
+.note li::marker { color: var(--ch); }
+.kw { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.kw span { background: var(--chsoft); color: var(--fg); border-radius: 999px; padding: 2px 10px; font-size: 12.5px; font-weight: 500; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; display: grid; gap: 14px; }
+.lvrow { display: flex; gap: 8px; flex-wrap: wrap; }
+.lv { border-radius: 999px; padding: 2px 10px; font-size: 12.5px; font-weight: 600; background: var(--card2); color: var(--fg); }
+.lv.l1 { background: var(--good-bg); color: var(--good); }
+.lv.l2 { background: var(--chsoft); color: var(--fg); }
+.lv.l3 { background: var(--bad-bg); color: var(--bad); }
+.switch { display: flex; align-items: center; gap: 10px; }
+.switch input { width: 22px; height: 22px; accent-color: var(--brand); flex: none; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Kuiz */
+.qtop { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.pill { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.bar { height: 10px; background: var(--card2); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+.bar i { display: block; height: 100%; background: var(--ch); border-radius: 999px; transition: width .3s; }
+.bar.time i { background: var(--sun); transition: width .1s linear; }
+.qcard { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 14px; display: grid; gap: 14px; }
+.qtext { font-size: 17px; font-weight: 500; line-height: 1.5; }
+.opts { display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; align-items: center; text-align: left; background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 12px; min-height: 52px; }
+.opt:hover:not(:disabled) { border-color: var(--ch); }
+.opt .ltr { width: 32px; height: 32px; border-radius: 10px; background: var(--chsoft); color: var(--fg); font-family: var(--head); font-weight: 700; font-size: 17px; display: grid; place-items: center; }
+.opt:disabled { cursor: default; }
+.opt.ok { border-color: var(--good); background: var(--good-bg); }
+.opt.ok .ltr { background: var(--good); color: var(--good-bg); }
+.opt.no { border-color: var(--bad); background: var(--bad-bg); }
+.opt.no .ltr { background: var(--bad); color: var(--bad-bg); }
+.opt.dim { opacity: .6; }
+.fb { border-radius: 14px; padding: 12px 14px; display: grid; gap: 4px; }
+.fb.good { background: var(--good-bg); }
+.fb.bad { background: var(--bad-bg); }
+.fb b { font-family: var(--head); font-size: 18px; }
+.fb.good b { color: var(--good); }
+.fb.bad b { color: var(--bad); }
+
+/* Rajah */
+.dg { margin: 0; background: var(--card2); border-radius: 14px; padding: 8px 6px 6px; }
+.dg svg { display: block; width: 100%; height: auto; max-width: 520px; margin-inline: auto; }
+.dg figcaption { font-size: 13px; color: var(--muted); padding: 6px 8px 4px; font-style: italic; }
+.dg text { font-family: var(--body); fill: var(--fg); }
+.dg .t1 { font-size: 13px; font-weight: 600; }
+.dg .t2 { font-size: 11.5px; fill: var(--muted); }
+.dg .t3 { font-size: 11.5px; }
+.dg .tb { font-weight: 700; }
+.dg .tq { font-family: var(--head); font-weight: 800; font-size: 18px; fill: var(--ch); }
+.dg .box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+.dg .hl { fill: var(--chsoft); stroke: var(--ch); stroke-width: 2; }
+.dg .qq { fill: none; stroke: var(--ch); stroke-width: 2; stroke-dasharray: 5 4; }
+.dg .th { fill: var(--chsoft); stroke: var(--line); stroke-width: 1.5; }
+.dg .ln { stroke: var(--line); stroke-width: 2; fill: none; }
+.dg .ar { stroke: var(--ch); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.dg .dot { fill: var(--card); stroke: var(--ch); stroke-width: 2.5; }
+.dg .doth { fill: var(--ch); stroke: var(--ch); stroke-width: 2.5; }
+.dg .num { fill: var(--ch); }
+.dg .numt { font-size: 11px; font-weight: 700; fill: var(--bg); }
+.dg .barf { fill: var(--ch); }
+.dg .ic path { fill: none; stroke: var(--fg); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.dg .vc1 { fill: var(--ch); fill-opacity: .22; stroke: var(--ch); stroke-width: 2; }
+.dg .vc2 { fill: var(--sun); fill-opacity: .28; stroke: var(--sun); stroke-width: 2; }
+
+/* Keputusan dan semakan */
+.score { text-align: center; display: grid; gap: 8px; justify-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 22px 16px; }
+.score .big { font-family: var(--head); font-weight: 800; font-size: 56px; line-height: 1; color: var(--ch); font-variant-numeric: tabular-nums; }
+.score .stars svg { width: 34px; height: 34px; }
+.break { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; margin-top: 6px; }
+.break div { background: var(--card2); border-radius: 12px; padding: 8px 4px; }
+.break b { display: block; font-family: var(--head); font-size: 20px; font-variant-numeric: tabular-nums; }
+.break span { font-size: 12px; color: var(--muted); }
+.sec { margin: 22px 0 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.sec h3 { font-size: 22px; font-weight: 700; }
+.chips { display: flex; gap: 6px; }
+.chip { border: 2px solid var(--line); background: var(--card); border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 500; }
+.chip[aria-pressed="true"] { background: var(--ch); border-color: var(--ch); color: var(--bg); }
+.rv { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px; margin-bottom: 12px; display: grid; gap: 10px; }
+.rv .tag { font-size: 12.5px; font-weight: 600; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.ans { display: grid; gap: 6px; }
+.ans div { border-radius: 10px; padding: 8px 12px; font-size: 14.5px; }
+.ans .y { background: var(--bad-bg); }
+.ans .c { background: var(--good-bg); }
+.ans b { font-size: 12px; display: block; opacity: .85; }
+.exp { font-size: 14.5px; color: var(--fg); border-left: 4px solid var(--ch); padding-left: 12px; }
+.empty { text-align: center; color: var(--muted); padding: 20px; background: var(--card); border: 1px dashed var(--line); border-radius: 16px; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+
+.dg .halo { paint-order: stroke; stroke: var(--card2); stroke-width: 4px; stroke-linejoin: round; }
+.dg .ct { fill: none; stroke: var(--ch); stroke-width: 1.8; }
+.dg .lyr { stroke: var(--card2); stroke-width: 1.5; }
+.dg .lyh { stroke: var(--ch); stroke-width: 3; }
+.secname { font-size: 19px; font-weight: 700; margin: 22px 0 10px; color: var(--muted); }
+.secname:first-of-type { margin-top: 4px; }
+
+.dg .shp { fill: var(--chsoft); stroke: var(--ch); stroke-width: 2.2; stroke-linejoin: round; }
+.dg .shp2 { fill: var(--ch); fill-opacity: .4; stroke: var(--ch); stroke-width: 2.2; stroke-linejoin: round; }
+.dg .shp3 { fill: var(--ch); fill-opacity: .7; stroke: var(--ch); stroke-width: 2.2; stroke-linejoin: round; }
+.dg .shpl { fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; opacity: .8; }
+
+</style>
+<header class="top"><div class="wrap top-in"><button class="btn sm" id="btnMenu" data-act="menu" hidden>Semua Unit</button><div class="brand">PJK</div><a class="btn sm pri" id="homeLink" href="https://leykaeducation.github.io/portal-pembeli/" target="_blank" rel="noopener">Laman Utama</a></div></header>
+<main id="app" class="wrap"></main>
+<script>
+/* core.js - pembantu data kuiz. Dimuatkan sebelum fail bab. */
+var BAB = [];
+
+function C(cx, cy, r) {
+  return 'M' + (cx - r) + ' ' + cy + 'a' + r + ' ' + r + ' 0 1 0 ' + (2 * r) + ' 0a' + r + ' ' + r + ' 0 1 0 ' + (-2 * r) + ' 0';
+}
+
+/* Ikon 48x48 (satu laluan SVG setiap ikon) */
+var ICONS = {
+  sun: C(24, 24, 8) + 'M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M10 38l4-4M34 14l4-4',
+  moon: 'M32 8a16 16 0 1 0 8 26A14 14 0 0 1 32 8z',
+  fire: 'M24 5c2 9 13 12 13 25a13 13 0 0 1-26 0c0-7 4-9 6-15 3 3 4 4 7-10z',
+  axe: 'M14 40L34 10M30 8c6-3 11-1 13 4-4 5-9 7-15 5z',
+  pot: 'M14 12h20M16 12c-7 9-4 26 8 26s15-17 8-26',
+  wheat: 'M24 44V12M24 16c-6 0-6-6-6-8 4 0 6 4 6 8zM24 16c6 0 6-6 6-8-4 0-6 4-6 8zM24 27c-6 0-6-6-6-8 4 0 6 4 6 8zM24 27c6 0 6-6 6-8-4 0-6 4-6 8zM24 38c-6 0-6-6-6-8 4 0 6 4 6 8zM24 38c6 0 6-6 6-8-4 0-6 4-6 8z',
+  hut: 'M6 26L24 8l18 18M12 22v20h24V22M21 42V30h6v12',
+  cave: 'M4 42V26C4 12 14 6 24 6s20 6 20 20v16M14 42c0-8 4-14 10-14s10 6 10 14',
+  boat: 'M6 28h36l-6 12H12zM24 6v22M24 9l12 15H24',
+  river: 'M4 14c6-6 8 6 14 0s8 6 14 0 8 6 12 0M4 26c6-6 8 6 14 0s8 6 14 0 8 6 12 0M4 38c6-6 8 6 14 0s8 6 14 0 8 6 12 0',
+  pyramid: 'M4 40L24 8l20 32zM13 26h22M9 33h30',
+  ziggurat: 'M4 40h40v-8H4zM10 32v-8h28v8M16 24v-8h16v8M21 16v-7h6v7',
+  wall: 'M4 40V22h40v18zM4 31h40M14 22v9M26 22v9M36 22v9M20 31v9M32 31v9M4 22v-6h7v6M17 22v-6h7v6M30 22v-6h7v6M41 22v-6h3',
+  column: 'M8 8h32M11 12h26M16 12v26M32 12v26M24 12v26M8 42h32M11 38h26',
+  arch: 'M4 42V18h40v24M10 42V30a14 14 0 0 1 28 0v12M4 18h40',
+  dome: 'M8 40V28a16 16 0 0 1 32 0v12M4 40h40M24 12V4M20 40v-8h8v8',
+  cube: 'M24 5L41 14v20L24 43 7 34V14zM7 14l17 9 17-9M24 23v20',
+  scroll: 'M12 6h24v36H12zM17 14h14M17 21h14M17 28h14M17 35h8',
+  wheel: C(24, 24, 15) + C(24, 24, 3) + 'M24 9v30M9 24h30M13 13l22 22M35 13L13 35',
+  coin: C(24, 24, 17) + 'M24 14v20M18 19c0-5 12-5 12 0s-12 5-12 10 12 5 12 0',
+  tent: 'M4 42L24 6l20 36zM17 42l7-14 7 14',
+  mountain: 'M2 40L16 14l9 14 6-8 15 20zM12 21l4 4 4-4',
+  snow: 'M24 4v40M7 14l34 20M7 34l34-20M19 8l5 5 5-5M19 40l5-5 5 5',
+  person: C(24, 12, 6) + 'M11 43c0-13 4-20 13-20s13 7 13 20',
+  bow: 'M12 5c22 8 22 30 0 38M12 5v38M6 24h32M33 19l6 5-6 5',
+  book: 'M5 10c7-2 13-2 19 3 6-5 12-5 19-3v28c-7-2-13-2-19 3-6-5-12-5-19-3zM24 13v28',
+  hourglass: 'M12 5h24M12 43h24M14 5c0 15 20 15 20 38M34 5c0 15-20 15-20 38',
+  map: 'M5 12l12-5 14 5 12-5v29l-12 5-14-5-12 5zM17 7v29M31 12v29',
+  magnifier: C(20, 20, 12) + 'M29 29l14 14',
+  skull: 'M9 22a15 15 0 0 1 30 0c0 7-5 8-5 13H14c0-5-5-6-5-13zM16 35v7h16v-7' + C(18, 23, 3) + C(30, 23, 3),
+  animal: 'M6 20h28l5-8h4v7l-4 5v16M11 20v18M19 20v18M31 20v18M6 20v-4',
+  tree: 'M24 44V28M24 28c-12 0-14-14-6-18 2-6 12-6 14 0 8 4 6 18-8 18z',
+  tablet: 'M12 6h24a5 5 0 0 1 5 5v26a5 5 0 0 1-5 5H12a5 5 0 0 1-5-5V11a5 5 0 0 1 5-5zM14 15l4 4M21 15l4 4M28 15l4 4M14 26l4 4M21 26l4 4M28 26l4 4',
+  city: 'M5 43V20h10v23M15 43V9h13v34M28 43V24h15v19M19 15h5M19 23h5M19 31h5M33 30h5M33 37h5',
+  temple: 'M4 18L24 6l20 12zM9 22v17M19 22v17M29 22v17M39 22v17M4 43h40',
+  pen: 'M8 41l4-12L35 6l7 7L19 36zM29 12l7 7',
+  crown: 'M6 36L4 14l12 10 8-14 8 14 12-10-2 22zM6 41h36',
+  sword: 'M40 6L16 30M32 6h8v8M9 36l7 7M12 29l7 7M5 43l5-5',
+  helmet: 'M8 31a16 16 0 0 1 32 0v8H8zM8 31h32M24 15V7M20 39v-6M28 39v-6',
+  star: 'M24 5l6 13 14 1-10 10 3 14-13-8-13 8 3-14L4 19l14-1z',
+  compass: C(24, 24, 17) + 'M24 7v4M24 37v4M7 24h4M37 24h4M31 17l-5 9-9 5 5-9z',
+  vase: 'M17 5h14M20 5c0 7-12 9-12 21 0 9 7 17 16 17s16-8 16-20c0-9-12-11-12-18',
+  balance: 'M24 7v34M10 41h28M8 14h32M8 14L3 28a7 7 0 0 0 10 0zM40 14l-5 14a7 7 0 0 0 10 0z',
+  brick: 'M5 12h38v9H5zM5 21h19v9H5zM24 21h19v9H24zM5 30h38v9H5z',
+  plough: 'M6 36l32-9M31 29l-7-16M15 33l-4 9M37 27l7 15',
+  minaret: 'M19 44V18l5-12 5 12v26zM14 44h20M21 26h6M21 34h6',
+  spear: 'M7 41L34 14M29 6l13 1 1 13-9-6z',
+  tree2: 'M24 6l12 16H12zM24 18l14 18H10zM24 36v8',
+  globe: C(24, 24, 18) + 'M6 24h36M24 6c-8 8-8 28 0 36M24 6c8 8 8 28 0 36',
+  volcano: 'M4 42L18 16h12l14 26zM18 16l-3-8M24 13V5M30 16l3-8',
+  drop: 'M24 5C16 18 10 24 10 31a14 14 0 0 0 28 0C38 24 32 18 24 5z',
+  factory: 'M4 42V24l11 7V24l11 7V24l11 7V10h7v32zM4 42h40',
+  bin: 'M10 12h28M18 12V7h12v5M13 12l2 30h18l2-30M20 20v16M28 20v16',
+  tap: 'M6 16h22a8 8 0 0 1 8 8v4M6 16v-6h10M34 34c0 4-3 7-3 7s-3-3-3-7 3-7 3-7 3 3 3 7z',
+  road: 'M16 4L8 44M32 4l8 40M24 8v6M24 20v8M24 34v8',
+  railway: 'M16 4L8 44M32 4l8 40M12 14h24M10 24h28M8 34h32',
+  cloud: 'M14 36a9 9 0 0 1 0-18 12 12 0 0 1 23 3 7 7 0 0 1-2 15z',
+  rain: 'M14 28a9 9 0 0 1 0-16 12 12 0 0 1 23 3 7 7 0 0 1-2 13zM16 34l-3 8M26 34l-3 8M36 34l-3 8',
+  school: 'M4 20L24 8l20 12v22H4zM18 42V30h12v12M24 8V3h6',
+  plane: 'M24 4v40M6 24l18-4 18 4v4l-18-4-18 4zM16 42l8-5 8 5',
+  palm: 'M24 44V22M24 22c-6-8-14-6-18-2 8-2 12 0 18 2zM24 22c6-8 14-6 18-2-8-2-12 0-18 2zM24 22c-2-8-8-12-12-12 6 2 10 6 12 12zM24 22c2-8 8-12 12-12-6 2-10 6-12 12z',
+  fish: 'M6 24c8-12 22-12 30 0-8 12-22 12-30 0zM36 24l8-8v16z',
+  pin: 'M24 44C14 30 12 24 12 18a12 12 0 0 1 24 0c0 6-2 12-12 26z' + C(24, 18, 4),
+  clipboard: 'M12 8h24v34H12zM18 4h12v8H18zM18 22h12M18 29h12M18 36h8',
+  chart: 'M8 6v36h36M14 34V24M22 34V16M30 34V26M38 34V12',
+  thermometer: 'M20 28V10a4 4 0 0 1 8 0v18a8 8 0 1 1-8 0z',
+  leaf: 'M8 40C8 20 20 8 42 6c0 22-12 34-34 34zM8 40l18-18',
+  ruler: 'M4 16h40v16H4zM12 16v8M20 16v6M28 16v8M36 16v6',
+  recycle: 'M18 10l6-6 6 6M24 4v16M10 34l-4-8 8-2M6 26l10-6M38 34l4-8-8-2M42 26L32 20',
+  camera: 'M6 14h10l3-5h10l3 5h10v26H6z' + C(24, 27, 7),
+  wind: 'M4 18h24a6 6 0 1 0-6-6M4 26h34a6 6 0 1 1-6 6M4 34h18',
+  dam: 'M4 12h40v8L38 42H10L4 20zM14 22v16M24 22v16M34 22v16',
+  tank: 'M12 14h24v28H12zM12 14c0-6 24-6 24 0M18 26h12',
+  flag: 'M10 44V6M10 8h28l-6 8 6 8H10',
+  arrowup: 'M24 42V8M12 20L24 8l12 12',
+  arrowdown: 'M24 6v34M12 28l12 12 12-12',
+  arrowleft: 'M42 24H8M20 12L8 24l12 12',
+  arrowright: 'M6 24h34M28 12l12 12-12 12',
+  brush: 'M38 6c-4 2-14 14-18 20l6 6c6-4 18-14 20-18zM20 26c-6 0-8 4-8 8s-2 6-6 8c8 2 18 0 20-8',
+  palette: 'M24 5C12 5 5 14 5 24s8 19 18 19c4 0 5-3 3-6s-1-6 3-6h7c6 0 10-4 10-9C46 12 36 5 24 5z' + C(15, 22, 2) + C(22, 14, 2) + C(32, 14, 2) + C(37, 22, 2),
+  pencil: 'M8 40l4-12L34 6l8 8L20 36zM12 28l8 8M30 10l8 8',
+  frame: 'M6 8h36v32H6zM12 14h24v20H12zM12 30l7-8 6 6 5-4 6 6',
+  mask: 'M8 10c10 4 22 4 32 0 2 14-2 28-16 32C10 38 6 24 8 10zM15 20c2-2 5-2 7 0M26 20c2-2 5-2 7 0M17 30c4 4 10 4 14 0',
+  scissors: 'M16 33L36 6M30 33L10 6' + C(14, 38, 5) + C(32, 38, 5),
+  hammer: 'M8 14h24v10H8zM32 19h6M20 24v18M16 42h8',
+  shirt: 'M16 6L4 14l6 8 6-3v23h16V19l6 3 6-8-12-8c-2 4-6 4-8 4s-6 0-8-4z',
+  poster: 'M10 4h28v40H10zM16 12h16M16 20h16v12H16zM16 38h10',
+  weave: 'M6 6h36v36H6zM6 18h36M6 30h36M18 6v36M30 6v36',
+  eye: 'M3 24c6-12 14-16 21-16s15 4 21 16c-6 12-14 16-21 16S9 36 3 24z' + C(24, 24, 6),
+  heart: 'M24 42C6 28 4 16 12 10c6-4 12 0 12 6 0-6 6-10 12-6 8 6 6 18-12 32z',
+  bulb: 'M24 4a14 14 0 0 0-8 26v6h16v-6A14 14 0 0 0 24 4zM18 40h12M20 44h8',
+  ball: C(24, 24, 18) + 'M24 6c-8 8-8 28 0 36M24 6c8 8 8 28 0 36M6 24h36',
+  apple: 'M24 14c-6-4-16 0-16 12 0 10 7 18 12 18 3 0 3-1 4-1s1 1 4 1c5 0 12-8 12-18 0-12-10-16-16-12zM24 14c0-4 2-7 6-8',
+  whistle: C(16, 30, 10) + 'M24 22h18v8H26M16 20V12h-6',
+  shoe: 'M6 34V14h8c0 8 6 10 12 12l12 4c4 1 6 3 6 6v2H6zM6 38h36',
+  stopwatch: C(24, 28, 15) + 'M24 28V18M18 6h12M24 6v7M38 12l-3 3',
+  medal: C(24, 30, 11) + 'M14 4l6 14M34 4l-6 14M24 25v10',
+  dumbbell: 'M4 20v8M10 14v20M38 14v20M44 20v8M10 24h28',
+  bandage: 'M8 30L30 8l10 10L18 40zM22 16l10 10M16 22l4 4M26 12l4 4',
+  water: 'M24 5C16 16 10 22 10 31a14 14 0 0 0 28 0c0-9-6-15-14-26z',
+  shield: 'M24 5l16 6v12c0 10-7 17-16 20C15 40 8 33 8 23V11z',
+  net: 'M6 12h36v24H6zM6 20h36M6 28h36M16 12v24M26 12v24M36 12v24',
+  person: C(24, 12, 6) + 'M24 18v14M12 24h24M24 32l-8 12M24 32l8 12',
+  plus: 'M18 6h12v12h12v12H30v12H18V30H6V18h12z',
+  pill: 'M14 34L34 14a7 7 0 0 1 10 10L24 44a7 7 0 0 1-10-10zM24 24l10 10',
+  group: C(14, 16, 5) + C(34, 16, 5) + 'M6 38v-8a8 8 0 0 1 16 0v8M26 38v-8a8 8 0 0 1 16 0v8',
+  talk: 'M6 8h36v24H20l-10 8v-8H6z'
+};
+var ICON_NAMES = Object.keys(ICONS);
+
+/* Pembina rajah. Semua mengambil 'cap' pilihan di hujung (teks sumber/rangsangan). */
+function TL(items, hl, cap) { return { t: 'TL', items: items, hl: hl == null ? -1 : hl, cap: cap || '' }; }
+function FL(steps, hl, cap) { return { t: 'FL', steps: steps, hl: hl == null ? -1 : hl, cap: cap || '' }; }
+function CY(steps, cap) { return { t: 'CY', steps: steps, cap: cap || '' }; }
+function TB(h, r, cap) { return { t: 'TB', h: h, r: r, cap: cap || '' }; }
+function BR(title, labels, values, unit, cap) { return { t: 'BR', title: title, labels: labels, values: values, unit: unit || '', cap: cap || '' }; }
+function TR(root, kids, cap) { return { t: 'TR', root: root, kids: kids, cap: cap || '' }; }
+function IC(items, cap) { return { t: 'IC', items: items, cap: cap || '' }; }
+function VN(a, b, aOnly, bOnly, both, cap) { return { t: 'VN', a: a, b: b, ao: aOnly, bo: bOnly, ab: both, cap: cap || '' }; }
+
+/* Q(aras, rajah, soalan, [betul, salah1, salah2, salah3], penjelasan)  aras: 1 Rendah, 2 Sederhana, 3 KBAT */
+function Q(l, d, q, o, e) { return { l: l, d: d, q: q, o: o, e: e }; }
+/* N(tajuk kecil, [mata nota], [kata kunci]) */
+function N(h, pts, kw) { return { h: h, pts: pts, kw: kw || [] }; }
+
+function CP(hl, ang, hide, cap) { return { t: 'CP', hl: hl || [], ang: ang == null ? null : ang, hide: hide || [], cap: cap || '' }; }
+function GR(xl, yl, marks, cap) { return { t: 'GR', xl: xl, yl: yl, m: marks || [], cap: cap || '' }; }
+function CT(kind, labels, cap) { return { t: 'CT', kind: kind, labels: labels, cap: cap || '' }; }
+function LY(layers, hl, cap) { return { t: 'LY', l: layers, hl: hl == null ? -1 : hl, cap: cap || '' }; }
+
+function CW(hl, hide, cap) { return { t: 'CW', hl: hl || [], hide: hide || [], cap: cap || '' }; }
+function LN(items, cap) { return { t: 'LN', items: items, cap: cap || '' }; }
+function SH(items, cap) { return { t: 'SH', items: items, cap: cap || '' }; }
+function TX(items, cap) { return { t: 'TX', items: items, cap: cap || '' }; }
+function BL(kind, cap) { return { t: 'BL', kind: kind, cap: cap || '' }; }
+function IR(kind, cap) { return { t: 'IR', kind: kind, cap: cap || '' }; }
+function SW(items, cap) { return { t: 'SW', items: items, cap: cap || '' }; }
+
+function CR(kind, marks, cap) { return { t: 'CR', kind: kind, marks: marks || [], cap: cap || '' }; }
+function PY(levels, hl, cap) { return { t: 'PY', levels: levels, hl: hl == null ? -1 : hl, cap: cap || '' }; }
+function PI(items, cap) { return { t: 'PI', items: items, cap: cap || '' }; }
+BAB.push({
+  id: 1,
+  tajuk: 'Gimnastik Asas',
+  nota: [
+    N('1.1 Pergerakan asas', ['Pergerakan lokomotor memindahkan badan dari satu tempat ke tempat lain: berjalan, berlari, melompat, melangkau, menggelongsor.', 'Pergerakan bukan lokomotor dilakukan di tempat yang sama tanpa berpindah: membongkok, meregang, memusing, menolak, menarik, mengayun.', 'Pergerakan manipulatif melibatkan pengendalian objek seperti membaling, menendang dan menyambut.', 'Pergerakan boleh digabungkan menjadi satu urutan yang lancar dengan permulaan, pertengahan dan pengakhiran.'], ['lokomotor', 'bukan lokomotor', 'manipulatif', 'urutan']),
+    N('1.2 Imbangan', ['Imbangan statik ialah mengekalkan kedudukan badan yang tetap, contohnya berdiri satu kaki.', 'Imbangan dinamik ialah mengekalkan imbangan semasa badan bergerak, contohnya berjalan di atas bangku.', 'Tapak sokongan yang luas dan pusat graviti yang rendah menjadikan badan lebih stabil.', 'Pandangan mata yang tertumpu pada satu titik dan otot teras yang kuat membantu imbangan.'], ['imbangan statik', 'imbangan dinamik', 'pusat graviti', 'tapak sokongan']),
+    N('1.3 Guling dan lompatan', ['Guling depan: letakkan tangan di atas tilam, rapatkan dagu ke dada, bulatkan badan dan bergolek melalui belakang, bukan kepala.', 'Guling belakang bermula dengan duduk mencangkung dan menolak tilam dengan kedua-dua tangan.', 'Guling sisi (guling kayu balak) dilakukan dengan badan lurus dan tangan di atas kepala.', 'Bentuk badan semasa bergolek atau melompat: bulat (tuck), lurus (straight) dan lipat (pike).', 'Mendarat dengan lutut dilenturkan untuk menyerap hentakan.'], ['guling depan', 'guling belakang', 'tuck', 'pike']),
+    N('1.4 Keselamatan', ['Lakukan pemanasan sebelum aktiviti untuk meningkatkan suhu badan dan mengurangkan risiko kecederaan.', 'Lakukan penyejukan selepas aktiviti untuk memulihkan kadar denyutan jantung.', 'Gunakan tilam yang sesuai dan pastikan ruang bebas daripada halangan.', 'Tanggalkan barang kemas dan pakai pakaian yang selesa.', 'Ikut arahan guru dan jangan melakukan gerakan melebihi keupayaan diri.'], ['pemanasan', 'penyejukan', 'tilam', 'keselamatan'])
+  ],
+  soalan: [
+    Q(1, IC([['person', 'Berjalan'], ['person', 'Berlari'], ['shoe', 'Melompat'], ['person', 'Melangkau']], 'Semua pergerakan memindahkan badan dari satu tempat ke tempat lain.'), 'Semua pergerakan dalam rajah memindahkan badan dari satu tempat ke tempat lain. Pergerakan ini dikenali sebagai?', ['Pergerakan lokomotor', 'Pergerakan bukan lokomotor', 'Pergerakan manipulatif', 'Pergerakan imbangan statik'], 'Pergerakan yang membuat badan berpindah tempat dinamakan pergerakan lokomotor.'),
+    Q(1, IC([['person', 'Membongkok'], ['person', 'Meregang'], ['person', 'Memusing'], ['person', 'Mengayun']], 'Badan kekal di tempat yang sama.'), 'Murid melakukan gerakan seperti dalam rajah tanpa berpindah dari tempatnya. Gerakan ini tergolong dalam pergerakan?', ['Bukan lokomotor', 'Lokomotor', 'Manipulatif', 'Berpasangan'], 'Pergerakan di tempat yang sama tanpa berpindah ialah pergerakan bukan lokomotor.'),
+    Q(1, TR('Pergerakan asas', ['Lokomotor', 'Bukan lokomotor', 'Manipulatif']), 'Pergerakan menendang dan membaling bola termasuk dalam kategori yang manakah dalam pokok di atas?', ['Manipulatif', 'Lokomotor', 'Bukan lokomotor', 'Imbangan dinamik'], 'Pergerakan yang melibatkan pengendalian objek seperti bola ialah pergerakan manipulatif.'),
+    Q(1, FL(['Letak tangan di atas tilam', 'Rapatkan dagu ke dada', 'Tolak kaki dan bulatkan badan', '?', 'Berdiri semula'], 3, 'Langkah guling depan.'), 'Perhatikan langkah guling depan dalam rajah. Apakah langkah yang tersembunyi?', ['Bergolek melalui belakang badan', 'Bergolek melalui kepala', 'Menegakkan lutut sepenuhnya', 'Menutup mata rapat-rapat'], 'Badan bergolek melalui belakang yang bulat supaya kepala dan leher tidak menanggung berat badan.'),
+    Q(1, VN('Imbangan statik', 'Imbangan dinamik', ['Satu kaki', 'Kapal terbang'], ['Atas bangku', 'Melompat'], ['Pusat berat'], 'Dua jenis imbangan.'), 'Pada kawasan bertindih rajah, pernyataan yang sesuai ditulis ialah?', ['Pusat berat dikawal', 'Badan sentiasa bergerak', 'Badan tidak boleh bergerak', 'Mata mesti ditutup'], 'Kedua-dua jenis imbangan memerlukan kawalan pusat graviti badan.'),
+    Q(1, CY(['Pemanasan', 'Aktiviti utama', 'Penyejukan', 'Rehat']), 'Dalam kitaran sesi senaman, aktiviti yang dilakukan selepas aktiviti utama ialah?', ['Penyejukan', 'Pemanasan', 'Ujian ketahanan', 'Pertandingan'], 'Penyejukan dilakukan selepas aktiviti utama untuk memulihkan denyutan jantung.'),
+    Q(1, TB(['Jenis', 'Ciri'], [['Imbangan statik', 'Badan kekal pada kedudukan tetap'], ['Imbangan dinamik', '?']], 'Jadual imbangan.'), 'Lengkapkan petak yang bertanda ? dalam jadual itu.', ['Badan seimbang semasa bergerak', 'Badan seimbang tanpa otot', 'Badan tidak memerlukan kawalan', 'Badan berpindah dengan melompat sahaja'], 'Imbangan dinamik ialah mengekalkan imbangan ketika badan sedang bergerak.'),
+    Q(1, IC([['shield', 'Tilam'], ['shoe', 'Kasut'], ['stopwatch', 'Pemanasan'], ['whistle', 'Arahan guru']], 'Persediaan sebelum gimnastik.'), 'Antara perkara dalam rajah, yang manakah dapat meningkatkan suhu badan sebelum bersenam?', ['Pemanasan', 'Tilam', 'Kasut', 'Arahan guru'], 'Pemanasan meningkatkan suhu otot dan mengurangkan risiko kecederaan.'),
+    Q(1, TR('Bentuk badan', ['Bulat (tuck)', 'Lurus (straight)', 'Lipat (pike)']), 'Dalam guling depan, murid membengkokkan lutut dan memeluknya rapat ke dada. Bentuk badan ini ialah?', ['Bulat (tuck)', 'Lurus (straight)', 'Lipat (pike)', 'Melintang'], 'Bentuk bulat atau tuck dicapai dengan membengkokkan lutut dan merapatkan ke dada.'),
+    Q(1, FL(['Duduk mencangkung', 'Letak tangan di tepi telinga', 'Tolak dengan kedua-dua tangan', 'Bergolek ke belakang', 'Mendarat dengan kaki']), 'Gimnastik asas yang ditunjukkan langkahnya dalam rajah ialah?', ['Guling belakang', 'Guling depan', 'Guling sisi', 'Lompat sudut'], 'Bermula dari duduk mencangkung dan bergolek ke belakang ialah guling belakang.'),
+    Q(1, IC([['person', 'Badan lurus'], ['person', 'Tangan di atas kepala']], 'Bergolek ke sisi dengan badan seperti kayu balak.'), 'Gerakan bergolek dengan badan lurus dan tangan di atas kepala dikenali sebagai?', ['Guling sisi', 'Guling depan', 'Guling belakang', 'Imbangan lilin'], 'Guling sisi atau guling kayu balak dilakukan dengan badan lurus ke arah sisi.'),
+    Q(1, FL(['Lutut dilenturkan', 'Kedua-dua kaki mendarat serentak', 'Badan sedikit membongkok', 'Tangan didepakan']), 'Cara mendarat yang betul seperti dalam rajah bertujuan untuk?', ['Menyerap hentakan', 'Menambah ketinggian lompatan', 'Mengurangkan masa mendarat', 'Menghindari pemanasan'], 'Lutut yang dilenturkan menyerap hentakan dan melindungi sendi.'),
+    Q(2, TB(['Pergerakan', 'Kategori'], [['Melangkau', 'Lokomotor'], ['Meregang', 'Bukan lokomotor'], ['Menyambut bola', '?']], 'Kategori pergerakan.'), 'Kategori yang sesuai untuk petak ? dalam jadual ialah?', ['Manipulatif', 'Lokomotor', 'Bukan lokomotor', 'Imbangan'], 'Menyambut bola mengendalikan objek, maka ia pergerakan manipulatif.'),
+    Q(2, IC([['person', 'Kaki luas'], ['person', 'Kaki rapat']], 'Dua kedudukan berdiri.'), 'Murid A berdiri dengan kaki luas manakala Murid B berdiri dengan kaki rapat. Mengapakah Murid A lebih stabil?', ['Tapak sokongan lebih luas', 'Pusat graviti lebih tinggi', 'Berat badan lebih ringan', 'Otot tidak digunakan'], 'Tapak sokongan yang luas menjadikan badan lebih stabil.'),
+    Q(2, BR('Kestabilan (skor ilustrasi)', ['Berdiri 1 kaki', 'Berdiri 2 kaki', 'Duduk bersila'], [3, 6, 9], 'skor', 'Data ilustrasi: skor tinggi lebih stabil.'), 'Berdasarkan carta, kedudukan yang paling stabil ialah duduk bersila. Faktor utama ialah?', ['Tapak sokongan luas dan pusat graviti rendah', 'Pusat graviti tinggi', 'Tapak sokongan sempit', 'Badan bergerak laju'], 'Duduk bersila memberi tapak luas dan pusat graviti rendah, jadi paling stabil.'),
+    Q(2, FL(['Pandang satu titik tetap', 'Angkat satu kaki', 'Kekalkan lima saat', '?'], 3, 'Latihan imbangan statik.'), 'Selepas mengekalkan imbangan selama lima saat, langkah paling sesuai yang tersembunyi ialah?', ['Turunkan kaki dengan terkawal', 'Terus berlari', 'Melompat tinggi', 'Memejam mata ketika bergerak'], 'Selepas imbangan, kaki diturunkan dengan terkawal untuk mengelakkan jatuh.'),
+    Q(2, TB(['Bentuk', 'Contoh gerakan'], [['Bulat (tuck)', 'Guling depan'], ['Lurus', 'Guling sisi'], ['Lipat (pike)', '?']], 'Padanan bentuk badan.'), 'Bentuk lipat (pike) paling sesuai dipadankan dengan gerakan apakah dalam jadual?', ['Lompat sentuh jari kaki', 'Guling sisi', 'Berdiri tegak', 'Duduk bersila'], 'Dalam pike, badan dilipat pada pinggul dengan kaki lurus, seperti lompat sentuh jari kaki.'),
+    Q(2, CY(['Pemanasan', 'Regangan', 'Gimnastik', 'Penyejukan']), 'Mengapakah regangan dimasukkan dalam sesi sebelum melakukan guling?', ['Untuk melenturkan otot dan sendi', 'Untuk menurunkan kadar denyutan jantung', 'Untuk menggantikan tilam', 'Untuk menambah berat badan'], 'Regangan melenturkan otot dan sendi supaya gerakan lebih selamat.'),
+    Q(2, VN('Guling depan', 'Guling belakang', ['Dari berdiri'], ['Mencangkung'], ['Dagu ke dada'], 'Guling asas.'), 'Perkara yang sama bagi kedua-dua guling dalam rajah ialah?', ['Dagu dirapatkan ke dada', 'Bermula dari berdiri', 'Bermula dari mencangkung', 'Bergolek ke sisi'], 'Kedua-dua guling memerlukan dagu rapat ke dada supaya kepala dilindungi.'),
+    Q(2, TL([['Pemanasan', 'Regangan dan lari perlahan'], ['Latihan imbangan', 'Imbangan statik'], ['Guling', 'Guling depan'], ['Penyejukan', 'Regangan statik']], -1, 'Susunan sesi.'), 'Dalam garis masa sesi gimnastik, aktiviti terakhir ialah?', ['Penyejukan', 'Guling', 'Latihan imbangan', 'Pemanasan'], 'Sesi ditamatkan dengan penyejukan untuk memulihkan badan.'),
+    Q(2, IC([['stopwatch', 'Kurang masa'], ['dumbbell', 'Otot kuat'], ['person', 'Bentuk betul'], ['shield', 'Selamat']], 'Faktor melakukan guling.'), 'Murid ingin melakukan guling depan dengan selamat. Faktor yang paling penting ialah?', ['Bentuk badan betul', 'Kelajuan semata-mata', 'Mengangkat beban berat', 'Menggunakan masa singkat'], 'Bentuk badan yang betul melindungi leher dan membolehkan gerakan terkawal.'),
+    Q(2, TR('Keselamatan gimnastik', ['Gunakan tilam', 'Buat pemanasan', 'Ikut arahan guru', 'Tiada halangan']), 'Antara berikut, tindakan yang TIDAK sepatutnya dimasukkan dalam pokok keselamatan ialah?', ['Melakukan gerakan tanpa pengawasan', 'Menggunakan tilam', 'Membuat pemanasan', 'Mengikut arahan guru'], 'Gerakan tanpa pengawasan berisiko kerana tiada bimbingan.'),
+    Q(2, FL(['Kenal pasti ruang', 'Gabung dua gerakan', '?', 'Persembahan urutan'], 2, 'Menyusun urutan gimnastik.'), 'Langkah yang sesuai untuk petak ? dalam menyusun urutan gimnastik ialah?', ['Latih sehingga lancar', 'Berhenti latihan', 'Tukar peraturan', 'Abaikan keselamatan'], 'Urutan dilatih berulang kali sehingga lancar sebelum dipersembahkan.'),
+    Q(3, VN('Murid A', 'Murid B', ['Kaki luas'], ['Kaki rapat'], ['Badan tegak'], 'Dua posisi.'), 'Murid B hampir jatuh ketika berdiri. Cadangan paling berkesan untuk memperbaiki imbangannya ialah?', ['Luaskan tapak sokongan dan rendahkan pusat graviti', 'Tinggikan pusat graviti', 'Rapatkan kaki', 'Tutup mata'], 'Tapak luas dan pusat graviti rendah meningkatkan kestabilan.'),
+    Q(3, TB(['Murid', 'Gerakan', 'Masalah'], [['Aini', 'Guling depan', 'Kepala mencecah'], ['Budi', 'Guling belakang', 'Tangan tidak menolak'], ['Chong', 'Guling sisi', 'Badan bengkok']], 'Catatan guru.'), 'Murid manakah memerlukan teguran tentang kedudukan kepala semasa guling depan?', ['Aini', 'Budi', 'Chong', 'Tiada seorang pun'], 'Kepala yang mencecah tilam menanggung berat badan sehingga berisiko mencederakan leher.'),
+    Q(3, BR('Denyutan jantung (ilustrasi)', ['Rehat', 'Selepas lari', 'Selepas penyejukan'], [70, 150, 90], 'dpm', 'Data ilustrasi seorang murid.'), 'Data menunjukkan denyutan jantung menurun selepas penyejukan. Kesimpulan paling tepat ialah?', ['Penyejukan membantu badan pulih', 'Penyejukan menambah risiko', 'Pemanasan tidak perlu', 'Denyutan tidak berubah'], 'Penyejukan menurunkan kadar denyutan jantung secara beransur-ansur.'),
+    Q(3, CY(['Kurang pemanasan', 'Otot tegang', 'Gerakan tidak terkawal', 'Kecederaan']), 'Rajah menunjukkan satu kitaran masalah. Tindakan terbaik untuk memutuskan kitaran ini ialah?', ['Buat pemanasan sebelum bersenam', 'Bersenam lebih laju', 'Kurangkan rehat', 'Abaikan regangan'], 'Pemanasan yang cukup mengelakkan otot tegang dan mengurangkan kecederaan.'),
+    Q(3, FL(['Duduk mencangkung', 'Tolak dengan kuat', 'Bentuk badan bulat', 'Mendarat'], -1, 'Murid mendarat dengan terlalu keras.'), 'Murid mendarat dengan kaki lurus dan merasa sakit pada lutut. Penambahbaikan yang sesuai ialah?', ['Lenturkan lutut ketika mendarat', 'Luruskan kaki lebih lagi', 'Mendarat dengan kepala', 'Lompat lebih tinggi'], 'Melenturkan lutut menyerap hentakan dan mengurangkan tekanan pada sendi.'),
+    Q(3, IC([['person', 'Berjalan di atas bangku'], ['ball', 'Memegang bola']], 'Dua keadaan imbangan.'), 'Seorang murid berjalan di atas bangku sambil memegang bola. Jenis imbangan yang digunakan ialah?', ['Imbangan dinamik', 'Imbangan statik', 'Imbangan simetri', 'Imbangan jejarian'], 'Badan berimbang semasa bergerak, maka ia imbangan dinamik.'),
+    Q(3, TR('Urutan gimnastik yang baik', ['Permulaan jelas', 'Pertengahan lancar', 'Pengakhiran stabil']), 'Murid menamatkan urutan dengan terhuyung-hayang. Bahagian manakah perlu diperbaiki?', ['Pengakhiran stabil', 'Permulaan jelas', 'Pemanasan', 'Pertengahan lancar'], 'Pengakhiran perlu stabil dengan kedudukan terkawal sebelum berhenti.')
+  ]
+});
+
+BAB.push({
+  id: 2,
+  tajuk: 'Pergerakan Berirama',
+  nota: [
+    N('2.1 Irama dan muzik', ['Rentak ialah ketukan tetap dalam muzik yang menjadi panduan pergerakan.', 'Tempo ialah kelajuan muzik: perlahan, sederhana atau laju.', 'Pola irama ialah susunan ketukan yang berulang, contohnya kuat-lemah-lemah.', 'Pergerakan berirama menyelaraskan gerakan badan dengan rentak dan tempo muzik.', 'Tepukan tangan, langkah kaki dan alat muzik boleh digunakan untuk mengira rentak.'], ['rentak', 'tempo', 'pola irama', 'muzik']),
+    N('2.2 Unsur pergerakan', ['Ruang: aras (tinggi, sederhana, rendah), arah (depan, belakang, tepi), laluan (lurus, melengkung, zigzag) dan saiz gerakan.', 'Masa: kelajuan gerakan (cepat, perlahan) dan rentak.', 'Daya: kekuatan gerakan (kuat, lembut, ringan, berat).', 'Hubungan: bersendirian, berpasangan atau berkumpulan.', 'Gabungan unsur ruang, masa dan daya menjadikan gerakan menarik dan bermakna.'], ['ruang', 'masa', 'daya', 'aras']),
+    N('2.3 Tarian tradisional', ['Joget dan Zapin ialah tarian tradisional masyarakat Melayu.', 'Ngajat ialah tarian masyarakat Iban di Sarawak.', 'Sumazau ialah tarian masyarakat Kadazandusun di Sabah.', 'Tarian Singa dikaitkan dengan masyarakat Cina dan Bharatanatyam dengan masyarakat India.', 'Tarian tradisional menggambarkan budaya, adat dan identiti masyarakat Malaysia.'], ['joget', 'zapin', 'ngajat', 'sumazau']),
+    N('2.4 Koreografi ringkas', ['Koreografi ialah susunan gerakan yang dirancang menjadi satu persembahan.', 'Langkah: pilih muzik, tentukan pola irama, cipta gerakan, gabungkan menjadi urutan, latih dan persembahkan.', 'Kumpulan perlu bekerjasama, bertolak ansur dan berkomunikasi.', 'Penilaian merangkumi ketepatan rentak, kreativiti, kekemasan dan kerjasama.'], ['koreografi', 'urutan', 'kreativiti', 'kerjasama'])
+  ],
+  soalan: [
+    Q(1, IC([['stopwatch', 'Tempo'], ['whistle', 'Rentak'], ['person', 'Gerakan']], 'Tiga unsur dalam pergerakan berirama.'), 'Ketukan tetap dalam muzik yang menjadi panduan pergerakan dinamakan?', ['Rentak', 'Aras', 'Daya', 'Laluan'], 'Rentak ialah ketukan tetap dalam muzik.'),
+    Q(1, BR('Kelajuan muzik (ilustrasi)', ['Perlahan', 'Sederhana', 'Laju'], [60, 100, 140], 'ketukan/min', 'Data ilustrasi.'), 'Kelajuan sesuatu muzik seperti dalam carta dinamakan?', ['Tempo', 'Ruang', 'Daya', 'Hubungan'], 'Tempo ialah kelajuan muzik.'),
+    Q(1, TR('Unsur pergerakan', ['Ruang', 'Masa', 'Daya']), 'Kelajuan gerakan yang cepat atau perlahan tergolong dalam unsur?', ['Masa', 'Ruang', 'Daya', 'Hubungan'], 'Kelajuan gerakan berkait dengan unsur masa.'),
+    Q(1, IC([['person', 'Aras tinggi'], ['person', 'Aras sederhana'], ['person', 'Aras rendah']], 'Tiga aras ruang.'), 'Menjengket dengan tangan diangkat tinggi tergolong dalam aras?', ['Tinggi', 'Sederhana', 'Rendah', 'Sisi'], 'Gerakan yang jauh dari lantai berada pada aras tinggi.'),
+    Q(1, TB(['Tarian', 'Masyarakat'], [['Ngajat', 'Iban'], ['Sumazau', 'Kadazandusun'], ['Zapin', '?']], 'Tarian tradisional.'), 'Zapin ialah tarian tradisional masyarakat?', ['Melayu', 'Iban', 'Kadazandusun', 'Orang Asli'], 'Zapin ialah tarian tradisional masyarakat Melayu.'),
+    Q(1, FL(['Pilih muzik', 'Tentukan pola irama', 'Cipta gerakan', '?', 'Latih dan persembahkan'], 3, 'Menghasilkan koreografi.'), 'Langkah yang tersembunyi dalam rajah ialah?', ['Gabungkan gerakan menjadi urutan', 'Menamatkan persembahan', 'Memilih pasukan lawan', 'Mengukur denyutan jantung'], 'Gerakan digabungkan menjadi urutan sebelum dilatih.'),
+    Q(1, IC([['person', 'Kuat'], ['person', 'Lembut']], 'Dua tahap daya.'), 'Gerakan yang kuat atau lembut berkait dengan unsur?', ['Daya', 'Masa', 'Ruang', 'Rentak'], 'Kekuatan gerakan ialah unsur daya.'),
+    Q(1, CY(['Dengar muzik', 'Kira rentak', 'Gerak badan', 'Ulang gerakan']), 'Dalam kitaran itu, murid mengira rentak untuk?', ['Menyelaraskan gerakan dengan muzik', 'Menukar tarian', 'Menghentikan muzik', 'Menamatkan latihan'], 'Mengira rentak membantu gerakan seiring dengan muzik.'),
+    Q(1, TB(['Tarian', 'Asal'], [['Joget', 'Melayu'], ['Ngajat', '?']], 'Asal tarian.'), 'Ngajat ialah tarian tradisional masyarakat di negeri?', ['Sarawak', 'Sabah', 'Kedah', 'Johor'], 'Ngajat ialah tarian masyarakat Iban di Sarawak.'),
+    Q(1, TR('Hubungan dalam tarian', ['Bersendirian', 'Berpasangan', 'Berkumpulan']), 'Tiga cara murid menari dalam rajah menunjukkan unsur?', ['Hubungan', 'Daya', 'Masa', 'Tempo'], 'Menari bersendirian, berpasangan atau berkumpulan ialah unsur hubungan.'),
+    Q(1, IC([['group', 'Tarian Sumazau'], ['ball', 'Bola']], 'Sumazau.'), 'Tarian Sumazau berasal daripada masyarakat?', ['Kadazandusun', 'Iban', 'Melayu', 'Cina'], 'Sumazau ialah tarian masyarakat Kadazandusun di Sabah.'),
+    Q(1, VN('Tempo', 'Rentak', ['Kelajuan muzik'], ['Ketukan tetap'], ['Muzik'], 'Dua konsep.'), 'Kedua-dua konsep dalam rajah berkait rapat dengan?', ['Muzik', 'Imbangan', 'Tilam', 'Kekuatan otot'], 'Tempo dan rentak ialah ciri muzik.'),
+    Q(2, TB(['Unsur', 'Contoh'], [['Ruang', 'Aras tinggi'], ['Masa', '?'], ['Daya', 'Gerakan kuat']], 'Contoh unsur.'), 'Contoh yang sesuai untuk petak ? bagi unsur masa ialah?', ['Gerakan perlahan', 'Gerakan melengkung', 'Gerakan berpasangan', 'Gerakan aras rendah'], 'Gerakan perlahan berkait dengan unsur masa.'),
+    Q(2, BR('Kekuatan gerakan (ilustrasi)', ['Lembut', 'Sederhana', 'Kuat'], [2, 5, 9], 'skor', 'Data ilustrasi.'), 'Murid menari mengikut gerakan yang paling kuat dalam carta. Unsur yang ditekankan ialah?', ['Daya', 'Ruang', 'Hubungan', 'Masa'], 'Kekuatan gerakan berkait dengan unsur daya.'),
+    Q(2, FL(['Angkat tangan tinggi', 'Turun ke aras sederhana', 'Bongkok ke lantai', '?'], 3, 'Perubahan aras.'), 'Langkah seterusnya yang menunjukkan perubahan aras dengan lancar ialah?', ['Berguling perlahan di aras rendah', 'Berjalan di tempat', 'Menepuk dua kali', 'Berdiri tegak sahaja'], 'Perubahan aras tinggi ke rendah menunjukkan kepelbagaian ruang.'),
+    Q(2, TR('Pola irama', ['Kuat-lemah', 'Kuat-lemah-lemah', 'Kuat-lemah-lemah-lemah']), 'Pola kuat-lemah-lemah dalam pokok sesuai dikira dengan berapa ketukan?', ['Tiga', 'Dua', 'Empat', 'Lima'], 'Pola kuat-lemah-lemah mempunyai tiga ketukan.'),
+    Q(2, IC([['group', 'Gambar A'], ['group', 'Gambar B']], 'Perbandingan penari.'), 'Penari bergerak serentak mengikut rentak yang sama. Unsur yang jelas ialah?', ['Keselarasan gerakan', 'Perbezaan tempo', 'Kehilangan arah', 'Pertukaran muzik'], 'Penari yang serentak menunjukkan keselarasan dengan rentak.'),
+    Q(2, VN('Zapin', 'Ngajat', ['Melayu'], ['Iban'], ['Tradisional'], 'Tarian Malaysia.'), 'Persamaan kedua-dua tarian ialah?', ['Tarian tradisional', 'Tarian moden', 'Tarian dari luar negara', 'Sukan permainan'], 'Kedua-duanya warisan budaya tradisional Malaysia.'),
+    Q(2, CY(['Pilih muzik', 'Cipta gerakan', 'Latih', 'Persembahkan']), 'Selepas mencipta gerakan, kumpulan perlu?', ['Melatih berulang kali', 'Membubarkan kumpulan', 'Menukar peraturan', 'Menamatkan muzik'], 'Gerakan dilatih sehingga lancar.'),
+    Q(2, TB(['Laluan', 'Bentuk'], [['Lurus', 'Garisan lurus'], ['Melengkung', 'Bulatan'], ['Zigzag', '?']], 'Laluan gerakan.'), 'Laluan zigzag bergerak dalam bentuk?', ['Bersudut tajam silih berganti', 'Bulatan penuh', 'Garis lurus mengufuk', 'Titik pegun'], 'Zigzag ialah laluan bersudut tajam silih berganti.'),
+    Q(2, BR('Penilaian persembahan (ilustrasi)', ['Rentak', 'Kreativiti', 'Kekemasan', 'Kerjasama'], [8, 6, 7, 9], 'markah', 'Data ilustrasi.'), 'Aspek paling lemah kumpulan dalam carta ialah?', ['Kreativiti', 'Rentak', 'Kekemasan', 'Kerjasama'], 'Kreativiti mendapat markah paling rendah.'),
+    Q(2, IC([['group', 'Kerja berpasukan'], ['talk', 'Berkomunikasi']], 'Kumpulan.'), 'Nilai murni yang diamalkan semasa mencipta koreografi berkumpulan ialah?', ['Kerjasama', 'Pentingkan diri', 'Persaingan tidak sihat', 'Mengelak tugas'], 'Koreografi berkumpulan memerlukan kerjasama.'),
+    Q(2, FL(['Dengar rentak', 'Kira ketukan', 'Selaraskan langkah']), 'Langkah pertama untuk menyelaraskan gerakan dengan muzik ialah?', ['Mendengar rentak', 'Mengira markah', 'Memakai kasut', 'Mengubah susunan'], 'Rentak didengar dahulu supaya gerakan dapat diselaraskan.'),
+    Q(3, BR('Tempo muzik (ilustrasi)', ['Lagu A', 'Lagu B', 'Lagu C'], [60, 100, 150], 'ketukan/min', 'Data ilustrasi.'), 'Murid ingin menari dengan gerakan yang laju dan bertenaga. Lagu yang paling sesuai ialah?', ['Lagu C', 'Lagu A', 'Lagu B', 'Tiada yang sesuai'], 'Tempo laju sesuai untuk gerakan laju dan bertenaga.'),
+    Q(3, TB(['Kumpulan', 'Rentak', 'Kreativiti'], [['A', 'Tepat', 'Rendah'], ['B', 'Tepat', 'Tinggi'], ['C', 'Lari', 'Tinggi']], 'Skor ringkas.'), 'Kumpulan yang menunjukkan persembahan terbaik dari segi rentak dan kreativiti ialah?', ['B', 'A', 'C', 'Tiada'], 'Kumpulan B tepat rentak dan kreatif.'),
+    Q(3, CY(['Latih', 'Dapat teguran', 'Baiki gerakan', 'Persembahkan semula']), 'Kitaran ini menunjukkan bahawa penambahbaikan persembahan dicapai melalui?', ['Latihan dan maklum balas berterusan', 'Mengelak latihan', 'Menukar penonton', 'Menurunkan tempo'], 'Teguran dan latihan semula memperbaiki persembahan.'),
+    Q(3, VN('Tarian tradisional', 'Tarian moden', ['Warisan budaya'], ['Gaya semasa'], ['Berirama'], 'Perbandingan.'), 'Persamaan kedua-dua jenis tarian ialah?', ['Bergerak mengikut irama', 'Tidak memerlukan muzik', 'Tanpa susunan gerakan', 'Hanya untuk umur tertentu'], 'Kedua-duanya berirama dan mengikut muzik.'),
+    Q(3, IC([['person', 'Gerakan kecil'], ['person', 'Gerakan besar']], 'Saiz gerakan.'), 'Penonton sukar melihat gerakan penari di belakang pentas. Cadangan terbaik ialah?', ['Besarkan saiz gerakan', 'Perlahankan semula muzik', 'Kurangkan penari', 'Tutup pentas'], 'Gerakan lebih besar membantu penonton melihat dengan jelas.'),
+    Q(3, FL(['Pilih muzik', 'Cipta gerakan', '?', 'Latih', 'Persembahkan'], 2, 'Menyusun koreografi.'), 'Langkah yang sesuai untuk petak ? ialah?', ['Susun gerakan mengikut urutan', 'Padam muzik', 'Batalkan kumpulan', 'Tukar rentak setiap saat'], 'Gerakan disusun mengikut urutan sebelum latihan.'),
+    Q(3, TR('Unsur persembahan', ['Rentak', 'Kreativiti', 'Kerjasama']), 'Kumpulan kerap bertengkar sehingga rentak tidak seragam. Unsur yang perlu diperkukuh ialah?', ['Kerjasama', 'Kreativiti', 'Tempo muzik', 'Jarak pentas'], 'Kerjasama perlu supaya gerakan seragam.')
+  ]
+});
+
+BAB.push({
+  id: 3,
+  tajuk: 'Kategori Serangan: Bola Sepak dan Bola Jaring',
+  nota: [
+    N('3.1 Bola sepak: kemahiran', ['Menendang: pandang bola, ayun kaki dan kenakan bola dengan sisi dalam kaki (pas pendek) atau kura kaki (tendangan kuat dan jauh).', 'Mengawal bola: sentuh bola dengan lembut dan dekatkan bola dengan kaki.', 'Menanduk: memukul bola dengan dahi.', 'Balingan masuk dilakukan dengan dua tangan dari belakang kepala dan kedua-dua kaki kekal di atas tanah.', 'Penjaga gol ialah satu-satunya pemain yang boleh memegang bola dengan tangan di dalam kawasan penalti sendiri.'], ['menendang', 'mengawal', 'menanduk', 'balingan masuk']),
+    N('3.2 Bola sepak: peraturan dan padang', ['Satu pasukan mempunyai 11 pemain termasuk penjaga gol.', 'Permainan biasa terdiri daripada dua separuh masa, setiap satu 45 minit.', 'Padang mempunyai garisan tengah, bulatan tengah, kawasan penalti, kawasan gol dan tempat penalti.', 'Kad kuning ialah amaran manakala kad merah bermaksud pemain dikeluarkan.', 'Kesalahan berat oleh pemain bertahan di kawasan penalti menyebabkan sepakan penalti.'], ['11 pemain', '45 minit', 'kad merah', 'penalti']),
+    N('3.3 Bola jaring: kemahiran', ['Pas dada: pegang bola di paras dada, luruskan tangan dan lepaskan bola.', 'Pas bahu dan pas lantun digunakan untuk jarak berbeza dan menghadapi lawan.', 'Menangkap bola dengan dua tangan dan jari terbuka.', 'Pemain boleh berpusing dengan satu kaki sebagai paksi apabila memegang bola.', 'Pas pantas dan tepat serta pergerakan ke ruang kosong menjadikan serangan berkesan.'], ['pas dada', 'pas lantun', 'menangkap', 'pivot']),
+    N('3.4 Bola jaring: peraturan dan posisi', ['Satu pasukan mempunyai tujuh pemain di gelanggang.', 'Posisi: GS (Penjaring Gol), GA (Penyerang Gol), WA, C (Tengah), WD, GD (Pertahanan Gol) dan GK (Penjaga Gol).', 'Hanya GS dan GA yang boleh menjaring gol dan mesti berada di dalam bulatan gol.', 'Pemain tidak boleh bergerak dengan bola dan hanya boleh memegang bola selama tiga saat.', 'Pemain bertahan mesti berada sekurang-kurangnya 0.9 meter daripada pemain yang memegang bola.', 'Gelanggang dibahagikan kepada tiga sepertiga; GS dan GK tidak boleh memasuki sepertiga tengah.'], ['tujuh pemain', 'GS dan GA', '0.9 meter', 'tiga saat'])
+  ],
+  soalan: [
+    Q(1, CR('bolasepak', [3], 'Padang bola sepak.'), 'Perhatikan padang bola sepak itu. Kawasan kecil di hadapan gol yang bertanda 1 dinamakan?', ['Kawasan gol', 'Bulatan tengah', 'Garisan tengah', 'Tempat penalti'], 'Kawasan kecil di hadapan gol ialah kawasan gol.'),
+    Q(1, CR('bolasepak', [1], 'Padang bola sepak.'), 'Sepakan permulaan dilakukan di kawasan bertanda 1 pada padang. Kawasan itu bernama?', ['Bulatan tengah', 'Kawasan penalti', 'Kawasan gol', 'Garisan gol'], 'Permainan dimulakan dari bulatan tengah.'),
+    Q(1, TB(['Sukan', 'Pemain di padang'], [['Bola sepak', '?'], ['Bola jaring', '7 orang']], 'Bilangan pemain.'), 'Berapakah bilangan pemain dalam satu pasukan bola sepak yang berada di padang?', ['11 orang', '7 orang', '9 orang', '15 orang'], 'Satu pasukan bola sepak mempunyai 11 pemain termasuk penjaga gol.'),
+    Q(1, TR('Kemahiran bola sepak', ['Menendang', 'Mengawal bola', 'Menanduk']), 'Memukul bola dengan menggunakan dahi dalam bola sepak dikenali sebagai?', ['Menanduk', 'Menendang', 'Mengawal bola', 'Menggelecek'], 'Menanduk ialah memukul bola dengan dahi.'),
+    Q(1, FL(['Pandang bola', 'Ayun kaki ke belakang', 'Kenakan bola dengan kura kaki', 'Ikut lajak kaki ke depan']), 'Kemahiran bola sepak yang ditunjukkan dalam rajah ialah?', ['Menendang bola', 'Menanduk bola', 'Menangkap bola', 'Membaling bola'], 'Langkah dalam rajah ialah teknik menendang bola.'),
+    Q(1, CR('bolajaring', [0], 'Gelanggang bola jaring.'), 'Bulatan separuh yang bertanda 1 di hujung gelanggang bola jaring dinamakan?', ['Bulatan gol', 'Bulatan tengah', 'Garisan sepertiga', 'Tiang gol'], 'Bulatan di hujung gelanggang ialah bulatan gol.'),
+    Q(1, CR('bolajaring', [1], 'Gelanggang bola jaring.'), 'Permainan bola jaring dimulakan oleh pemain tengah dari kawasan bernombor 1. Namanya ialah?', ['Bulatan tengah', 'Bulatan gol', 'Garisan gol', 'Sepertiga serang'], 'Pemain tengah memulakan pas dari bulatan tengah.'),
+    Q(1, TB(['Posisi', 'Singkatan'], [['Penjaring Gol', 'GS'], ['Penyerang Gol', 'GA'], ['Pertahanan Gol', '?']], 'Posisi bola jaring.'), 'Singkatan bagi posisi Pertahanan Gol ialah?', ['GD', 'GK', 'WD', 'WA'], 'Pertahanan Gol disingkatkan sebagai GD.'),
+    Q(1, IC([['group', '? pemain'], ['net', 'Gelanggang'], ['ball', 'Bola']], 'Satu pasukan bola jaring.'), 'Berapakah bilangan pemain dalam satu pasukan bola jaring di gelanggang?', ['Tujuh', 'Sebelas', 'Lima', 'Sembilan'], 'Satu pasukan bola jaring mempunyai tujuh pemain.'),
+    Q(1, FL(['Pegang bola di paras dada', 'Langkah ke depan', 'Luruskan kedua-dua tangan', 'Lepaskan bola']), 'Kemahiran bola jaring yang bermula dengan memegang bola di paras dada ialah?', ['Pas dada', 'Pas bahu', 'Pas lantun', 'Pas atas kepala'], 'Pas dada bermula dengan bola di paras dada.'),
+    Q(1, TB(['Kad', 'Maksud'], [['Kuning', 'Amaran'], ['Merah', '?']], 'Kad pengadil.'), 'Kad merah yang ditunjukkan pengadil bermaksud?', ['Pemain dikeluarkan dari padang', 'Pemain diberi amaran', 'Sepakan penalti sahaja', 'Permainan ditangguhkan'], 'Kad merah bermakna pemain dikeluarkan dari padang.'),
+    Q(1, IC([['ball', 'Bola keluar sisi'], ['person', 'Dua tangan'], ['shoe', 'Kaki atas tanah']], 'Menyambung permainan.'), 'Bola keluar melepasi garisan tepi. Permainan disambung dengan?', ['Balingan masuk', 'Sepakan sudut', 'Sepakan penalti', 'Sepakan gol'], 'Bola keluar garisan tepi disambung dengan balingan masuk.'),
+    Q(2, CR('bolasepak', [2, 4], 'Padang bola sepak.'), 'Penjaga gol menjatuhkan penyerang di dalam kawasan 1. Sepakan diambil dari titik 2 yang bernama?', ['Tempat penalti', 'Garisan gol', 'Bulatan tengah', 'Kawasan gol'], 'Sepakan penalti diambil dari tempat penalti.'),
+    Q(2, CR('bolajaring', [0, 3], 'Gelanggang bola jaring.'), 'Hanya dua pemain boleh menjaring dari kawasan 1 ke tiang 2 dalam gelanggang. Pemain itu ialah?', ['GS dan GA', 'WA dan C', 'GD dan GK', 'WD dan GD'], 'Hanya GS dan GA yang boleh menjaring dalam bulatan gol.'),
+    Q(2, TB(['Posisi', 'Sepertiga', 'Boleh jaring'], [['GS', 'Serang', 'Ya'], ['C', 'Tengah', 'Tidak'], ['GK', 'Pertahanan', '?']], 'Peranan pemain.'), 'Maklumat yang sesuai untuk petak ? ialah?', ['Tidak', 'Ya', 'Hanya pada penalti', 'Hanya semasa rehat'], 'GK ialah penjaga gol dan tidak boleh menjaring.'),
+    Q(2, FL(['Pegang bola dengan dua tangan', 'Bawa bola ke belakang kepala', 'Kedua-dua kaki di atas tanah', '?'], 3, 'Balingan masuk.'), 'Langkah akhir balingan masuk yang tersembunyi dalam rajah ialah?', ['Baling bola ke hadapan dengan dua tangan', 'Baling dengan satu tangan', 'Tendang bola ke atas', 'Pukul bola dengan dahi'], 'Balingan masuk dilepaskan ke hadapan dengan dua tangan.'),
+    Q(2, VN('Bola sepak', 'Bola jaring', ['Tendang bola'], ['Pas tangan'], ['Menjaring'], 'Dua sukan serangan.'), 'Persamaan kedua-dua sukan dalam rajah ialah?', ['Pasukan cuba menjaring gol', 'Kedua-duanya menggunakan kaki', 'Kedua-duanya mempunyai 11 pemain', 'Kedua-duanya tanpa pengadil'], 'Kedua-dua sukan kategori serangan yang bertujuan menjaring gol.'),
+    Q(2, CY(['Serang', 'Bola dirampas', 'Bertahan', 'Rampas semula']), 'Apabila bola dirampas lawan, pasukan segera bertukar kepada peranan?', ['Bertahan', 'Menyerang sahaja', 'Berehat', 'Menjaring sendiri'], 'Selepas bola dirampas, pasukan perlu bertahan.'),
+    Q(2, BR('Pas berjaya (ilustrasi)', ['Pas dada', 'Pas bahu', 'Pas lantun'], [8, 6, 4], 'kali', 'Data ilustrasi daripada 10 percubaan.'), 'Jenis pas yang paling berjaya mengikut carta ialah?', ['Pas dada', 'Pas bahu', 'Pas lantun', 'Ketiga-tiganya sama'], 'Pas dada mempunyai bilangan berjaya tertinggi.'),
+    Q(2, TR('Peraturan bola jaring', ['Tidak boleh bergerak dengan bola', 'Pegang bola maksimum tiga saat', 'Jarak mengawal 0.9 meter']), 'Murid berlari sambil memegang bola menuju gawang. Peraturan yang dilanggar ialah?', ['Tidak boleh bergerak dengan bola', 'Pegang bola maksimum tiga saat', 'Jarak mengawal 0.9 meter', 'Menjaring dalam bulatan'], 'Pemain tidak dibenarkan bergerak dengan bola.'),
+    Q(2, TB(['Kemahiran', 'Bahagian kaki'], [['Pas pendek tepat', 'Sisi dalam kaki'], ['Tendangan jauh dan kuat', '?']], 'Menendang.'), 'Bahagian kaki yang sesuai bagi tendangan jauh dan kuat ialah?', ['Kura kaki', 'Sisi dalam kaki', 'Tumit', 'Hujung jari kaki'], 'Kura kaki atau instep memberi kuasa kepada tendangan.'),
+    Q(2, CR('bolajaring', [5], 'Gelanggang bola jaring.'), 'Dua pemain tidak boleh memasuki kawasan 1, iaitu sepertiga tengah. Pemain itu ialah?', ['GS dan GK', 'C dan WA', 'WD dan GD', 'GA dan C'], 'GS dan GK tidak boleh memasuki sepertiga tengah.'),
+    Q(2, TL([['Separuh masa pertama', '45 minit'], ['Rehat', 'Lima belas minit'], ['Separuh masa kedua', '45 minit']], -1, 'Masa permainan bola sepak.'), 'Jumlah masa permainan biasa bola sepak, tidak termasuk masa rehat, ialah?', ['90 minit', '60 minit', '45 minit', '120 minit'], 'Dua separuh masa 45 minit memberi 90 minit.'),
+    Q(3, CR('bolasepak', [2], 'Padang bola sepak.'), 'Pemain pertahanan menjatuhkan penyerang di dalam kawasan 1. Keputusan pengadil yang tepat ialah?', ['Sepakan penalti', 'Balingan masuk', 'Sepakan sudut', 'Sepakan permulaan'], 'Kesalahan berat di kawasan penalti dihukum dengan sepakan penalti.'),
+    Q(3, TR('Strategi serangan', ['Pas pantas dan tepat', 'Bergerak ke ruang kosong', 'Bekerjasama']), 'Pasukan sering kehilangan bola kerana pas lambat dan mudah dipintas. Strategi terbaik ialah?', ['Pas pantas dan tepat serta bergerak ke ruang kosong', 'Memegang bola lebih lama', 'Berlari dengan bola', 'Mengurangkan pergerakan'], 'Pas pantas dan pergerakan ke ruang mengelakkan pintasan.'),
+    Q(3, TB(['Murid', 'Kemahiran', 'Masalah'], [['Ali', 'Tendangan', 'Badan ke belakang'], ['Siti', 'Pas dada', 'Tangan tidak lurus'], ['Raju', 'Menanduk', 'Mata ditutup']], 'Catatan guru.'), 'Bola Ali sering melambung terlalu tinggi. Kesilapan Ali yang menyebabkannya ialah?', ['Badan condong ke belakang', 'Tangan tidak lurus', 'Mata ditutup', 'Kasut terlalu kecil'], 'Badan condong ke belakang menyebabkan bola dikenakan di bahagian bawah dan melambung.'),
+    Q(3, BR('Gol berjaya (ilustrasi)', ['Dekat', 'Sederhana', 'Jauh'], [80, 55, 25], '%', 'Data ilustrasi.'), 'Pasukan ingin meningkatkan peluang menjaring. Tindakan terbaik berdasarkan carta ialah?', ['Mengatur serangan supaya menembak dari jarak dekat', 'Menembak dari jarak jauh sahaja', 'Mengelak menembak', 'Menunggu di belakang'], 'Jarak dekat memberi peratusan gol tertinggi.'),
+    Q(3, CY(['Pas bola', 'Bergerak ke ruang', 'Terima pas', 'Menjaring']), 'Mengapakah pemain perlu bergerak ke ruang kosong selepas melepaskan pas?', ['Supaya dapat menerima pas semula', 'Supaya lawan mudah merampas', 'Supaya bola berhenti', 'Supaya pengadil berhenti'], 'Pergerakan ke ruang membolehkan pas diterima semula.'),
+    Q(3, FL(['Pandang bola', 'Gerak ke arah bola', 'Sentuh bola lembut', '?'], 3, 'Mengawal bola.'), 'Murid kerap mengawal bola terlalu jauh daripada kaki sehingga mudah dirampas. Langkah akhir yang betul ialah?', ['Dekatkan bola dengan kaki', 'Tendang bola jauh', 'Biarkan bola bergolek', 'Angkat bola dengan tangan'], 'Bola yang dekat dengan kaki lebih mudah dikawal.'),
+    Q(3, TR('Tindakan pemain jaring', ['Langkah berulang dengan bola', 'Pas pantas', 'Jarak mengawal sah']), 'Murid melangkah beberapa kali sambil memegang bola. Kesan kepada pasukan ialah?', ['Pasukan lawan diberi pas percuma', 'Pasukan mendapat gol tambahan', 'Permainan dihentikan sepenuhnya', 'Pemain diberi kad merah'], 'Pelanggaran peraturan langkah menyebabkan lawan mendapat pas percuma.')
+  ]
+});
+
+BAB.push({
+  id: 4,
+  tajuk: 'Kategori Jaring: Bola Tampar dan Badminton',
+  nota: [
+    N('4.1 Bola tampar: kemahiran', ['Servis bawah: pegang bola, ayun lengan ke belakang dan pukul bola dengan tapak tangan.', 'Pas bawah (hantaran lengan bawah) menggunakan kedua-dua lengan bawah yang dirapatkan untuk menerima servis.', 'Hantaran (pas atas) menggunakan hujung jari untuk menghantar bola kepada rakan.', 'Smes ialah pukulan kuat ke bawah ke gelanggang lawan; sekatan menghalang bola di jaring.', 'Kedudukan bersedia: lutut bengkok, badan sedikit condong dan mata pada bola.'], ['servis bawah', 'pas bawah', 'hantaran', 'smes']),
+    N('4.2 Bola tampar: peraturan', ['Satu pasukan mempunyai enam pemain di gelanggang.', 'Sesebuah pasukan boleh menyentuh bola maksimum tiga kali sebelum menghantar ke seberang jaring.', 'Seorang pemain tidak boleh menyentuh bola dua kali berturut-turut.', 'Set dimenangi apabila mencapai 25 mata dengan beza dua mata; set kelima 15 mata.', 'Pasukan yang menang tiga set memenangi perlawanan.', 'Pasukan yang memperoleh hak servis memutar kedudukan mengikut arah jam.'], ['enam pemain', 'tiga sentuhan', '25 mata', 'putaran']),
+    N('4.3 Badminton: kemahiran', ['Pegangan hadapan (forehand) seperti berjabat tangan; pegangan belakang (backhand) menggunakan ibu jari di sisi pemegang.', 'Servis dilakukan dengan raket di bawah pinggang dan kok dipukul menyerong ke kawasan servis lawan.', 'Lob ialah pukulan tinggi dan jauh ke belakang gelanggang lawan.', 'Drop ialah pukulan perlahan yang jatuh dekat jaring.', 'Smes ialah pukulan laju dan menjunam ke bawah.', 'Gerak kaki yang pantas membantu pemain sampai ke kok tepat pada masanya.'], ['pegangan hadapan', 'servis', 'lob', 'drop', 'smes']),
+    N('4.4 Badminton: peraturan dan gelanggang', ['Perseorangan dimainkan oleh seorang setiap sisi; beregu oleh dua orang setiap sisi.', 'Garisan tepi sisi dalam digunakan untuk perseorangan dan garisan luar untuk beregu.', 'Garisan servis pendek menentukan had hadapan kawasan servis.', 'Sistem mata rali: satu set dimenangi dengan 21 mata dan beza dua mata.', 'Perlawanan dimenangi oleh pemain yang menang dua set daripada tiga set.', 'Jaring memisahkan gelanggang kepada dua bahagian yang sama.'], ['perseorangan', 'beregu', '21 mata', 'dua set'])
+  ],
+  soalan: [
+    Q(1, CR('bolatampar', [0], 'Gelanggang bola tampar.'), 'Perhatikan gelanggang bola tampar itu. Alat yang bertanda 1 di tengah gelanggang dinamakan?', ['Jaring', 'Garisan serang', 'Garisan hujung', 'Zon belakang'], 'Jaring memisahkan dua pasukan di gelanggang.'),
+    Q(1, TB(['Sukan', 'Pemain setiap pasukan'], [['Bola tampar', '?'], ['Badminton perseorangan', '1 orang']], 'Bilangan pemain.'), 'Berapakah bilangan pemain bagi satu pasukan bola tampar di gelanggang?', ['Enam orang', 'Tujuh orang', 'Empat orang', 'Sebelas orang'], 'Satu pasukan bola tampar mempunyai enam pemain di gelanggang.'),
+    Q(1, FL(['Berdiri menghadap jaring', 'Pegang bola di tangan', 'Ayun lengan ke belakang', 'Pukul bola dengan tapak tangan']), 'Kemahiran bola tampar yang ditunjukkan dalam rajah ialah?', ['Servis bawah', 'Smes', 'Sekatan', 'Hantaran'], 'Langkah dalam rajah ialah servis bawah.'),
+    Q(1, TR('Kemahiran bola tampar', ['Servis', 'Hantaran', 'Smes']), 'Pukulan kuat ke bawah ke gelanggang lawan dalam bola tampar dikenali sebagai?', ['Smes', 'Servis', 'Hantaran', 'Pas bawah'], 'Smes ialah pukulan kuat ke bawah.'),
+    Q(1, IC([['shield', 'Lengan bawah'], ['ball', 'Bola'], ['person', 'Kedudukan bersedia']], 'Menerima servis.'), 'Pas bawah menggunakan bahagian badan yang manakah dalam rajah?', ['Lengan bawah', 'Dahi', 'Bahu', 'Siku'], 'Pas bawah menggunakan kedua-dua lengan bawah yang dirapatkan.'),
+    Q(1, CR('badminton', [1], 'Gelanggang badminton.'), 'Garisan bertanda 1 pada gelanggang badminton yang menentukan had hadapan kawasan servis dinamakan?', ['Garisan servis pendek', 'Garisan tengah', 'Garisan servis panjang', 'Garisan tepi luar'], 'Garisan servis pendek ialah had hadapan kawasan servis.'),
+    Q(1, TB(['Peralatan', 'Fungsi'], [['Raket', 'Memukul kok'], ['Kok', '?']], 'Peralatan badminton.'), 'Fungsi kok dalam badminton ialah?', ['Objek yang dipukul melepasi jaring', 'Alat memukul', 'Penanda sempadan', 'Pelindung pemain'], 'Kok ialah objek yang dipukul melepasi jaring.'),
+    Q(1, IC([['person', 'Berjabat tangan'], ['dumbbell', 'Raket']], 'Memegang raket.'), 'Pegangan raket yang menyerupai berjabat tangan dikenali sebagai?', ['Pegangan hadapan (forehand)', 'Pegangan belakang (backhand)', 'Pegangan bola', 'Pegangan dua tangan'], 'Pegangan hadapan seperti berjabat tangan dengan raket.'),
+    Q(1, TR('Pukulan badminton', ['Servis', 'Lob', 'Smes', 'Drop']), 'Pukulan tinggi dan jauh yang menghantar kok ke belakang gelanggang lawan ialah?', ['Lob', 'Drop', 'Smes', 'Servis'], 'Lob ialah pukulan tinggi dan jauh.'),
+    Q(1, TL([['Set pertama', '21 mata'], ['Set kedua', '21 mata'], ['Set ketiga', 'Jika perlu']], -1, 'Mata rali badminton.'), 'Dalam sistem mata rali, satu set badminton biasanya dimenangi apabila mencapai?', ['21 mata dengan beza dua mata', '11 mata', '15 mata', '30 mata sahaja'], 'Set dimenangi dengan 21 mata dan beza dua mata.'),
+    Q(1, CR('bolatampar', [1], 'Gelanggang bola tampar.'), 'Garisan bertanda 1 pada gelanggang bola tampar yang membezakan pemain depan dan belakang dinamakan?', ['Garisan serang', 'Garisan hujung', 'Garisan tengah', 'Garisan tepi'], 'Garisan serang membezakan zon depan dan zon belakang.'),
+    Q(1, CY(['Sentuhan 1: pas bawah', 'Sentuhan 2: hantaran', 'Sentuhan 3: smes', 'Bola ke seberang']), 'Berapakah sentuhan maksimum yang dibenarkan sebelum bola menyeberangi jaring?', ['Tiga kali', 'Dua kali', 'Empat kali', 'Lima kali'], 'Pasukan boleh menyentuh bola maksimum tiga kali.'),
+    Q(2, TB(['Pukulan', 'Ciri', 'Tujuan'], [['Lob', 'Tinggi dan jauh', 'Menolak lawan ke belakang'], ['Drop', 'Jatuh dekat jaring', 'Menarik lawan ke depan'], ['Smes', 'Laju dan menjunam', '?']], 'Pukulan badminton.'), 'Tujuan yang sesuai untuk smes dalam jadual ialah?', ['Mematikan pukulan dengan kuat', 'Menarik lawan ke depan', 'Menolak lawan ke belakang', 'Memulakan permainan'], 'Smes dilakukan dengan laju untuk mematikan pukulan.'),
+    Q(2, CR('badminton', [3], 'Gelanggang badminton.'), 'Garisan bertanda 1 ialah garisan tepi sisi dalam. Garisan ini digunakan sebagai sempadan dalam permainan?', ['Perseorangan', 'Beregu sahaja', 'Servis beregu sahaja', 'Bola tampar'], 'Garisan tepi sisi dalam digunakan untuk perseorangan.'),
+    Q(2, CR('bolatampar', [2, 3], 'Gelanggang bola tampar.'), 'Kawasan bernombor 2 berada di antara garisan serang dan jaring. Namanya ialah?', ['Zon depan', 'Zon belakang', 'Garisan tengah', 'Garisan hujung'], 'Zon depan terletak di antara garisan serang dan jaring.'),
+    Q(2, FL(['Berdiri di kawasan servis', 'Pegang kok dengan satu tangan', 'Raket di bawah pinggang', '?'], 3, 'Servis badminton.'), 'Langkah akhir servis badminton yang tersembunyi ialah?', ['Pukul kok menyerong ke kawasan servis lawan', 'Pukul kok ke atas kepala', 'Baling kok ke seberang', 'Tendang kok'], 'Kok dipukul menyerong ke kawasan servis lawan.'),
+    Q(2, VN('Bola tampar', 'Badminton', ['Tampar bola'], ['Pukul kok'], ['Ada jaring'], 'Dua sukan jaring.'), 'Bola tampar dan badminton mempunyai persamaan, iaitu?', ['Dipisahkan oleh jaring', 'Mempunyai enam pemain', 'Menggunakan raket', 'Dimainkan dengan kaki'], 'Kedua-dua sukan memisahkan pemain dengan jaring.'),
+    Q(2, BR('Mata set badminton (ilustrasi)', ['Pemain A', 'Pemain B'], [21, 19], 'mata', 'Keputusan set.'), 'Pemain A menang 21-19. Apakah keputusan set itu?', ['A menang kerana mendahului dua mata', 'Set diteruskan', 'B menang', 'Seri'], 'Set dimenangi dengan 21 mata dan beza dua mata.'),
+    Q(2, FL(['Pasukan menang rali', 'Mendapat hak servis', 'Pemain berputar', '?'], 3, 'Putaran pemain.'), 'Selepas pemain berputar, langkah yang diikuti ialah?', ['Pemain di belakang kanan membuat servis', 'Perlawanan berakhir', 'Pasukan berhenti', 'Jaring ditukar'], 'Selepas putaran, pemain belakang kanan membuat servis.'),
+    Q(2, TR('Peraturan bola tampar', ['Maksimum tiga sentuhan', 'Dilarang sentuh jaring', 'Sentuhan berturut-turut dilarang']), 'Seorang pemain menyentuh bola sekali, lalu menyentuhnya semula sebelum rakan lain. Kesalahan ini ialah?', ['Sentuhan berturut-turut oleh pemain yang sama', 'Servis salah', 'Bola keluar', 'Sentuh jaring'], 'Seorang pemain tidak boleh menyentuh bola dua kali berturut-turut.'),
+    Q(2, TB(['Acara', 'Pemain setiap sisi'], [['Perseorangan', 'Seorang'], ['Beregu', '?']], 'Badminton.'), 'Berapakah pemain setiap sisi dalam acara beregu?', ['Dua orang', 'Seorang', 'Tiga orang', 'Enam orang'], 'Beregu dimainkan oleh dua pemain setiap sisi.'),
+    Q(2, IC([['person', 'Lutut bengkok'], ['shoe', 'Berat di tapak kaki'], ['stopwatch', 'Gerak pantas']], 'Kedudukan bersedia.'), 'Mengapakah pemain perlu mengekalkan kedudukan bersedia?', ['Supaya dapat bergerak pantas ke arah bola', 'Supaya badan kaku', 'Supaya bola berhenti', 'Supaya lawan terhenti'], 'Kedudukan bersedia membolehkan pergerakan pantas.'),
+    Q(2, CR('bolatampar', [4], 'Gelanggang bola tampar.'), 'Servis dilakukan dari belakang garisan bertanda 1 di hujung gelanggang. Namanya ialah?', ['Garisan hujung', 'Garisan serang', 'Garisan tengah', 'Garisan sisi'], 'Servis dibuat dari belakang garisan hujung.'),
+    Q(3, CR('bolatampar', [1], 'Gelanggang bola tampar.'), 'Pemain barisan belakang melompat dari hadapan garisan 1 lalu smes. Keputusan pengadil yang tepat ialah?', ['Kesalahan kerana pemain belakang tidak boleh menyerang dari depan garisan serang', 'Mata sah', 'Servis diulang', 'Permainan berhenti'], 'Pemain barisan belakang perlu melompat dari belakang garisan serang.'),
+    Q(3, TB(['Murid', 'Pukulan', 'Masalah'], [['Aina', 'Servis', 'Raket di atas pinggang'], ['Bala', 'Lob', 'Kok terlalu rendah'], ['Chen', 'Drop', 'Pukul terlalu kuat']], 'Catatan jurulatih.'), 'Servis Aina dianggap salah oleh pengadil. Sebabnya ialah?', ['Raket dipegang di atas pinggang semasa servis', 'Kok terlalu rendah', 'Pukulan terlalu kuat', 'Kasut tidak sesuai'], 'Servis badminton mesti dilakukan dengan raket di bawah pinggang.'),
+    Q(3, CR('badminton', [1], 'Gelanggang badminton.'), 'Lawan berdiri di belakang gelanggang. Anda mahu menariknya ke kawasan sekitar garisan 1. Pukulan terbaik ialah?', ['Drop', 'Lob', 'Servis panjang', 'Smes ke belakang'], 'Drop jatuh dekat jaring dan memaksa lawan bergerak ke depan.'),
+    Q(3, CY(['Terima (pas bawah)', 'Hantaran', 'Smes', 'Bola ke seberang']), 'Dalam serangan tiga sentuhan, sentuhan kedua biasanya berfungsi untuk?', ['Menghantar bola kepada penyerang', 'Menamatkan perlawanan', 'Menyentuh jaring', 'Mengeluarkan bola'], 'Sentuhan kedua menyediakan bola yang sesuai untuk smes.'),
+    Q(3, TL([['Set 1', 'Pasukan A menang'], ['Set 2', 'Pasukan B menang'], ['Set 3', 'Pasukan A menang'], ['Set 4', 'Pasukan B menang'], ['Set 5', '?']], 4, 'Perlawanan bola tampar.'), 'Keputusan set ialah 2-2. Mengapakah set kelima dimainkan?', ['Untuk menentukan pemenang kerana perlu menang tiga set', 'Kerana pengadil menukar peraturan', 'Kerana rehat panjang', 'Kerana jaring rosak'], 'Pasukan perlu memenangi tiga set untuk memenangi perlawanan.'),
+    Q(3, VN('Smes badminton', 'Smes bola tampar', ['Guna raket'], ['Guna tangan'], ['Ke bawah'], 'Dua smes.'), 'Prinsip yang sama bagi kedua-dua smes dalam rajah ialah?', ['Pukulan menjunam dari atas dengan daya besar', 'Pukulan perlahan dekat jaring', 'Pukulan dari bawah pinggang', 'Pukulan ke belakang'], 'Kedua-dua smes menghasilkan pukulan menjunam dengan daya besar.'),
+    Q(3, TR('Penambahbaikan servis', ['Ayunan lancar', 'Pandang sasaran', 'Tinggi lontaran sesuai']), 'Servis bawah bola tampar murid selalu tersangkut pada jaring. Penambahbaikan terbaik ialah?', ['Hayun lengan ke hadapan dan ke atas serta kena bahagian bawah bola', 'Memukul bola ke bawah', 'Menutup mata', 'Memperlahankan ayunan'], 'Ayunan ke atas dan ke hadapan menghantar bola melepasi jaring.')
+  ]
+});
+
+BAB.push({
+  id: 5,
+  tajuk: 'Olahraga Asas',
+  nota: [
+    N('5.1 Acara balapan dan padang', ['Acara balapan dilakukan di trek: lari pecut, lari berpagar, lari jarak jauh dan lari berganti-ganti.', 'Acara padang dilakukan di dalam padang: lompat jauh, lompat tinggi, lontar peluru, lempar cakera dan lempar lembing.', 'Trek dibahagikan kepada lorong, lurusan dan selekoh.', 'Garisan mula dan garisan penamat menentukan jarak larian dan keputusan.'], ['balapan', 'padang', 'lorong', 'penamat']),
+    N('5.2 Lari pecut', ['Pecut ialah larian jarak pendek dengan kelajuan maksimum, contohnya 100 meter.', 'Kedudukan permulaan: "Ke petak", "Sedia" dan "Lari" (bunyi tembakan).', 'Semasa lari, badan condong sedikit ke hadapan, lengan diayun berlawanan dengan kaki dan mendarat pada tapak kaki depan.', 'Terus berlari melepasi garisan penamat tanpa memperlahankan langkah.', 'Pemula yang bergerak sebelum isyarat dikira memulakan larian terlalu awal (mula palsu).'], ['pecut', 'kedudukan mula', 'ayunan lengan', 'penamat']),
+    N('5.3 Lari berganti-ganti', ['Satu pasukan terdiri daripada empat pelari yang membawa baton secara bergilir-gilir, contohnya 4 x 100 meter.', 'Baton mesti dipindahkan di dalam zon penukaran.', 'Pelari menerima baton sambil menghulur tangan tanpa menoleh (penukaran bawah atau atas).', 'Jika baton jatuh, hanya pelari yang menjatuhkannya boleh mengambilnya semula.', 'Kerjasama dan masa penukaran yang tepat menentukan kejayaan.'], ['baton', 'zon penukaran', 'empat pelari', 'kerjasama']),
+    N('5.4 Lompat jauh dan lontar peluru', ['Lompat jauh: lari landasan, tolak dari papan lonjak, terbang di udara dan mendarat di dalam kawah pasir.', 'Jarak diukur dari tanda terdekat di pasir ke papan lonjak; pijak melepasi papan lonjak ialah lompatan tidak sah.', 'Lontar peluru: peluru ditolak (bukan dibaling) dari bahu dan leher dengan satu tangan di dalam bulatan lontar.', 'Pemain tidak boleh keluar dari bulatan sebelum peluru mendarat.', 'Pemanasan dan pendaratan yang betul mengurangkan risiko kecederaan.'], ['lompat jauh', 'papan lonjak', 'lontar peluru', 'kawah pasir'])
+  ],
+  soalan: [
+    Q(1, CR('balapan', [0], 'Trek olahraga.'), 'Perhatikan trek olahraga itu. Bahagian lurus yang bertanda 1 dinamakan?', ['Lurusan', 'Selekoh', 'Padang dalam', 'Lorong'], 'Bahagian trek yang lurus dipanggil lurusan.'),
+    Q(1, CR('balapan', [1], 'Trek olahraga.'), 'Bahagian trek yang melengkung dan bertanda 1 dinamakan?', ['Selekoh', 'Lurusan', 'Garisan penamat', 'Padang dalam'], 'Bahagian trek yang melengkung dipanggil selekoh.'),
+    Q(1, TR('Acara olahraga', ['Lari pecut', 'Lompat jauh', 'Lontar peluru']), 'Antara acara dalam pokok, yang termasuk acara balapan ialah?', ['Lari pecut', 'Lompat jauh', 'Lontar peluru', 'Lempar cakera'], 'Lari pecut dilakukan di trek, jadi ia acara balapan.'),
+    Q(1, TB(['Acara', 'Kategori'], [['Lompat jauh', 'Padang'], ['Lari 100 meter', '?']], 'Kategori acara.'), 'Lari 100 meter termasuk kategori?', ['Balapan', 'Padang', 'Rekreasi', 'Gimnastik'], 'Lari 100 meter dilakukan di trek, maka ia acara balapan.'),
+    Q(1, FL(['Ke petak', 'Sedia', 'Lari']), 'Aba-aba permulaan lari pecut yang betul dalam rajah ialah mengikut susunan?', ['Ke petak, sedia, lari', 'Lari, sedia, ke petak', 'Sedia, lari, ke petak', 'Lari, ke petak, sedia'], 'Pemula memberi isyarat ke petak, sedia, kemudian lari.'),
+    Q(1, IC([['group', '4 pelari'], ['stopwatch', 'Pantas'], ['medal', 'Baton']], 'Lari berganti-ganti.'), 'Benda yang dihulurkan antara pelari dalam lari berganti-ganti dinamakan?', ['Baton', 'Peluru', 'Cakera', 'Lembing'], 'Baton dipindahkan antara pelari dalam zon penukaran.'),
+    Q(1, FL(['Lari landasan', 'Tolak di papan lonjak', 'Terbang di udara', 'Mendarat di kawah pasir']), 'Rajah menunjukkan langkah acara?', ['Lompat jauh', 'Lontar peluru', 'Lari berpagar', 'Lompat tinggi'], 'Langkah itu ialah urutan lompat jauh.'),
+    Q(1, IC([['dumbbell', 'Peluru'], ['person', 'Tolak dari bahu'], ['shield', 'Dalam bulatan']], 'Lontar peluru.'), 'Dalam lontar peluru, peluru dilepaskan dengan cara?', ['Ditolak dari bahu', 'Dibaling seperti bola', 'Digolek di tanah', 'Ditendang'], 'Peluru ditolak dari bahu, bukan dibaling.'),
+    Q(1, CR('balapan', [3], 'Trek olahraga.'), 'Garisan bertanda 1 menentukan keputusan perlumbaan lari. Namanya ialah?', ['Garisan penamat', 'Garisan mula', 'Lorong', 'Selekoh'], 'Garisan penamat menentukan keputusan.'),
+    Q(1, TB(['Acara padang', 'Alat'], [['Lontar peluru', 'Peluru'], ['Lempar cakera', '?']], 'Alat acara.'), 'Alat yang digunakan dalam lempar cakera ialah?', ['Cakera', 'Baton', 'Peluru', 'Papan lonjak'], 'Lempar cakera menggunakan cakera.'),
+    Q(1, TL([['Ke petak', 'Pelari ke petak'], ['Sedia', 'Pinggul diangkat'], ['Bunyi tembakan', 'Mula berlari']], -1, 'Mula pecut.'), 'Pelari mula berlari apabila mendengar?', ['Bunyi tembakan', 'Wisel panjang', 'Tepukan', 'Loceng'], 'Pelari mula berlari pada bunyi tembakan.'),
+    Q(1, CR('balapan', [2], 'Trek olahraga.'), 'Ruang yang diperuntukkan untuk setiap pelari berlari seperti bertanda 1 dinamakan?', ['Lorong', 'Lurusan', 'Padang dalam', 'Garisan mula'], 'Setiap pelari berlari dalam lorong masing-masing.'),
+    Q(2, FL(['Pelari 1 berlari', 'Hulur baton dalam zon', 'Pelari 2 terima baton', '?'], 3, 'Lari berganti-ganti.'), 'Langkah seterusnya yang tersembunyi dalam rajah ialah?', ['Pelari 2 meneruskan larian', 'Pelari 1 mengambil baton semula', 'Baton dibuang', 'Perlumbaan dihentikan'], 'Selepas menerima baton, pelari kedua meneruskan larian.'),
+    Q(2, CY(['Pelari 1', 'Pelari 2', 'Pelari 3', 'Pelari 4']), 'Dalam pasukan lari berganti-ganti 4 x 100 meter, setiap pelari berlari sejauh?', ['100 meter', '400 meter', '50 meter', '25 meter'], 'Empat pelari masing-masing berlari 100 meter.'),
+    Q(2, TB(['Perbuatan', 'Keputusan'], [['Pijak melepasi papan lonjak', 'Lompatan tidak sah'], ['Mendarat dalam pasir', 'Sah'], ['Baton jatuh', '?']], 'Peraturan.'), 'Apabila baton jatuh, siapakah yang boleh mengambilnya semula?', ['Pelari yang menjatuhkannya', 'Pelari lain', 'Pengadil', 'Penonton'], 'Hanya pelari yang menjatuhkan baton boleh mengambilnya.'),
+    Q(2, VN('Lari pecut', 'Lompat jauh', ['Di trek'], ['Di pasir'], ['Larian'], 'Dua acara.'), 'Persamaan kedua-dua acara dalam rajah ialah?', ['Melibatkan larian', 'Menggunakan peluru', 'Menggunakan baton', 'Dilakukan di air'], 'Kedua-duanya melibatkan larian.'),
+    Q(2, BR('Jarak lompatan (ilustrasi)', ['Sari', 'Hana', 'Mei'], [3.1, 3.6, 3.3], 'meter', 'Data ilustrasi.'), 'Murid yang mencapai lompatan terjauh dalam carta ialah?', ['Hana', 'Sari', 'Mei', 'Semuanya sama'], 'Hana melompat sejauh 3.6 meter, yang tertinggi.'),
+    Q(2, IC([['shoe', 'Kasut sukan'], ['water', 'Air minuman'], ['stopwatch', 'Pemanasan']], 'Persediaan.'), 'Sebelum lompat jauh, murid perlu melakukan?', ['Pemanasan', 'Berehat lama', 'Makan banyak', 'Tidur'], 'Pemanasan menyediakan otot dan mengurangkan risiko kecederaan.'),
+    Q(2, TR('Teknik pecut', ['Badan condong ke hadapan', 'Ayun lengan berlawanan kaki', 'Mendarat pada tapak depan']), 'Murid berlari tegak seperti berjalan. Teknik pecut yang perlu diperbetulkan ialah?', ['Badan condong sedikit ke hadapan', 'Tangan di poket', 'Mendarat pada tumit', 'Pandang ke bawah'], 'Pecut memerlukan badan condong sedikit ke hadapan.'),
+    Q(2, CR('balapan', [5], 'Trek olahraga.'), 'Pelari berdiri di belakang garisan bertanda 1 sebelum bunyi tembakan. Garisan ini ialah?', ['Garisan mula', 'Garisan penamat', 'Lorong', 'Selekoh'], 'Pelari bersedia di belakang garisan mula.'),
+    Q(2, CY(['Lari landasan', 'Tolak', 'Terbang', 'Mendarat']), 'Urutan yang betul selepas lari landasan dalam lompat jauh ialah?', ['Tolak, terbang, mendarat', 'Mendarat, tolak, terbang', 'Terbang, tolak, mendarat', 'Tolak, mendarat, terbang'], 'Selepas lari landasan, pelompat menolak, terbang kemudian mendarat.'),
+    Q(2, FL(['Berdiri dalam bulatan', 'Letak peluru di leher', 'Tolak ke hadapan', '?'], 3, 'Lontar peluru.'), 'Peraturan selepas menolak peluru ialah?', ['Kekal dalam bulatan sehingga peluru mendarat', 'Keluar sebelum peluru mendarat', 'Lari mengejar peluru', 'Baling peluru kedua'], 'Pelontar tidak boleh keluar bulatan sebelum peluru mendarat.'),
+    Q(3, TB(['Pelari', 'Masa', 'Kedudukan'], [['Adi', '12.8 s', '?'], ['Ben', '12.5 s', 'Pertama'], ['Chan', '13.1 s', 'Ketiga']], 'Larian 100 m.'), 'Kedudukan Adi dalam larian itu ialah?', ['Kedua', 'Pertama', 'Ketiga', 'Keempat'], 'Masa 12.8 saat lebih perlahan daripada Ben tetapi lebih pantas daripada Chan.'),
+    Q(3, CY(['Salah penukaran baton', 'Baton jatuh', 'Masa hilang', 'Pasukan kalah']), 'Pasukan sering menjatuhkan baton ketika penukaran. Cara terbaik memutuskan kitaran ini ialah?', ['Berlatih penukaran dalam zon dengan tepat', 'Berlari lebih perlahan', 'Menukar peraturan', 'Memperlahankan semua pelari'], 'Latihan penukaran yang tepat mengelakkan baton jatuh.'),
+    Q(3, BR('Jarak lompatan Hana (ilustrasi)', ['Cuba 1', 'Cuba 2', 'Cuba 3'], [3.4, 3.7, 3.5], 'meter', 'Cuba 2 tidak sah.'), 'Cuba kedua Hana tidak sah kerana kakinya melepasi papan lonjak. Jarak terbaik yang dikira ialah?', ['3.5 meter', '3.7 meter', '3.4 meter', '3.6 meter'], 'Lompatan sah tertinggi ialah 3.5 meter.'),
+    Q(3, VN('Lontar peluru', 'Lempar cakera', ['Peluru'], ['Cakera'], ['Bulatan'], 'Acara lontar.'), 'Kedua-dua acara memerlukan pemain berada dalam bulatan. Mengapakah peraturan ini penting?', ['Untuk keselamatan dan keadilan pertandingan', 'Untuk menambah jarak', 'Untuk mengurangkan peserta', 'Untuk memperlahan permainan'], 'Bulatan mengawal kedudukan dan keselamatan.'),
+    Q(3, TR('Faktor kecederaan', ['Tiada pemanasan', 'Pendaratan salah', 'Kasut tidak sesuai']), 'Seorang murid terseliuh pergelangan kaki selepas mendarat dengan kaki kaku. Penambahbaikan terbaik ialah?', ['Lenturkan lutut ketika mendarat', 'Mendarat lebih laju', 'Menutup mata', 'Mendarat dengan kepala'], 'Lutut dilenturkan menyerap hentakan semasa pendaratan.'),
+    Q(3, FL(['Ke petak', 'Sedia', 'Bergerak sebelum bunyi', '?'], 3, 'Mula pecut.'), 'Pelari bergerak sebelum bunyi tembakan. Keputusan pengadil ialah?', ['Mula palsu', 'Larian sah', 'Mata tambahan', 'Lorong ditukar'], 'Bergerak sebelum isyarat dikira mula palsu.'),
+    Q(2, TB(['Acara', 'Alat atau tempat'], [['Lompat jauh', 'Kawah pasir'], ['Lari berganti-ganti', 'Baton'], ['Lontar peluru', '?']], 'Padanan acara.'), 'Alat atau tempat yang dipadankan dengan lontar peluru ialah?', ['Bulatan lontar', 'Kawah pasir', 'Baton', 'Papan lonjak'], 'Lontar peluru dilakukan di dalam bulatan lontar.'),
+    Q(3, IC([['person', 'Pecut'], ['dumbbell', 'Kekuatan kaki'], ['stopwatch', 'Kelajuan']], 'Latihan atlet.'), 'Atlet pecut ingin menambah kelajuan. Latihan yang paling sesuai ialah?', ['Latihan kekuatan kaki dan teknik larian', 'Berehat setiap hari', 'Berjalan perlahan sahaja', 'Mengelak latihan'], 'Kekuatan kaki dan teknik larian menambah kelajuan.')
+  ]
+});
+
+BAB.push({
+  id: 6,
+  tajuk: 'Rekreasi dan Kesenggangan',
+  nota: [
+    N('6.1 Konsep rekreasi', ['Rekreasi ialah aktiviti yang dilakukan pada masa lapang untuk keseronokan, kesihatan dan kepuasan diri.', 'Masa kesenggangan ialah masa bebas selepas tugas dan tanggungjawab seperti belajar dan membantu keluarga.', 'Rekreasi aktif melibatkan pergerakan badan: berbasikal, mendaki, berenang, berkayak.', 'Rekreasi pasif tidak banyak melibatkan pergerakan: membaca, menonton, mendengar muzik.', 'Rekreasi boleh dilakukan di dalam kawasan (indoor) atau di luar kawasan (outdoor).'], ['rekreasi', 'kesenggangan', 'aktif', 'pasif']),
+    N('6.2 Manfaat rekreasi', ['Fizikal: meningkatkan kecergasan dan mengawal berat badan.', 'Mental dan emosi: mengurangkan tekanan dan meningkatkan keyakinan diri.', 'Sosial: mengeratkan hubungan keluarga dan rakan serta memupuk kerjasama.', 'Alam sekitar: menimbulkan rasa sayang dan tanggungjawab terhadap alam.'], ['fizikal', 'mental', 'sosial', 'alam']),
+    N('6.3 Perancangan aktiviti rekreasi', ['Tentukan tujuan, tempat, tarikh dan peserta aktiviti.', 'Sediakan senarai peralatan, bekalan air dan makanan serta kit pertolongan cemas.', 'Semak cuaca dan maklumkan jadual perjalanan kepada ibu bapa atau penjaga.', 'Pilih aktiviti yang sesuai dengan umur dan tahap kecergasan.', 'Lantik ketua kumpulan dan agihkan tugas.'], ['perancangan', 'peralatan', 'cuaca', 'ketua kumpulan']),
+    N('6.4 Keselamatan dan penjagaan alam', ['Pakai pakaian dan kasut yang sesuai dan jangan bergerak berseorangan.', 'Ikut laluan yang ditetapkan dan patuhi papan tanda.', 'Bawa balik sampah dan jangan tinggalkan kesan di tempat rekreasi.', 'Jangan mencabut tumbuhan atau mengganggu haiwan.', 'Berhenti rehat dan minum air secukupnya untuk mengelakkan keletihan haba.'], ['keselamatan', 'laluan', 'sampah', 'alam sekitar'])
+  ],
+  soalan: [
+    Q(1, IC([['person', 'Berbasikal'], ['boat', 'Berkayak'], ['shoe', 'Mendaki'], ['ball', 'Berenang']], 'Aktiviti luar.'), 'Aktiviti dalam rajah melibatkan pergerakan badan yang banyak. Jenis rekreasi ini ialah?', ['Rekreasi aktif', 'Rekreasi pasif', 'Rekreasi maya', 'Rekreasi tertutup'], 'Aktiviti yang banyak menggerakkan badan ialah rekreasi aktif.'),
+    Q(1, TR('Jenis rekreasi', ['Aktif', 'Pasif']), 'Membaca buku di perpustakaan termasuk rekreasi?', ['Pasif', 'Aktif', 'Lasak', 'Kompetitif'], 'Membaca tidak banyak melibatkan pergerakan badan, maka rekreasi pasif.'),
+    Q(1, TB(['Aktiviti', 'Jenis'], [['Mendaki bukit', 'Aktif'], ['Mendengar muzik', '?']], 'Jenis rekreasi.'), 'Mendengar muzik tergolong dalam rekreasi?', ['Pasif', 'Aktif', 'Lasak', 'Air'], 'Mendengar muzik ialah rekreasi pasif.'),
+    Q(1, FL(['Selesai tugasan sekolah', 'Bantu kerja rumah', 'Ada masa lapang', 'Mula aktiviti rekreasi']), 'Masa bebas yang diperoleh selepas menyiapkan tugas dan tanggungjawab dinamakan?', ['Masa kesenggangan', 'Masa persekolahan', 'Masa peperiksaan', 'Masa rehat tidur'], 'Masa bebas selepas tanggungjawab ialah masa kesenggangan.'),
+    Q(1, IC([['heart', 'Sihat'], ['bulb', 'Tenang'], ['group', 'Mesra']], 'Faedah rekreasi.'), 'Rekreasi yang mengeratkan hubungan dengan rakan dan keluarga memberi manfaat?', ['Sosial', 'Fizikal sahaja', 'Ekonomi sahaja', 'Teknologi'], 'Hubungan yang erat ialah manfaat sosial.'),
+    Q(1, TR('Manfaat rekreasi', ['Fizikal', 'Mental', 'Sosial']), 'Mengurangkan tekanan selepas peperiksaan ialah manfaat?', ['Mental', 'Fizikal', 'Sosial', 'Politik'], 'Mengurangkan tekanan berkaitan kesihatan mental dan emosi.'),
+    Q(1, IC([['water', 'Air'], ['bandage', 'Kit pertolongan cemas'], ['shoe', 'Kasut'], ['shield', 'Topi']], 'Keperluan mendaki.'), 'Barang yang perlu disediakan untuk mengubati luka kecil ketika berkhemah ialah?', ['Kit pertolongan cemas', 'Kasut', 'Topi', 'Air minuman'], 'Kit pertolongan cemas digunakan merawat kecederaan kecil.'),
+    Q(1, CY(['Rancang', 'Sediakan peralatan', 'Laksana', 'Nilai']), 'Langkah pertama dalam kitaran aktiviti rekreasi ialah?', ['Merancang', 'Menilai', 'Melaksana', 'Membersihkan'], 'Aktiviti bermula dengan perancangan.'),
+    Q(1, TL([['Pagi', 'Bergerak ke tapak'], ['Tengah hari', 'Rehat dan makan'], ['Petang', 'Bersih dan pulang']], -1, 'Jadual aktiviti.'), 'Selepas aktiviti di kawasan rekreasi, murid hendaklah?', ['Membersihkan kawasan dan membawa balik sampah', 'Meninggalkan sampah', 'Mengganggu haiwan', 'Memetik bunga'], 'Sampah dibawa balik untuk menjaga alam sekitar.'),
+    Q(1, TB(['Perkara', 'Tindakan'], [['Cuaca', 'Semak ramalan'], ['Jadual', '?']], 'Perancangan.'), 'Tindakan yang sesuai mengenai jadual perjalanan ialah?', ['Maklumkan kepada ibu bapa atau penjaga', 'Rahsiakan', 'Ubah di tengah jalan', 'Abaikan'], 'Jadual perjalanan dimaklumkan kepada penjaga untuk keselamatan.'),
+    Q(1, VN('Aktif', 'Pasif', ['Berbasikal'], ['Membaca'], ['Rekreasi'], 'Dua jenis.'), 'Persamaan kedua-dua jenis dalam rajah ialah?', ['Dilakukan pada masa lapang', 'Melibatkan lari pecut', 'Dilakukan dalam gelanggang', 'Tidak memerlukan masa'], 'Kedua-duanya dilakukan pada masa lapang.'),
+    Q(1, PI([['Fizikal', 40], ['Mental', 30], ['Sosial', 30]], 'Faedah rekreasi (ilustrasi).'), 'Berdasarkan rajah, manfaat yang paling besar nilainya ialah?', ['Fizikal', 'Mental', 'Sosial', 'Semuanya sama'], 'Fizikal ialah hirisan paling besar, iaitu 40 peratus.'),
+    Q(2, TR('Rekreasi luar', ['Berkhemah', 'Mendaki', 'Berkayak']), 'Aktiviti berkayak paling sesuai dilakukan di?', ['Sungai atau tasik', 'Padang pasir', 'Bilik darjah', 'Dewan'], 'Berkayak dilakukan di air seperti sungai atau tasik.'),
+    Q(2, FL(['Semak cuaca', 'Pakai kasut sesuai', 'Bawa air secukupnya', '?'], 3, 'Persediaan mendaki.'), 'Langkah akhir yang sesuai sebelum mendaki ialah?', ['Maklumkan jadual dan laluan', 'Mendaki berseorangan', 'Menanggalkan kasut', 'Mengabaikan papan tanda'], 'Jadual dan laluan dimaklumkan sebagai langkah keselamatan.'),
+    Q(2, TB(['Peralatan', 'Fungsi'], [['Topi', 'Melindungi kepala'], ['Air minuman', 'Mengelak dehidrasi'], ['Kasut', '?']], 'Peralatan.'), 'Fungsi kasut yang sesuai semasa mendaki ialah?', ['Melindungi kaki dan mengelakkan tergelincir', 'Menambah berat', 'Menjadikan lari laju', 'Menghalang cahaya'], 'Kasut sesuai melindungi kaki dan memberi cengkaman.'),
+    Q(2, PI([['Rekreasi aktif', 60], ['Rekreasi pasif', 40]], 'Masa seminggu (ilustrasi).'), 'Murid ingin lebih cergas. Dalam rajah, jenis rekreasi yang perlu ditambah ialah?', ['Rekreasi aktif', 'Rekreasi pasif', 'Kedua-duanya dikurangkan', 'Tiada rekreasi'], 'Rekreasi aktif meningkatkan kecergasan.'),
+    Q(2, VN('Dalam kawasan', 'Luar kawasan', ['Bowling'], ['Mendaki'], ['Rekreasi'], 'Tempat.'), 'Mendaki gunung termasuk rekreasi?', ['Luar kawasan', 'Dalam kawasan', 'Maya', 'Bilik tertutup'], 'Mendaki dilakukan di luar kawasan.'),
+    Q(2, CY(['Rancang', 'Laksana', 'Nilai', 'Baiki rancangan']), 'Mengapakah langkah menilai diperlukan dalam kitaran?', ['Untuk memperbaiki aktiviti seterusnya', 'Untuk menamatkan selamanya', 'Untuk memadam jadual', 'Untuk menukar peserta'], 'Penilaian membantu memperbaiki perancangan akan datang.'),
+    Q(2, BR('Minum air (ilustrasi)', ['Pagi', 'Tengah hari', 'Petang'], [2, 3, 2], 'gelas', 'Semasa berkhemah.'), 'Murid minum paling banyak pada waktu?', ['Tengah hari', 'Pagi', 'Petang', 'Sama'], 'Tengah hari ialah bar tertinggi.'),
+    Q(2, TR('Peraturan alam sekitar', ['Bawa balik sampah', 'Ikut laluan', 'Jangan ganggu haiwan']), 'Murid mencabut bunga di kawasan hutan simpan. Peraturan yang dilanggar ialah?', ['Penjagaan alam sekitar', 'Pemanasan', 'Putaran pemain', 'Peraturan servis'], 'Mencabut tumbuhan merosakkan alam sekitar.'),
+    Q(2, IC([['sun', 'Cuaca panas'], ['water', 'Air'], ['shield', 'Topi']], 'Keletihan haba.'), 'Murid berasa pening kerana cuaca panas ketika berkhemah. Tindakan sewajarnya ialah?', ['Berehat di tempat teduh dan minum air', 'Berlari lebih laju', 'Menanggalkan topi', 'Mendaki lebih tinggi'], 'Berehat di tempat teduh dan minum air mengurangkan keletihan haba.'),
+    Q(2, TL([['Pilih tempat', 'Ahli kumpulan bincang'], ['Agih tugas', 'Ketua kumpulan lantik'], ['Laksana', 'Aktiviti bermula']], 1, 'Perancangan kumpulan.'), 'Tugas yang dibuat selepas memilih tempat ialah?', ['Mengagihkan tugas', 'Membubarkan kumpulan', 'Menamatkan aktiviti', 'Menukar tempat'], 'Tugas diagihkan selepas tempat dipilih.'),
+    Q(2, TB(['Aktiviti', 'Kawasan', 'Keselamatan'], [['Berkayak', 'Sungai', 'Jaket keselamatan'], ['Mendaki', 'Bukit', 'Ikut laluan'], ['Berkhemah', 'Hutan rekreasi', '?']], 'Keselamatan.'), 'Langkah keselamatan yang sesuai untuk berkhemah ialah?', ['Berkhemah di kawasan yang dibenarkan', 'Berkhemah berseorangan', 'Membakar sampah di hutan', 'Berkhemah di tebing licin'], 'Berkhemah di kawasan yang dibenarkan lebih selamat.'),
+    Q(3, PI([['Belajar', 50], ['Tugas rumah', 20], ['Rekreasi', 10], ['Tidur', 20]], 'Penggunaan masa (ilustrasi).'), 'Murid mendapati masa rekreasinya terlalu sedikit. Cadangan terbaik ialah?', ['Menyusun semula jadual supaya ada masa rekreasi', 'Menghapuskan tidur', 'Berhenti belajar', 'Mengelak tugas rumah'], 'Jadual diatur supaya seimbang.'),
+    Q(3, TB(['Murid', 'Aktiviti', 'Masalah'], [['Dina', 'Mendaki', 'Tidak bawa air'], ['Eli', 'Berkayak', 'Tiada jaket'], ['Fay', 'Berkelah', 'Sampah ditinggalkan']], 'Laporan.'), 'Murid yang tidak menjaga alam sekitar ialah?', ['Fay', 'Dina', 'Eli', 'Tiada'], 'Fay meninggalkan sampah yang mencemarkan alam.'),
+    Q(3, FL(['Pilih aktiviti', 'Semak keselamatan', '?', 'Laksana'], 2, 'Persediaan.'), 'Langkah penting untuk petak ? sebelum melaksanakan aktiviti ialah?', ['Menyemak peralatan dan cuaca', 'Mengabaikan cuaca', 'Meninggalkan peralatan', 'Menukar kumpulan'], 'Peralatan dan cuaca disemak untuk keselamatan.'),
+    Q(3, CY(['Tiada perancangan', 'Peralatan tertinggal', 'Aktiviti terganggu', 'Rasa kecewa']), 'Kitaran masalah dalam rajah dapat dielakkan dengan?', ['Menyediakan senarai semak peralatan', 'Menambah masa lapang', 'Menghapuskan aktiviti', 'Mengelak kumpulan'], 'Senarai semak mengelakkan peralatan tertinggal.'),
+    Q(3, VN('Murid A', 'Murid B', ['Membaca'], ['Berbasikal'], ['Rehat'], 'Gaya hidup.'), 'Murid A mudah letih dan kurang cergas. Cadangan terbaik untuknya ialah?', ['Menambah rekreasi aktif', 'Menambah rekreasi pasif', 'Tidur lebih lama', 'Berhenti bersukan'], 'Rekreasi aktif meningkatkan kecergasan.'),
+    Q(3, TR('Pemilihan aktiviti', ['Sesuai umur', 'Sesuai kecergasan', 'Selamat']), 'Seorang murid kurang cergas ingin mendaki gunung tinggi. Pertimbangan terbaik ialah?', ['Memilih aktiviti yang sesuai dengan tahap kecergasan', 'Mendaki tanpa persediaan', 'Mengabaikan nasihat', 'Mendaki berseorangan'], 'Aktiviti dipilih ikut tahap kecergasan untuk keselamatan.'),
+    Q(3, BR('Sampah dikutip (ilustrasi)', ['Kumpulan 1', 'Kumpulan 2', 'Kumpulan 3'], [5, 12, 8], 'bag', 'Hari gotong-royong.'), 'Berdasarkan carta, kumpulan yang paling prihatin kepada alam sekitar ialah?', ['Kumpulan 2', 'Kumpulan 1', 'Kumpulan 3', 'Semua sama'], 'Kumpulan 2 mengutip paling banyak sampah.')
+  ]
+});
+
+BAB.push({
+  id: 7,
+  tajuk: 'Kecergasan Fizikal',
+  nota: [
+    N('7.1 Komponen kecergasan berasaskan kesihatan', ['Daya tahan kardiovaskular: keupayaan jantung dan peparu membekalkan oksigen semasa aktiviti berpanjangan.', 'Kekuatan otot: daya maksimum yang dihasilkan oleh otot dalam satu usaha.', 'Daya tahan otot: keupayaan otot bekerja berulang kali tanpa letih.', 'Kelenturan: julat pergerakan sendi.', 'Komposisi badan: perbandingan lemak dengan bahagian badan lain seperti otot dan tulang.'], ['kardiovaskular', 'kekuatan otot', 'daya tahan otot', 'kelenturan']),
+    N('7.2 Komponen kecergasan berasaskan kemahiran', ['Kelincahan: keupayaan menukar arah dengan cepat dan terkawal.', 'Imbangan: keupayaan mengekalkan kedudukan badan.', 'Koordinasi: keupayaan menggerakkan beberapa bahagian badan dengan lancar.', 'Kuasa: gabungan kekuatan dan kelajuan.', 'Kelajuan: keupayaan bergerak dengan cepat; masa tindak balas ialah kepantasan bertindak balas kepada rangsangan.'], ['kelincahan', 'imbangan', 'koordinasi', 'kuasa']),
+    N('7.3 Ujian kecergasan', ['Naik turun bangku menguji daya tahan kardiovaskular.', 'Tekan tubi atau bangkit tubi menguji daya tahan atau kekuatan otot.', 'Duduk dan jangkau menguji kelenturan.', 'Lari ulang-alik menguji kelincahan.', 'Lompat jauh berdiri menguji kuasa.', 'Indeks Jisim Badan (BMI) = berat (kg) dibahagi tinggi (m) kuasa dua; 18.5 hingga 24.9 dikira normal.'], ['ujian', 'BMI', 'kelincahan', 'kelenturan']),
+    N('7.4 Prinsip FITT dan keselamatan', ['F ialah kekerapan latihan, I ialah intensiti, T ialah masa dan T ialah jenis latihan.', 'Latihan dilakukan secara beransur-ansur dan berterusan.', 'Kadar denyutan jantung maksimum dianggarkan sebagai 220 tolak umur.', 'Makan makanan seimbang, minum air cukup dan tidur secukupnya menyokong kecergasan.', 'Lakukan pemanasan dan penyejukan setiap sesi.'], ['FITT', 'kekerapan', 'intensiti', 'denyutan jantung'])
+  ],
+  soalan: [
+    Q(1, TR('Kecergasan fizikal', ['Berasaskan kesihatan', 'Berasaskan kemahiran']), 'Kelenturan tergolong dalam kecergasan berasaskan?', ['Kesihatan', 'Kemahiran', 'Rekreasi', 'Permainan'], 'Kelenturan ialah komponen kecergasan berasaskan kesihatan.'),
+    Q(1, TB(['Komponen', 'Maksud'], [['Kekuatan otot', 'Daya maksimum otot'], ['Kelenturan', '?']], 'Komponen kecergasan.'), 'Kelenturan bermaksud?', ['Julat pergerakan sendi', 'Daya maksimum otot', 'Kelajuan bergerak', 'Kekerapan latihan'], 'Kelenturan ialah julat pergerakan sendi.'),
+    Q(1, IC([['heart', 'Jantung'], ['person', 'Peparu'], ['stopwatch', 'Aktiviti panjang']], 'Kardiovaskular.'), 'Keupayaan jantung dan peparu membekalkan oksigen semasa aktiviti berpanjangan ialah?', ['Daya tahan kardiovaskular', 'Kelincahan', 'Kuasa', 'Imbangan'], 'Itulah maksud daya tahan kardiovaskular.'),
+    Q(1, TB(['Ujian', 'Komponen'], [['Duduk dan jangkau', 'Kelenturan'], ['Lari ulang-alik', '?']], 'Ujian kecergasan.'), 'Ujian lari ulang-alik mengukur?', ['Kelincahan', 'Kelenturan', 'Kekuatan otot', 'Komposisi badan'], 'Lari ulang-alik menguji kelincahan.'),
+    Q(1, TR('Prinsip FITT', ['Kekerapan', 'Intensiti', 'Masa', 'Jenis']), 'Huruf I dalam prinsip FITT merujuk kepada?', ['Intensiti', 'Imbangan', 'Ikatan', 'Ilmu'], 'I ialah intensiti latihan.'),
+    Q(1, FL(['Pemanasan', 'Latihan utama', 'Penyejukan']), 'Aktiviti terakhir dalam sesi senaman yang betul ialah?', ['Penyejukan', 'Pemanasan', 'Latihan utama', 'Ujian'], 'Sesi ditamatkan dengan penyejukan.'),
+    Q(1, IC([['dumbbell', 'Tekan tubi'], ['person', 'Bangkit tubi']], 'Ujian otot.'), 'Tekan tubi dan bangkit tubi menguji kecergasan berkaitan?', ['Otot', 'Pendengaran', 'Penglihatan', 'Kulit'], 'Ujian itu menguji daya tahan atau kekuatan otot.'),
+    Q(1, TB(['Ujian', 'Komponen'], [['Naik turun bangku', '?'], ['Lompat jauh berdiri', 'Kuasa']], 'Ujian.'), 'Ujian naik turun bangku mengukur?', ['Daya tahan kardiovaskular', 'Kelenturan', 'Kuasa', 'Imbangan'], 'Naik turun bangku menguji daya tahan kardiovaskular.'),
+    Q(1, PY(['Ujian tinggi', 'Latihan berat', 'Aktif sederhana', 'Aktiviti harian'], 3, 'Tahap aktiviti.'), 'Aktiviti harian seperti berjalan ke sekolah berada pada peringkat?', ['Asas piramid', 'Puncak piramid', 'Tiada', 'Pertandingan'], 'Aktiviti harian menjadi asas aktiviti fizikal.'),
+    Q(1, CY(['Latihan', 'Rehat', 'Pemulihan', 'Otot lebih kuat']), 'Selepas latihan, tubuh memerlukan?', ['Rehat dan pemulihan', 'Tiada rehat', 'Latihan berterusan tanpa henti', 'Mengelak air'], 'Rehat membolehkan otot pulih dan menjadi lebih kuat.'),
+    Q(1, VN('Kardiovaskular', 'Daya tahan otot', ['Jantung'], ['Otot'], ['Tahan lama'], 'Komponen.'), 'Persamaan kedua-dua komponen ialah?', ['Berkaitan keupayaan bertahan lama', 'Mengukur kelenturan', 'Mengukur kuasa', 'Mengukur BMI'], 'Kedua-duanya melibatkan keupayaan bertahan lama.'),
+    Q(1, IC([['water', 'Minum air'], ['apple', 'Makan seimbang'], ['moon', 'Tidur cukup']], 'Gaya hidup sihat.'), 'Antara berikut, yang menyokong kecergasan ialah?', ['Makan seimbang dan tidur cukup', 'Makan terlalu banyak gula', 'Tidur lewat', 'Tidak bersenam'], 'Pemakanan seimbang dan tidur cukup menyokong kecergasan.'),
+    Q(2, TB(['Murid', 'Berat (kg)', 'Tinggi (m)'], [['Aini', '50', '1.5'], ['Bob', '70', '1.6'], ['Cik', '40', '1.5']], 'BMI = berat / tinggi kuasa dua.'), 'Berdasarkan BMI Aini, yang bernilai kira-kira 22.2, statusnya ialah?', ['Normal', 'Kurang berat', 'Lebih berat', 'Obes'], 'BMI 22.2 berada antara 18.5 dengan 24.9.'),
+    Q(2, BR('Tekan tubi (ilustrasi)', ['Minggu 1', 'Minggu 2', 'Minggu 3'], [8, 12, 16], 'kali', 'Latihan.'), 'Carta menunjukkan peningkatan tekan tubi. Komponen yang bertambah baik ialah?', ['Daya tahan otot', 'Kelenturan', 'Imbangan', 'Masa tindak balas'], 'Bilangan ulangan yang meningkat menunjukkan daya tahan otot bertambah.'),
+    Q(2, TR('Kemahiran', ['Kelincahan', 'Imbangan', 'Koordinasi']), 'Menukar arah dengan cepat dalam permainan bola jaring memerlukan?', ['Kelincahan', 'Imbangan', 'Kelenturan', 'Komposisi badan'], 'Kelincahan ialah keupayaan menukar arah dengan cepat.'),
+    Q(2, FL(['Naik bangku', 'Turun bangku', 'Ulang mengikut rentak', 'Ukur denyutan nadi']), 'Ujian itu bertujuan menilai?', ['Daya tahan kardiovaskular', 'Kelenturan', 'Kuasa', 'Imbangan'], 'Denyutan nadi selepas naik turun bangku mengukur kardiovaskular.'),
+    Q(2, TB(['Prinsip', 'Contoh'], [['Kekerapan', 'Tiga kali seminggu'], ['Masa', '30 minit'], ['Jenis', '?']], 'FITT.'), 'Contoh bagi jenis latihan ialah?', ['Berenang', 'Dua hari', 'Cepat', '30 minit'], 'Jenis latihan merujuk kepada aktiviti seperti berenang.'),
+    Q(2, PI([['Lemak', 25], ['Otot', 45], ['Tulang dan lain', 30]], 'Komposisi badan (ilustrasi).'), 'Komponen yang menunjukkan perbandingan lemak dengan otot dan tulang ialah?', ['Komposisi badan', 'Kelenturan', 'Kuasa', 'Kelajuan'], 'Itulah komposisi badan.'),
+    Q(2, IC([['person', 'Duduk'], ['dumbbell', 'Jangkau jari kaki']], 'Ujian.'), 'Duduk dan jangkau menunjukkan tahap?', ['Kelenturan', 'Kuasa', 'Kelincahan', 'Kelajuan'], 'Ujian ini mengukur kelenturan.'),
+    Q(2, CY(['Mula perlahan', 'Naikkan intensiti', 'Kekal konsisten', 'Kecergasan meningkat']), 'Prinsip latihan yang ditunjukkan ialah?', ['Beransur-ansur dan berterusan', 'Sekali sahaja', 'Mendadak', 'Berhenti'], 'Latihan dilakukan beransur-ansur dan berterusan.'),
+    Q(2, TL([['Umur', '13 tahun'], ['Kiraan', '220 tolak 13'], ['Hasil', '?']], 2, 'Denyutan jantung maksimum.'), 'Anggaran denyutan jantung maksimum murid berumur 13 tahun ialah?', ['207 dpm', '233 dpm', '13 dpm', '220 dpm'], '220 tolak 13 ialah 207 denyutan seminit.'),
+    Q(2, VN('Kekuatan otot', 'Kuasa', ['Daya maksimum'], ['Kuat + laju'], ['Otot'], 'Perbezaan.'), 'Kuasa ialah gabungan?', ['Kekuatan dan kelajuan', 'Kelenturan dan imbangan', 'Kelincahan dan masa', 'Daya tahan dan rehat'], 'Kuasa ialah gabungan kekuatan dan kelajuan.'),
+    Q(2, TR('Pemanasan', ['Naikkan suhu badan', 'Regangan', 'Lari perlahan']), 'Mengapakah pemanasan perlu dilakukan sebelum ujian kecergasan?', ['Mengurangkan risiko kecederaan', 'Menambah berat', 'Menggantikan latihan', 'Memendekkan masa'], 'Pemanasan menyediakan otot dan mengurangkan kecederaan.'),
+    Q(3, TB(['Murid', 'BMI', 'Status'], [['Dani', '17.8', '?'], ['Eka', '22.2', 'Normal'], ['Fahmi', '27.3', 'Lebih berat']], 'Hasil ujian BMI.'), 'Status bagi Dani dengan BMI 17.8 ialah?', ['Kurang berat', 'Normal', 'Lebih berat', 'Obes'], 'BMI di bawah 18.5 ialah kurang berat.'),
+    Q(3, BR('Skor ujian kelincahan (ilustrasi)', ['Pra-latihan', 'Selepas 4 minggu'], [20, 14], 'saat', 'Masa lebih singkat lebih baik.'), 'Masa murid dalam ujian berkurang selepas latihan. Kesimpulan paling tepat ialah?', ['Kelincahan bertambah baik', 'Kelincahan menurun', 'Tiada perubahan', 'Latihan tidak berguna'], 'Masa yang lebih singkat menunjukkan kelincahan meningkat.'),
+    Q(3, CY(['Kurang bergerak', 'Berat badan naik', 'Mudah letih', 'Makin kurang aktif']), 'Kitaran dalam rajah dapat diputuskan dengan?', ['Melakukan aktiviti fizikal secara berkala', 'Tidur seharian', 'Menambah makanan manis', 'Mengelak sukan'], 'Aktiviti berkala menghentikan kitaran kurang cergas.'),
+    Q(3, TR('Rancangan latihan', ['Kekerapan 3 hari', 'Masa 30 minit', 'Jenis berenang']), 'Murid ingin meningkatkan daya tahan kardiovaskular. Rancangan terbaik ialah?', ['Berenang 30 minit tiga hari seminggu', 'Duduk menonton sepanjang hari', 'Latihan sekali setahun', 'Berhenti makan'], 'Latihan teratur dan sesuai meningkatkan kardiovaskular.'),
+    Q(3, PI([['Dilakukan', 20], ['Tidak dilakukan', 80]], 'Pemanasan murid (ilustrasi).'), 'Majoriti murid tidak melakukan pemanasan. Risiko yang mungkin berlaku ialah?', ['Kecederaan otot dan sendi', 'Kecergasan meningkat', 'Tidak berlaku apa-apa', 'Kelenturan bertambah'], 'Tanpa pemanasan, risiko kecederaan meningkat.'),
+    Q(3, FL(['Tetapkan matlamat', 'Rancang latihan', 'Laksana', '?'], 3, 'Meningkatkan kecergasan.'), 'Langkah akhir yang sesuai untuk menjejaki kemajuan ialah?', ['Menilai semula melalui ujian kecergasan', 'Menghentikan latihan', 'Menukar matlamat setiap hari', 'Mengabaikan keputusan'], 'Ujian semula menilai kemajuan.'),
+    Q(3, IC([['person', 'Murid A banyak duduk'], ['heart', 'Denyutan tinggi']], 'Perbandingan.'), 'Murid A berasa penat selepas berlari 200 meter. Cadangan paling sesuai ialah?', ['Meningkatkan latihan daya tahan secara beransur-ansur', 'Berhenti bersenam', 'Berlari terus 5 kilometer', 'Mengelak minum air'], 'Peningkatan beransur-ansur selamat dan berkesan.')
+  ]
+});
+
+BAB.push({
+  id: 8,
+  no: 1,
+  tajuk: 'PEERS: Kesihatan Diri, Emosi dan Keselamatan',
+  nota: [
+    N('1.1 Kesihatan diri dan reproduktif', ['Akil baligh ialah peringkat perubahan fizikal dan emosi menuju kedewasaan.', 'Lelaki: suara menjadi garau, bulu tumbuh dan bahu bertambah lebar.', 'Perempuan: payudara membesar, pinggul melebar dan haid bermula.', 'Jaga kebersihan diri: mandi kerap, menukar pakaian dalam dan menukar tuala wanita dengan kerap ketika haid.', 'Berbincang dengan ibu bapa, guru atau doktor jika keliru tentang perubahan diri.'], ['akil baligh', 'haid', 'kebersihan', 'perubahan fizikal']),
+    N('1.2 Penyalahgunaan bahan', ['Rokok mengandungi nikotin, tar dan karbon monoksida yang merosakkan paru-paru dan jantung.', 'Vape dan alkohol juga memudaratkan kesihatan.', 'Dadah menjejaskan otak, kesihatan, keluarga dan masa depan.', 'Elakkan tekanan rakan sebaya dengan berkata tidak dengan tegas, beredar dan memilih rakan yang positif.', 'Beritahu orang dewasa yang dipercayai jika ditawarkan bahan terlarang.'], ['nikotin', 'tar', 'dadah', 'menolak']),
+    N('1.3 Pengurusan mental dan emosi', ['Emosi biasa: gembira, sedih, marah, takut dan kecewa.', 'Tekanan (stres) boleh diurus dengan bernafas dalam-dalam, bersenam, berehat dan melakukan hobi.', 'Bercerita kepada orang yang dipercayai membantu meredakan perasaan.', 'Pemikiran positif membantu menghadapi cabaran.', 'Rehat, tidur cukup dan jadual yang seimbang menyokong kesihatan mental.'], ['emosi', 'stres', 'pemikiran positif', 'hobi']),
+    N('1.4 Kekeluargaan', ['Keluarga ialah unit asas masyarakat.', 'Ahli keluarga saling menyayangi, menghormati dan bertanggungjawab.', 'Komunikasi yang baik mengeratkan hubungan dan menyelesaikan salah faham.', 'Murid membantu kerja rumah dan mematuhi nasihat ibu bapa.', 'Keluarga nuklear terdiri daripada ibu bapa dan anak; keluarga luas turut merangkumi datuk, nenek dan saudara.'], ['keluarga', 'komunikasi', 'tanggungjawab', 'hormat']),
+    N('1.5 Perhubungan', ['Rakan sebaya mempengaruhi tingkah laku, positif atau negatif.', 'Komunikasi asertif ialah menyatakan pendapat dengan tegas dan sopan.', 'Buli boleh berbentuk fizikal, lisan dan siber dan mesti dilaporkan kepada guru atau ibu bapa.', 'Hormati sempadan diri sendiri dan orang lain.', 'Pilih rakan yang menggalakkan kebaikan.'], ['rakan sebaya', 'asertif', 'buli', 'sempadan']),
+    N('1.6 Penyakit', ['Penyakit berjangkit disebarkan melalui kuman, contohnya selesema dan denggi.', 'Denggi disebarkan oleh nyamuk Aedes yang membiak dalam air bertakung.', 'Penyakit tidak berjangkit seperti diabetes dan darah tinggi tidak merebak antara orang.', 'Pencegahan: basuh tangan, imunisasi, makan seimbang dan bersenam.', 'Dapatkan rawatan doktor jika sakit berpanjangan.'], ['berjangkit', 'denggi', 'imunisasi', 'basuh tangan']),
+    N('1.7 Keselamatan', ['Di jalan raya: guna lintasan pejalan kaki, pakai topi keledar dan tali pinggang keledar.', 'Di internet: jangan kongsi maklumat peribadi dan laporkan kandungan tidak sesuai.', 'Di rumah: jauhkan bahan kimia dan alat tajam; elakkan palam elektrik berlebihan.', 'Hubungi 999 dalam kecemasan seperti kebakaran, kemalangan atau jenayah.', 'Ikut peraturan keselamatan di kolam renang dan pantai.'], ['jalan raya', 'internet', '999', 'keselamatan'])
+  ],
+  soalan: [
+    Q(1, TR('Akil baligh', ['Perubahan fizikal', 'Perubahan emosi']), 'Peringkat perubahan fizikal dan emosi menuju kedewasaan dinamakan?', ['Akil baligh', 'Bayi', 'Kanak-kanak awal', 'Warga emas'], 'Akil baligh ialah peringkat peralihan menuju dewasa.'),
+    Q(1, TB(['Jantina', 'Perubahan'], [['Lelaki', 'Suara menjadi garau'], ['Perempuan', '?']], 'Perubahan fizikal.'), 'Perubahan yang berlaku pada perempuan semasa akil baligh ialah?', ['Haid bermula', 'Suara menjadi garau', 'Tinggi berkurang', 'Tidak berubah'], 'Haid bermula pada perempuan semasa akil baligh.'),
+    Q(1, IC([['water', 'Mandi'], ['apple', 'Makan sihat'], ['shield', 'Pakaian bersih']], 'Kebersihan diri.'), 'Amalan dalam rajah membantu menjaga?', ['Kebersihan diri', 'Penyalahgunaan bahan', 'Buli', 'Kemalangan'], 'Mandi dan pakaian bersih ialah amalan kebersihan diri.'),
+    Q(1, TR('Bahan dalam rokok', ['Nikotin', 'Tar', 'Karbon monoksida']), 'Bahan dalam rokok yang menyebabkan ketagihan ialah?', ['Nikotin', 'Tar', 'Karbon monoksida', 'Oksigen'], 'Nikotin menyebabkan ketagihan.'),
+    Q(1, FL(['Ditawarkan rokok', 'Katakan tidak dengan tegas', 'Beredar dari situ', 'Beritahu orang dewasa dipercayai']), 'Tindakan yang betul apabila ditawarkan rokok ialah?', ['Menolak dengan tegas dan beredar', 'Mencuba sekali', 'Menerima kerana malu', 'Menyimpan rahsia'], 'Menolak dengan tegas dan beredar melindungi diri.'),
+    Q(1, IC([['heart', 'Gembira'], ['water', 'Sedih'], ['fire', 'Marah']], 'Emosi.'), 'Perasaan seperti gembira, sedih dan marah dikenali sebagai?', ['Emosi', 'Penyakit', 'Bahan terlarang', 'Peralatan'], 'Itu ialah emosi manusia.'),
+    Q(1, CY(['Bernafas dalam-dalam', 'Rasa tenang', 'Berfikir jelas', 'Ambil tindakan']), 'Bernafas dalam-dalam membantu murid ketika?', ['Berasa tertekan', 'Bermain bola', 'Makan', 'Tidur nyenyak'], 'Bernafas dalam-dalam menenangkan badan ketika stres.'),
+    Q(1, TR('Keluarga', ['Ibu bapa', 'Anak', 'Datuk dan nenek']), 'Keluarga ialah?', ['Unit asas masyarakat', 'Unit pentadbiran negara', 'Unit tentera', 'Unit sekolah'], 'Keluarga ialah unit terkecil dan asas masyarakat.'),
+    Q(1, TB(['Jenis buli', 'Contoh'], [['Fizikal', 'Memukul'], ['Lisan', 'Mengejek'], ['Siber', '?']], 'Buli.'), 'Contoh buli siber ialah?', ['Menghantar mesej menghina dalam talian', 'Menolak murid', 'Memanggil nama buruk', 'Merampas bekal'], 'Buli siber berlaku melalui telefon atau internet.'),
+    Q(1, VN('Selesema', 'Diabetes', ['Berjangkit'], ['Tak berjangkit'], ['Penyakit'], 'Jenis penyakit.'), 'Selesema tergolong dalam penyakit?', ['Berjangkit', 'Tidak berjangkit', 'Genetik sahaja', 'Tiada'], 'Selesema disebarkan melalui kuman dan berjangkit.'),
+    Q(1, FL(['Nyamuk Aedes bertelur', 'Air bertakung', 'Jentik-jentik membesar', 'Nyamuk dewasa']), 'Nyamuk yang menyebarkan denggi membiak di?', ['Air bertakung', 'Tanah kering', 'Pasir panas', 'Ais'], 'Aedes membiak dalam air bertakung.'),
+    Q(1, IC([['shield', 'Topi keledar'], ['person', 'Lintasan pejalan kaki'], ['whistle', '999']], 'Keselamatan.'), 'Nombor kecemasan di Malaysia ialah?', ['999', '123', '555', '777'], 'Nombor 999 digunakan untuk kecemasan.'),
+    Q(2, TB(['Bahan', 'Kesan'], [['Nikotin', 'Ketagihan'], ['Tar', 'Merosakkan paru-paru'], ['Karbon monoksida', '?']], 'Bahan rokok.'), 'Kesan karbon monoksida ialah?', ['Mengurangkan oksigen dalam darah', 'Menambah oksigen', 'Menyejukkan badan', 'Menambah berat'], 'Karbon monoksida mengurangkan bekalan oksigen dalam darah.'),
+    Q(2, TR('Pengurusan stres', ['Bersenam', 'Bercerita', 'Hobi']), 'Murid tertekan kerana ujian. Cara terbaik menguruskannya ialah?', ['Bercerita kepada guru atau ibu bapa', 'Menyalahkan rakan', 'Mengelak sekolah', 'Memendam sahaja'], 'Bercerita meredakan perasaan dan mencari penyelesaian.'),
+    Q(2, FL(['Kenal pasti punca stres', 'Rancang jadual', 'Beri masa rehat', '?'], 3, 'Mengurus stres.'), 'Langkah seterusnya yang sesuai ialah?', ['Laksana jadual dan nilai semula', 'Abaikan jadual', 'Tinggalkan tugasan', 'Marah-marah'], 'Jadual dilaksana dan dinilai untuk menyelesaikan masalah.'),
+    Q(2, BR('Punca tekanan (ilustrasi)', ['Ujian', 'Rakan', 'Keluarga'], [12, 5, 3], 'orang', 'Kaji selidik 20 murid.'), 'Punca tekanan paling ramai dialami murid ialah?', ['Ujian', 'Rakan', 'Keluarga', 'Sama'], 'Ujian mempunyai bar tertinggi.'),
+    Q(2, VN('Asertif', 'Agresif', ['Sopan'], ['Kasar'], ['Berpendapat'], 'Cara komunikasi.'), 'Komunikasi yang menyatakan pendapat dengan tegas dan sopan ialah?', ['Asertif', 'Agresif', 'Pasif', 'Diam'], 'Asertif ialah tegas tetapi sopan.'),
+    Q(2, TB(['Tindakan', 'Penilaian'], [['Basuh tangan', 'Mencegah penyakit'], ['Imunisasi', 'Mencegah penyakit'], ['Berkongsi berus gigi', '?']], 'Kesihatan.'), 'Berkongsi berus gigi dinilai sebagai?', ['Tidak sihat kerana menyebarkan kuman', 'Sihat', 'Menjimatkan', 'Disyorkan'], 'Berus gigi tidak boleh dikongsi kerana kuman boleh berpindah.'),
+    Q(2, CY(['Air bertakung', 'Aedes membiak', 'Denggi menyebar', 'Bersihkan persekitaran']), 'Langkah yang memutuskan kitaran denggi ialah?', ['Menghapuskan air bertakung', 'Menyimpan bekas air', 'Membiarkan sampah', 'Menutup tingkap'], 'Air bertakung dihapuskan untuk mengelakkan pembiakan Aedes.'),
+    Q(2, TR('Peranan keluarga', ['Kasih sayang', 'Nasihat', 'Penjagaan']), 'Murid membantu kerja rumah. Nilai yang ditunjukkan ialah?', ['Tanggungjawab', 'Pentingkan diri', 'Malas', 'Sombong'], 'Membantu kerja rumah menunjukkan tanggungjawab.'),
+    Q(2, IC([['person', 'Jangan kongsi nama penuh'], ['shield', 'Jangan kongsi kata laluan']], 'Keselamatan internet.'), 'Maklumat yang tidak patut dikongsi dengan orang asing dalam talian ialah?', ['Kata laluan dan alamat rumah', 'Nama kumpulan sukan', 'Warna kegemaran', 'Hobi umum'], 'Maklumat peribadi mesti dilindungi.'),
+    Q(2, PI([['Berjaga-jaga', 60], ['Cuai', 25], ['Tidak peduli', 15]], 'Sikap di jalan raya (ilustrasi).'), 'Sikap yang mengurangkan risiko kemalangan ialah?', ['Berjaga-jaga', 'Tidak peduli', 'Berlari melintas', 'Bermain di jalan'], 'Berjaga-jaga di jalan raya melindungi diri.'),
+    Q(2, TB(['Penyakit', 'Jenis'], [['Denggi', 'Berjangkit'], ['Diabetes', '?']], 'Penyakit.'), 'Diabetes tergolong dalam penyakit?', ['Tidak berjangkit', 'Berjangkit', 'Disebarkan nyamuk', 'Disebarkan udara'], 'Diabetes tidak merebak daripada seorang kepada seorang lain.'),
+    Q(3, TL([['Kawan mengajak', 'Cuba vape'], ['Murid rasa tertekan', 'Takut dipulaukan'], ['Keputusan', '?']], 2, 'Tekanan rakan sebaya.'), 'Keputusan terbaik murid ialah?', ['Menolak dan mencari rakan yang positif', 'Menerima untuk diterima', 'Mencuba sekali', 'Menyimpan di beg'], 'Menolak melindungi kesihatan dan membina rakan yang baik.'),
+    Q(3, TB(['Murid', 'Tindakan', 'Penilaian'], [['Ali', 'Ejek rakan', 'Buli'], ['Bina', 'Lapor kepada guru', 'Betul'], ['Cho', 'Ketawa melihat', '?']], 'Insiden buli.'), 'Penilaian terhadap tindakan Cho yang ketawa melihat buli ialah?', ['Menyokong buli dan tidak wajar', 'Betul', 'Neutral', 'Menyelesaikan masalah'], 'Ketawa memberi dorongan kepada pembuli.'),
+    Q(3, CY(['Rasa ditinggalkan', 'Menyendiri', 'Lebih sedih', 'Tidak bercerita']), 'Murid sedih berpanjangan. Langkah yang memutuskan kitaran ini ialah?', ['Menceritakan perasaan kepada orang dipercayai', 'Menyendiri lagi', 'Menyalahkan diri', 'Mengelak semua orang'], 'Bercerita membuka jalan mendapatkan sokongan.'),
+    Q(3, BR('Kes denggi sebulan (ilustrasi)', ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'], [12, 9, 5, 2], 'kes', 'Selepas kempen.'), 'Kes denggi menurun selepas kempen. Kesimpulan terbaik ialah?', ['Kempen membersih air bertakung berkesan', 'Kempen tidak berguna', 'Denggi tidak wujud', 'Nyamuk bertambah'], 'Penurunan kes menunjukkan kempen berkesan.'),
+    Q(3, VN('Keluarga nuklear', 'Keluarga luas', ['Ibu bapa, anak'], ['Ada datuk'], ['Kasih sayang'], 'Jenis keluarga.'), 'Persamaan kedua-dua jenis keluarga ialah?', ['Berasaskan kasih sayang dan tanggungjawab', 'Tinggal di bandar', 'Ada empat anak', 'Tiada nilai'], 'Kedua-duanya berasaskan kasih sayang dan tanggungjawab.'),
+    Q(3, FL(['Terima mesej asing', 'Jangan balas', 'Simpan bukti', '?'], 3, 'Keselamatan internet.'), 'Langkah akhir yang sesuai ialah?', ['Laporkan kepada ibu bapa atau guru', 'Balas dengan marah', 'Padam sahaja tanpa beritahu', 'Kongsi dengan orang asing'], 'Kejadian dilaporkan kepada orang dewasa dipercayai.'),
+    Q(3, TR('Kebersihan haid', ['Tukar tuala kerap', 'Mandi', 'Basuh tangan']), 'Mengapakah tuala wanita perlu ditukar dengan kerap?', ['Mengelakkan kuman dan bau', 'Menjimatkan wang', 'Menambah bau', 'Mengurangkan mandi'], 'Penukaran kerap menjaga kebersihan dan mencegah jangkitan.')
+  ]
+});
+
+BAB.push({
+  id: 9,
+  no: 2,
+  tajuk: 'Pemakanan',
+  nota: [
+    N('2.1 Kelas makanan dan fungsinya', ['Karbohidrat membekalkan tenaga: nasi, roti, mi dan ubi.', 'Protein membina dan membaiki sel badan: ikan, ayam, telur, kekacang dan susu.', 'Lemak membekalkan tenaga simpanan dan melindungi organ: minyak, mentega, kacang.', 'Vitamin dan mineral mengawal fungsi badan dan melindungi daripada penyakit.', 'Serat mencegah sembelit dan terdapat dalam sayur, buah dan bijirin penuh.', 'Air mengawal suhu badan dan mengangkut nutrien; minum enam hingga lapan gelas sehari.'], ['karbohidrat', 'protein', 'lemak', 'vitamin', 'serat']),
+    N('2.2 Piramid Makanan dan Pinggan Sihat', ['Piramid Makanan menunjukkan kuantiti makanan yang perlu diambil: banyak di asas, sedikit di puncak.', 'Nasi, bijirin dan ubi berada di asas; gula, garam dan minyak di puncak dan hendaklah secukupnya.', 'Pinggan Sihat Malaysia (suku-suku-separuh): separuh sayur dan buah, suku nasi atau bijirin, suku ikan, ayam atau lauk.', 'Ambil pelbagai jenis makanan setiap hari.'], ['piramid makanan', 'pinggan sihat', 'asas', 'secukupnya']),
+    N('2.3 Pemakanan seimbang dan kekurangan nutrien', ['Pemakanan seimbang mengandungi semua kelas makanan dalam kuantiti yang betul.', 'Kekurangan zat besi menyebabkan anemia; kekurangan vitamin C menyebabkan skurvi; kekurangan kalsium melemahkan tulang.', 'Terlalu banyak gula, garam dan lemak meningkatkan risiko obesiti, diabetes dan darah tinggi.', 'Sarapan membekalkan tenaga dan meningkatkan tumpuan di sekolah.'], ['seimbang', 'anemia', 'skurvi', 'obesiti']),
+    N('2.4 Label pemakanan dan amalan makan sihat', ['Baca label: tarikh luput, kandungan gula, garam dan tenaga.', 'Kurangkan minuman manis dan makanan segera.', 'Makan perlahan dan mengikut waktu yang tetap.', 'Pastikan makanan bersih dan dimasak dengan betul.', 'Pilih makanan yang dikukus, direbus atau dibakar berbanding digoreng.'], ['label', 'tarikh luput', 'gula', 'dikukus'])
+  ],
+  soalan: [
+    Q(1, TB(['Kelas makanan', 'Fungsi'], [['Karbohidrat', 'Membekalkan tenaga'], ['Protein', '?']], 'Fungsi nutrien.'), 'Fungsi utama protein ialah?', ['Membina dan membaiki sel badan', 'Membekalkan tenaga segera sahaja', 'Mengawal suhu', 'Mencegah sembelit'], 'Protein membina dan membaiki sel badan.'),
+    Q(1, IC([['wheat', 'Nasi'], ['wheat', 'Roti'], ['wheat', 'Ubi']], 'Sumber tenaga.'), 'Makanan dalam rajah kaya dengan?', ['Karbohidrat', 'Protein', 'Vitamin C', 'Air'], 'Nasi, roti dan ubi ialah sumber karbohidrat.'),
+    Q(1, PI([['Sayur dan buah', 50], ['Nasi atau bijirin', 25], ['Ikan atau ayam', 25]], 'Pinggan Sihat Malaysia.'), 'Berdasarkan Pinggan Sihat Malaysia, bahagian paling besar diisi dengan?', ['Sayur dan buah', 'Nasi', 'Ikan', 'Minyak'], 'Separuh pinggan diisi sayur dan buah.'),
+    Q(1, PY(['Gula, garam, minyak', 'Susu dan produk', 'Ikan, daging, kekacang', 'Sayur dan buah', 'Nasi dan bijirin'], 0, 'Piramid Makanan.'), 'Makanan di puncak piramid itu hendaklah diambil?', ['Secukupnya sahaja', 'Paling banyak', 'Setiap kali makan sebagai utama', 'Tidak boleh langsung'], 'Gula, garam dan minyak di puncak perlu secukupnya.'),
+    Q(1, TR('Nutrien', ['Karbohidrat', 'Protein', 'Lemak', 'Vitamin']), 'Nutrien yang membekalkan tenaga simpanan dalam badan ialah?', ['Lemak', 'Serat', 'Air', 'Mineral'], 'Lemak menyimpan tenaga dan melindungi organ.'),
+    Q(1, IC([['water', 'Air'], ['apple', 'Sayur'], ['wheat', 'Bijirin penuh']], 'Makanan sihat.'), 'Serat membantu mencegah?', ['Sembelit', 'Demam', 'Selesema', 'Batuk'], 'Serat melancarkan pergerakan usus dan mencegah sembelit.'),
+    Q(1, FL(['Pilih bahan segar', 'Cuci bersih', 'Masak hingga masak', 'Hidang']), 'Langkah menyediakan makanan yang bersih bermula dengan?', ['Memilih bahan segar', 'Menghidang', 'Memakan', 'Membuang'], 'Bahan segar dipilih terlebih dahulu.'),
+    Q(1, TB(['Nutrien', 'Sumber'], [['Vitamin C', 'Jambu batu'], ['Kalsium', '?']], 'Sumber nutrien.'), 'Sumber kalsium yang baik ialah?', ['Susu', 'Gula', 'Garam', 'Minyak'], 'Susu kaya dengan kalsium untuk tulang.'),
+    Q(1, CY(['Makan sarapan', 'Bertenaga', 'Tumpuan baik', 'Prestasi meningkat']), 'Faedah makan sarapan ialah?', ['Meningkatkan tumpuan di sekolah', 'Menambah berat sahaja', 'Menghilangkan dahaga', 'Memendekkan masa'], 'Sarapan membekalkan tenaga dan tumpuan.'),
+    Q(1, TR('Pemakanan seimbang', ['Pelbagai makanan', 'Kuantiti betul', 'Air mencukupi']), 'Pemakanan seimbang ialah pemakanan yang mengandungi?', ['Semua kelas makanan dalam kuantiti betul', 'Hanya nasi', 'Hanya daging', 'Hanya manisan'], 'Pemakanan seimbang meliputi semua kelas makanan secara betul.'),
+    Q(1, IC([['water', '6-8 gelas'], ['heart', 'Sihat']], 'Air.'), 'Jumlah air yang disarankan untuk diminum sehari ialah?', ['Enam hingga lapan gelas', 'Satu gelas', 'Dua gelas', 'Dua puluh gelas'], 'Enam hingga lapan gelas menjaga hidrasi.'),
+    Q(1, VN('Sayur', 'Buah', ['Bayam'], ['Pisang'], ['Serat'], 'Makanan sihat.'), 'Persamaan sayur dan buah ialah kaya dengan?', ['Serat dan vitamin', 'Lemak tepu', 'Gula sahaja', 'Garam'], 'Kedua-duanya kaya serat dan vitamin.'),
+    Q(2, TB(['Kekurangan', 'Penyakit'], [['Zat besi', 'Anemia'], ['Vitamin C', 'Skurvi'], ['Kalsium', '?']], 'Kekurangan nutrien.'), 'Kekurangan kalsium menyebabkan?', ['Tulang lemah', 'Skurvi', 'Anemia', 'Rabun senja'], 'Kalsium diperlukan untuk tulang dan gigi yang kuat.'),
+    Q(2, BR('Tenaga setiap gram', ['Karbohidrat', 'Protein', 'Lemak'], [4, 4, 9], 'kkal', 'Tenaga dibekalkan.'), 'Nutrien yang membekalkan tenaga paling banyak setiap gram ialah?', ['Lemak', 'Karbohidrat', 'Protein', 'Semuanya sama'], 'Lemak membekalkan 9 kkal setiap gram.'),
+    Q(2, PI([['Karbohidrat', 55], ['Protein', 15], ['Lemak', 30]], 'Pecahan tenaga (ilustrasi).'), 'Berdasarkan rajah, nutrien yang menyumbang tenaga paling besar ialah?', ['Karbohidrat', 'Protein', 'Lemak', 'Serat'], 'Karbohidrat ialah hirisan terbesar.'),
+    Q(2, PY(['Gula, garam, minyak', 'Susu dan produk', 'Ikan, daging, kekacang', 'Sayur dan buah', 'Nasi dan bijirin'], 4, 'Piramid Makanan.'), 'Makanan di asas piramid perlu diambil?', ['Paling banyak', 'Paling sedikit', 'Tidak perlu', 'Sekali seminggu'], 'Asas piramid ialah kuantiti terbesar.'),
+    Q(2, IC([['bandage', 'Letih dan pucat'], ['apple', 'Kurang zat besi']], 'Gejala.'), 'Murid pucat dan mudah letih. Penyakit yang mungkin berpunca daripada kurang zat besi ialah?', ['Anemia', 'Skurvi', 'Tulang lembut', 'Sembelit'], 'Kurang zat besi menyebabkan anemia.'),
+    Q(2, TB(['Label', 'Maksud'], [['Tarikh luput', 'Had akhir makanan selamat'], ['Gula', 'Kandungan manis'], ['Natrium', '?']], 'Label makanan.'), 'Natrium pada label makanan merujuk kepada?', ['Garam', 'Gula', 'Lemak', 'Serat'], 'Natrium ialah komponen garam.'),
+    Q(2, FL(['Baca label', 'Semak tarikh luput', 'Banding kandungan gula', '?'], 3, 'Memilih makanan.'), 'Selepas membandingkan label, langkah terakhir yang sesuai ialah?', ['Pilih produk yang lebih sihat', 'Pilih yang paling manis', 'Abaikan tarikh luput', 'Beli semuanya'], 'Pilih produk dengan gula dan garam yang lebih rendah.'),
+    Q(2, TR('Kaedah memasak sihat', ['Mengukus', 'Merebus', 'Membakar']), 'Antara berikut, kaedah memasak yang paling kurang minyak ialah?', ['Mengukus', 'Menggoreng dalam minyak banyak', 'Menumis berminyak', 'Menggoreng berulang'], 'Mengukus menggunakan sedikit atau tiada minyak.'),
+    Q(2, CY(['Kurang sayur', 'Sembelit', 'Tidak selesa', 'Makan lebih sayur']), 'Murid sembelit. Makanan yang patut ditambah ialah?', ['Sayur dan buah', 'Gula-gula', 'Makanan segera', 'Minuman bergas'], 'Sayur dan buah kaya serat.'),
+    Q(2, VN('Vitamin', 'Mineral', ['Vitamin C'], ['Zat besi'], ['Dari makanan'], 'Mikronutrien.'), 'Persamaan vitamin dan mineral ialah?', ['Diperlukan dalam kuantiti kecil untuk mengawal fungsi badan', 'Memberi tenaga besar', 'Membina otot utama', 'Tiada fungsi'], 'Kedua-duanya diperlukan sedikit untuk fungsi badan.'),
+    Q(2, IC([['apple', 'Jambu batu'], ['apple', 'Oren'], ['apple', 'Betik']], 'Buah-buahan.'), 'Buah dalam rajah kaya dengan vitamin yang mencegah skurvi, iaitu?', ['Vitamin C', 'Vitamin D', 'Kalsium', 'Zat besi'], 'Kekurangan vitamin C menyebabkan skurvi; buah segar membekalkan vitamin C.'),
+    Q(3, BR('Gula dalam minuman (ilustrasi)', ['Air kosong', 'Jus buah', 'Minuman bergas'], [0, 10, 35], 'gram', 'Setiap tin.'), 'Murid ingin mengurangkan gula. Pilihan terbaik berdasarkan carta ialah?', ['Air kosong', 'Minuman bergas', 'Jus buah botol', 'Minuman manis'], 'Air kosong tiada gula.'),
+    Q(3, PI([['Nasi', 70], ['Sayur', 10], ['Lauk', 20]], 'Pinggan murid (ilustrasi).'), 'Pinggan murid terlalu banyak nasi dan sedikit sayur. Penambahbaikan yang sesuai ialah?', ['Tambah sayur dan kurangkan nasi', 'Tambah nasi lagi', 'Buang lauk', 'Tambah manisan'], 'Pinggan sihat memerlukan separuh sayur dan buah.'),
+    Q(3, TB(['Murid', 'Makanan sehari', 'Masalah'], [['Hadi', 'Makanan segera', 'Garam tinggi'], ['Ira', 'Tiada sarapan', 'Lemah tumpuan'], ['Jun', 'Sayur cukup', 'Tiada']], 'Rekod.'), 'Murid yang paling berisiko mengalami darah tinggi ialah?', ['Hadi', 'Ira', 'Jun', 'Tiada'], 'Garam yang tinggi meningkatkan risiko darah tinggi.'),
+    Q(3, CY(['Makan lebih', 'Berat bertambah', 'Obesiti', 'Risiko diabetes']), 'Langkah terbaik untuk memutuskan kitaran itu ialah?', ['Makan seimbang dan bersenam', 'Menambah makan', 'Tidur banyak', 'Berhenti sarapan'], 'Makan seimbang dan senaman mengawal berat badan.'),
+    Q(3, TR('Tindakan bijak', ['Baca label', 'Kurang gula', 'Banyak air']), 'Murid memilih dua minuman. Minuman A mengandungi 5 gram gula manakala B mengandungi 30 gram gula. Pilihan terbaik ialah?', ['A kerana kurang gula', 'B kerana lebih manis', 'Kedua-duanya sama', 'Tiada yang sesuai'], 'Minuman bergula rendah lebih baik untuk kesihatan.'),
+    Q(3, FL(['Tiada sarapan', 'Lapar', 'Sukar fokus', '?'], 3, 'Kesan tidak bersarapan.'), 'Kesan yang mungkin berlaku pada akhir rajah ialah?', ['Prestasi pembelajaran menurun', 'Tumpuan meningkat', 'Tenaga berlebihan', 'Tiada kesan'], 'Tidak bersarapan menjejaskan tumpuan dan prestasi.'),
+    Q(3, IC([['apple', 'Buah'], ['water', 'Air'], ['wheat', 'Bijirin penuh'], ['dumbbell', 'Senaman']], 'Gaya hidup sihat.'), 'Seorang murid ingin meningkatkan tahap kesihatan keseluruhan. Gabungan terbaik ialah?', ['Makan seimbang, minum air dan bersenam', 'Hanya makan manis', 'Hanya duduk', 'Hanya tidur'], 'Gabungan pemakanan seimbang dan senaman menjaga kesihatan.')
+  ]
+});
+
+BAB.push({
+  id: 10,
+  no: 3,
+  tajuk: 'Pertolongan Cemas',
+  nota: [
+    N('3.1 Konsep pertolongan cemas', ['Pertolongan cemas ialah bantuan segera yang diberikan kepada mangsa kecederaan atau penyakit sebelum bantuan perubatan tiba.', 'Matlamat: menyelamatkan nyawa, mencegah keadaan bertambah teruk dan membantu pemulihan.', 'Penolong mesti bertenang, menilai keadaan dan memastikan keselamatan diri serta mangsa.', 'Hubungi 999 untuk kecemasan yang serius.', 'Kit pertolongan cemas mengandungi pembalut, kapas, plaster, gunting, sarung tangan dan antiseptik.'], ['pertolongan cemas', '999', 'kit', 'keselamatan']),
+    N('3.2 Luka, perdarahan dan melecur', ['Luka kecil: basuh tangan, cuci luka dengan air bersih, sapu antiseptik dan tutup dengan plaster.', 'Perdarahan: tekan luka dengan kain bersih dan tinggikan bahagian yang cedera jika sesuai.', 'Melecur: sejukkan kawasan dengan air mengalir bersih selama sekurang-kurangnya sepuluh minit.', 'Jangan pecahkan lepuh atau sapu ubat gigi, mentega atau minyak pada kulit yang melecur.', 'Dapatkan bantuan doktor jika luka dalam atau melecur teruk.'], ['luka', 'perdarahan', 'melecur', 'air mengalir']),
+    N('3.3 Terseliuh, patah dan mimisan', ['Terseliuh: ikut kaedah RICE iaitu Rehat, Ais, Mampatan dan Tinggikan.', 'Kecederaan tulang yang disyaki patah: jangan gerakkan bahagian itu, tahan dengan splin dan dapatkan bantuan perubatan.', 'Mimisan: duduk, condong sedikit ke hadapan dan picit bahagian lembut hidung selama kira-kira sepuluh minit.', 'Jangan dongak kepala semasa mimisan.'], ['RICE', 'splin', 'mimisan', 'terseliuh']),
+    N('3.4 Pengsan, tercekik dan sengatan', ['Pengsan: baringkan mangsa, tinggikan kaki dan longgarkan pakaian yang ketat.', 'Tercekik: galakkan batuk; jika tidak berjaya, dapatkan bantuan dan hubungi 999.', 'Sengatan lebah: cabut sengat dengan menggores keluar dan sejukkan kawasan itu.', 'Keletihan haba: pindahkan mangsa ke tempat teduh dan beri minum air.', 'Sentiasa pastikan pernafasan mangsa.'], ['pengsan', 'tercekik', 'sengatan', 'keletihan haba'])
+  ],
+  soalan: [
+    Q(1, TR('Matlamat pertolongan cemas', ['Selamatkan nyawa', 'Cegah bertambah teruk', 'Bantu pemulihan']), 'Matlamat pertama pertolongan cemas ialah?', ['Menyelamatkan nyawa', 'Menghukum mangsa', 'Mencari salah', 'Memberi ubat tanpa nasihat'], 'Menyelamatkan nyawa ialah matlamat utama.'),
+    Q(1, IC([['bandage', 'Pembalut'], ['plus', 'Plaster'], ['shield', 'Sarung tangan'], ['water', 'Antiseptik']], 'Kit pertolongan cemas.'), 'Alat yang digunakan untuk membalut luka dalam kit ialah?', ['Pembalut', 'Wisel', 'Kompas', 'Peta'], 'Pembalut digunakan untuk menutup dan menekan luka.'),
+    Q(1, FL(['Bertenang', 'Nilai keadaan', 'Pastikan selamat', 'Berikan pertolongan']), 'Langkah pertama seorang penolong cemas ialah?', ['Bertenang', 'Berlari pergi', 'Menjerit', 'Memindahkan mangsa dengan kasar'], 'Penolong mesti bertenang terlebih dahulu.'),
+    Q(1, IC([['whistle', '999']], 'Nombor kecemasan Malaysia.'), 'Nombor yang dihubungi untuk bantuan kecemasan ialah?', ['999', '100', '444', '888'], 'Nombor kecemasan di Malaysia ialah 999.'),
+    Q(1, FL(['Basuh tangan', 'Cuci luka dengan air bersih', 'Sapu antiseptik', 'Tutup dengan plaster']), 'Rajah menunjukkan cara merawat?', ['Luka kecil', 'Patah tulang', 'Pengsan', 'Mimisan'], 'Langkah dalam rajah ialah rawatan luka kecil.'),
+    Q(1, CY(['Rehat', 'Ais', 'Mampatan', 'Tinggikan']), 'Kaedah RICE digunakan untuk merawat?', ['Terseliuh', 'Mimisan', 'Pengsan', 'Tercekik'], 'RICE ialah rawatan untuk terseliuh.'),
+    Q(1, TB(['Kecederaan', 'Rawatan'], [['Melecur', 'Sejukkan dengan air mengalir'], ['Mimisan', '?']], 'Rawatan.'), 'Rawatan mimisan yang betul ialah?', ['Picit bahagian lembut hidung sambil condong sedikit ke hadapan', 'Dongakkan kepala', 'Baringkan mangsa', 'Sumbat dengan kapas'], 'Hidung dipicit dan kepala dicondongkan sedikit ke hadapan.'),
+    Q(1, IC([['water', 'Air mengalir'], ['stopwatch', '10 minit']], 'Rawatan melecur.'), 'Melecur dirawat dengan air mengalir selama sekurang-kurangnya?', ['Sepuluh minit', 'Satu minit', 'Dua minit', 'Satu jam'], 'Air mengalir perlu sekurang-kurangnya sepuluh minit.'),
+    Q(1, TR('Kecederaan', ['Luka', 'Melecur', 'Terseliuh']), 'Kulit melecur kerana air panas tergolong dalam kecederaan?', ['Melecur', 'Luka tikam', 'Terseliuh', 'Patah'], 'Kulit terkena haba ialah melecur.'),
+    Q(1, VN('Pengsan', 'Mimisan', ['Baring mangsa'], ['Condong'], ['Tenang'], 'Keadaan.'), 'Sikap penolong yang sama bagi kedua-dua keadaan ialah?', ['Tenang dan membantu', 'Panik', 'Menjerit', 'Beredar'], 'Penolong sentiasa tenang.'),
+    Q(1, TL([['Cedera', 'Murid terjatuh'], ['Pertolongan', 'Rawat luka'], ['Bantuan', 'Hubungi 999 jika serius']], -1, 'Urutan.'), 'Bantuan perubatan dihubungi apabila?', ['Kecederaan serius', 'Luka sangat kecil sahaja', 'Murid bermain', 'Tidak perlu'], 'Kecederaan serius memerlukan bantuan 999.'),
+    Q(1, IC([['person', 'Baring'], ['dumbbell', 'Tinggi kaki']], 'Pengsan.'), 'Murid pengsan selepas berdiri lama. Kedudukan yang betul ialah?', ['Baring dan tinggikan kaki', 'Duduk tegak', 'Berdiri semula', 'Berlari'], 'Baring dan tinggikan kaki meningkatkan aliran darah ke kepala.'),
+    Q(2, FL(['Tekan luka dengan kain bersih', 'Tinggikan bahagian cedera', 'Balut', '?'], 3, 'Perdarahan.'), 'Langkah seterusnya jika darah tidak berhenti ialah?', ['Dapatkan bantuan perubatan', 'Buka balutan', 'Cuci terus', 'Abaikan'], 'Darah yang berterusan memerlukan bantuan perubatan.'),
+    Q(2, TB(['R-I-C-E', 'Maksud'], [['R', 'Rehat'], ['I', 'Ais'], ['C', '?']], 'RICE.'), 'Huruf C dalam RICE bermaksud?', ['Mampatan', 'Cuci', 'Cepat', 'Cara'], 'C bermaksud mampatan.'),
+    Q(2, TR('Kit pertolongan cemas', ['Pembalut', 'Gunting', 'Antiseptik']), 'Antiseptik digunakan untuk?', ['Membersihkan luka', 'Memotong', 'Menggantikan air', 'Menyejukkan'], 'Antiseptik membunuh kuman pada luka.'),
+    Q(2, IC([['bandage', 'Splin'], ['person', 'Tangan patah']], 'Patah tulang.'), 'Bahagian yang disyaki patah perlu?', ['Ditahan dan tidak digerakkan', 'Digerakkan banyak', 'Ditarik', 'Dipicit'], 'Bahagian patah perlu ditahan.'),
+    Q(2, CY(['Letih', 'Panas', 'Pening', 'Berehat dan minum']), 'Keletihan haba dirawat dengan?', ['Berehat di tempat teduh dan minum air', 'Berlari', 'Berjemur', 'Menahan haus'], 'Mangsa dipindahkan ke tempat teduh dan diberi air.'),
+    Q(2, VN('Luka kecil', 'Luka dalam', ['Plaster'], ['Doktor'], ['Cuci luka'], 'Rawatan.'), 'Persamaan rawatan kedua-dua luka ialah?', ['Luka dicuci dan dibersihkan', 'Tiada rawatan', 'Dibiarkan', 'Disapu ubat gigi'], 'Luka perlu dibersihkan.'),
+    Q(2, TB(['Perbuatan', 'Betul?'], [['Pecah lepuh', 'Tidak'], ['Air mengalir pada melecur', 'Ya'], ['Sapu mentega', '?']], 'Melecur.'), 'Menyapu mentega pada kulit melecur ialah?', ['Salah', 'Betul', 'Digalakkan', 'Wajib'], 'Mentega menahan haba dan meningkatkan risiko jangkitan.'),
+    Q(2, PI([['Luka kecil', 50], ['Terseliuh', 30], ['Melecur', 20]], 'Kecederaan di sekolah (ilustrasi).'), 'Kecederaan yang paling kerap berlaku mengikut rajah ialah?', ['Luka kecil', 'Terseliuh', 'Melecur', 'Sama'], 'Luka kecil mempunyai hirisan terbesar.'),
+    Q(2, BR('Masa merawat (ilustrasi)', ['Cepat', 'Lewat'], [95, 40], '% pulih', 'Kajian ringkas.'), 'Rajah menunjukkan rawatan segera lebih baik. Mengapakah?', ['Kecederaan tidak bertambah teruk', 'Rawatan lambat lebih baik', 'Tiada beza', 'Rawatan tidak perlu'], 'Pertolongan segera mencegah keadaan bertambah teruk.'),
+    Q(2, FL(['Sengatan lebah', 'Cabut sengat', 'Sejukkan kawasan', '?'], 3, 'Sengatan.'), 'Langkah akhir jika mangsa sesak nafas ialah?', ['Hubungi 999', 'Berehat sahaja', 'Garu kuat', 'Abaikan'], 'Sesak nafas selepas sengatan ialah kecemasan.'),
+    Q(2, TB(['Bahan kit', 'Fungsi'], [['Sarung tangan', 'Melindungi penolong'], ['Gunting', 'Memotong pembalut'], ['Kapas', '?']], 'Isi kit.'), 'Kapas dalam kit pertolongan cemas digunakan untuk?', ['Membersihkan dan menyapu antiseptik pada luka', 'Memotong pembalut', 'Menahan tulang', 'Mengukur suhu'], 'Kapas dipakai untuk membersih dan menyapu antiseptik.'),
+    Q(3, TB(['Murid', 'Tindakan', 'Penilaian'], [['Ani', 'Dongak mimisan', 'Salah'], ['Bala', 'Picit hidung', 'Betul'], ['Chi', 'Sapu ubat gigi pada lecur', '?']], 'Pertolongan.'), 'Penilaian terhadap tindakan Chi ialah?', ['Salah kerana boleh menyebabkan jangkitan', 'Betul', 'Digalakkan', 'Tidak penting'], 'Sapu ubat gigi pada kulit melecur tidak disyorkan.'),
+    Q(3, CY(['Panik', 'Tindakan salah', 'Mangsa bertambah teruk', 'Lebih panik']), 'Kitaran masalah itu dapat dielakkan dengan?', ['Bertenang dan ikut langkah yang betul', 'Berlari', 'Menjerit', 'Menunggu'], 'Ketenangan membantu tindakan betul.'),
+    Q(3, FL(['Mangsa tercekik', 'Galak batuk', 'Tidak berjaya', '?'], 3, 'Tercekik.'), 'Tindakan seterusnya ialah?', ['Dapatkan bantuan dan hubungi 999', 'Berikan air banyak', 'Tinggalkan mangsa', 'Menunggu'], 'Jika tidak berjaya, bantuan kecemasan diperlukan.'),
+    Q(3, BR('Skor pengetahuan (ilustrasi)', ['Sebelum kursus', 'Selepas kursus'], [45, 85], 'markah', 'Murid kelab pertolongan cemas.'), 'Skor meningkat selepas kursus. Kesimpulan paling tepat ialah?', ['Latihan meningkatkan keyakinan dan pengetahuan', 'Kursus tidak berguna', 'Tiada perubahan', 'Skor menurun'], 'Latihan meningkatkan pengetahuan.'),
+    Q(3, TR('Keutamaan penolong', ['Keselamatan diri', 'Keselamatan mangsa', 'Bantuan 999']), 'Penolong dahulu memastikan kawasan selamat sebelum membantu. Alasannya ialah?', ['Supaya penolong tidak menjadi mangsa', 'Supaya mangsa menunggu', 'Supaya masa lebih lama', 'Supaya tidak perlu membantu'], 'Penolong tidak boleh cedera semasa membantu.'),
+    Q(3, VN('Terseliuh', 'Patah tulang', ['Ais'], ['Splin'], ['Rehat'], 'Perbezaan.'), 'Murid tidak boleh menggerakkan lengannya dan lengan kelihatan bengkok. Tindakan paling sesuai ialah?', ['Tahan dengan splin dan dapatkan bantuan perubatan', 'Tarik lengan', 'Urut kuat', 'Suruh gerak'], 'Kecederaan yang disyaki patah perlu ditahan dan dirujuk kepada doktor.'),
+    Q(3, IC([['sun', 'Cuaca panas'], ['person', 'Pengsan'], ['water', 'Air']], 'Kecemasan.'), 'Seorang murid pengsan di padang. Selepas ke tempat teduh dan baring, langkah seterusnya ialah?', ['Longgarkan pakaian dan pastikan pernafasan', 'Beri makan', 'Suruh berlari', 'Tinggalkan'], 'Pakaian dilonggarkan dan pernafasan sentiasa diperiksa.')
+  ]
+});
+
+(function () {
+  'use strict';
+  var HOME = 'https://leykaeducation.github.io/portal-pembeli/';
+  var LVN = { 1: 'Rendah', 2: 'Sederhana', 3: 'KBAT' };
+  var HUE = [8, 150, 214, 20, 188, 262, 42, 340, 172, 300];
+  var SECS = { 1: 'Pendidikan Jasmani', 8: 'Pendidikan Kesihatan' };
+  var KEY = 'pjk-t1-kuiz';
+  var app = document.getElementById('app');
+  var btnMenu = document.getElementById('btnMenu');
+  var store = { best: {}, wrong: {}, timer: false };
+  try { var raw = localStorage.getItem(KEY); if (raw) { var p = JSON.parse(raw); store.best = p.best || {}; store.wrong = p.wrong || {}; store.timer = !!p.timer; } } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  var reduce = false; try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+  /* ---------- Rajah ---------- */
+  function wrap(s, max, maxLines) {
+    var words = String(s).split(' '), lines = [], cur = '';
+    words.forEach(function (w) { if (!cur) cur = w; else if ((cur + ' ' + w).length <= max) cur += ' ' + w; else { lines.push(cur); cur = w; } });
+    if (cur) lines.push(cur);
+    if (maxLines && lines.length > maxLines) { lines = lines.slice(0, maxLines); lines[maxLines - 1] = lines[maxLines - 1].slice(0, Math.max(1, max - 1)) + '…'; }
+    return lines;
+  }
+  function T(x, y, s, cls, anchor) { return '<text x="' + x + '" y="' + y + '" class="' + cls + '" text-anchor="' + (anchor || 'start') + '" dominant-baseline="central">' + esc(s) + '</text>'; }
+  function TM(x, y, lines, cls, lh) { var y0 = y - (lines.length - 1) * lh / 2, h = ''; lines.forEach(function (l, i) { h += T(x, y0 + i * lh, l, cls, 'middle'); }); return h; }
+  function icon(name, x, y, s) { return '<g class="ic" transform="translate(' + x + ' ' + y + ') scale(' + s + ')"><path d="' + (ICONS[name] || ICONS.scroll) + '"/></g>'; }
+
+  function dTL(d) {
+    var n = d.items.length, H = n * 50 + 12, b = '<line x1="30" y1="26" x2="30" y2="' + (H - 30) + '" class="ln"/>';
+    d.items.forEach(function (it, i) {
+      var y = 28 + i * 50, hl = i === d.hl, q = it[0] === '?';
+      b += '<circle cx="30" cy="' + y + '" r="' + (hl || q ? 9 : 7) + '" class="' + (hl || q ? 'doth' : 'dot') + '"/>';
+      if (q) b += '<rect x="50" y="' + (y - 18) + '" width="64" height="24" rx="8" class="qq"/>' + T(82, y - 6, '?', 'tq', 'middle');
+      else b += T(50, y - 6, it[0], 't1' + (hl ? ' tb' : ''));
+      if (it[1]) b += T(50, y + 12, it[1], 't2');
+    });
+    return { h: H, b: b };
+  }
+  function dFL(d) {
+    var n = d.steps.length, rows = Math.ceil(n / 3), b = '';
+    d.steps.forEach(function (s, i) {
+      var r = Math.floor(i / 3), c = i % 3, x = 6 + c * 122, y = 6 + r * 86, q = s === '?', hl = i === d.hl;
+      b += '<rect x="' + x + '" y="' + y + '" width="104" height="74" rx="10" class="' + (q ? 'qq' : hl ? 'hl' : 'box') + '"/>';
+      b += '<circle cx="' + (x + 13) + '" cy="' + (y + 13) + '" r="9" class="num"/>' + T(x + 13, y + 13, String(i + 1), 'numt', 'middle');
+      b += q ? T(x + 52, y + 44, '?', 'tq', 'middle') : TM(x + 52, y + 45, wrap(s, 15, 3), 't3', 14);
+      if (c < 2 && i < n - 1) b += '<path d="M' + (x + 107) + ' ' + (y + 37) + 'h12m-4-4l4 4-4 4" class="ar"/>';
+    });
+    return { h: rows * 86 + 8, b: b };
+  }
+  function dCY(d) {
+    var n = d.steps.length, w = n >= 6 ? 94 : 102, b = '<ellipse cx="180" cy="120" rx="118" ry="84" class="ln" stroke-dasharray="5 6"/>';
+    d.steps.forEach(function (s, i) {
+      var a = (-90 + i * 360 / n) * Math.PI / 180, x = 180 + 118 * Math.cos(a), y = 120 + 84 * Math.sin(a), q = s === '?';
+      b += '<rect x="' + (x - w / 2).toFixed(1) + '" y="' + (y - 19).toFixed(1) + '" width="' + w + '" height="38" rx="10" class="' + (q ? 'qq' : 'box') + '"/>';
+      b += q ? T(x, y, '?', 'tq', 'middle') : TM(x.toFixed(1), y.toFixed(1), wrap(s, Math.floor((w - 10) / 5.8), 2), 't3', 13);
+    });
+    return { h: 244, b: b };
+  }
+  function dTB(d) {
+    var n = d.h.length, cw = 344 / n, mc = Math.floor((cw - 10) / 5.9), H = 36 + d.r.length * 46 + 8, b = '';
+    b += '<rect x="8" y="4" width="344" height="32" rx="8" class="th"/>';
+    d.h.forEach(function (h, i) { b += TM(8 + cw * (i + .5), 20, wrap(h, mc, 1), 't1 tb', 13); });
+    d.r.forEach(function (row, j) {
+      var y = 36 + j * 46;
+      b += '<rect x="8" y="' + y + '" width="344" height="46" class="box"/>';
+      row.forEach(function (c, i) {
+        var cx = 8 + cw * (i + .5);
+        if (c === '?') b += '<rect x="' + (8 + cw * i + 8) + '" y="' + (y + 7) + '" width="' + (cw - 16) + '" height="32" rx="8" class="qq"/>' + T(cx, y + 23, '?', 'tq', 'middle');
+        else b += TM(cx, y + 23, wrap(c, mc, 2), 't3', 14);
+      });
+    });
+    for (var i = 1; i < n; i++) b += '<line x1="' + (8 + cw * i) + '" y1="4" x2="' + (8 + cw * i) + '" y2="' + (H - 8) + '" class="ln" stroke-width="1.5"/>';
+    return { h: H, b: b };
+  }
+  function dBR(d) {
+    var n = d.labels.length, max = Math.max.apply(null, d.values) || 1, H = 38 + n * 38 + 8, b = T(8, 14, d.title, 't1 tb');
+    d.labels.forEach(function (l, i) {
+      var y = 38 + i * 38, w = Math.max(6, d.values[i] / max * 150);
+      b += TM(60, y + 15, wrap(l, 19, 2), 't3', 13).replace(/text-anchor="middle"/g, 'text-anchor="middle"');
+      b += '<rect x="130" y="' + (y + 4) + '" width="' + w.toFixed(1) + '" height="22" rx="6" class="barf"/>' + T(136 + w, y + 15, d.values[i] + (d.unit ? ' ' + d.unit : ''), 't3 tb');
+    });
+    return { h: H, b: b };
+  }
+  function dTR(d) {
+    var n = d.kids.length, gap = 8, w = (344 - gap * (n - 1)) / n, mc = Math.floor((w - 10) / 5.9), b = '';
+    var rl = wrap(d.root, 34, 2), rh = rl.length > 1 ? 44 : 34;
+    b += '<rect x="80" y="6" width="200" height="' + rh + '" rx="10" class="hl"/>' + TM(180, 6 + rh / 2, rl, 't1 tb', 14);
+    var by = 6 + rh + 18;
+    b += '<line x1="180" y1="' + (6 + rh) + '" x2="180" y2="' + by + '" class="ln"/>';
+    if (n > 1) b += '<line x1="' + (8 + w / 2) + '" y1="' + by + '" x2="' + (8 + (n - 1) * (w + gap) + w / 2) + '" y2="' + by + '" class="ln"/>';
+    d.kids.forEach(function (k, i) {
+      var x = 8 + i * (w + gap), q = k === '?';
+      b += '<line x1="' + (x + w / 2) + '" y1="' + by + '" x2="' + (x + w / 2) + '" y2="' + (by + 14) + '" class="ln"/>';
+      b += '<rect x="' + x.toFixed(1) + '" y="' + (by + 14) + '" width="' + w.toFixed(1) + '" height="62" rx="10" class="' + (q ? 'qq' : 'box') + '"/>';
+      b += q ? T(x + w / 2, by + 45, '?', 'tq', 'middle') : TM((x + w / 2).toFixed(1), by + 45, wrap(k, mc, 3), 't3', 13);
+    });
+    return { h: by + 14 + 62 + 8, b: b };
+  }
+  function dIC(d) {
+    var n = d.items.length, cols = Math.min(4, n), rows = Math.ceil(n / cols), w = 344 / cols, s = n === 1 ? 1.9 : cols <= 2 ? 1.4 : 1;
+    var ih = 48 * s, rh = ih + 56, b = '';
+    d.items.forEach(function (it, i) {
+      var r = Math.floor(i / cols), c = i % cols, x = 8 + c * w, y = 4 + r * (rh + 6), q = it[1] === '?';
+      b += '<rect x="' + (x + 3) + '" y="' + y + '" width="' + (w - 6) + '" height="' + rh + '" rx="12" class="box"/>';
+      b += icon(it[0], x + w / 2 - ih / 2, y + 8, s);
+      if (q) b += '<rect x="' + (x + w / 2 - 22) + '" y="' + (y + ih + 12) + '" width="44" height="28" rx="8" class="qq"/>' + T(x + w / 2, y + ih + 26, '?', 'tq', 'middle');
+      else b += TM(x + w / 2, y + ih + 28, wrap(it[1], Math.floor((w - 12) / 5.9), 2), 't3', 13);
+    });
+    return { h: rows * (rh + 6) + 6, b: b };
+  }
+  function dVN(d) {
+    var b = '<circle cx="132" cy="146" r="92" class="vc1"/><circle cx="228" cy="146" r="92" class="vc2"/>';
+    b += T(96, 18, d.a, 't1 tb', 'middle') + T(264, 18, d.b, 't1 tb', 'middle');
+    function lst(arr, x) { var h = '', y0 = 146 - (arr.length - 1) * 8; arr.forEach(function (s, i) { h += T(x, y0 + i * 17, s, 't3', 'middle'); }); return h; }
+    b += lst(d.ao, 86) + lst(d.ab, 180) + lst(d.bo, 274);
+    return { h: 248, b: b };
+  }
+
+  function dCP(d) {
+    var cx = 180, cy = 122, R = 64, codes = ['U', 'TL', 'T', 'TG', 'S', 'BD', 'B', 'BL'], b = '';
+    b += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" class="ln"/>';
+    codes.forEach(function (c, i) {
+      var a = i * 45 * Math.PI / 180, card = i % 2 === 0, hl = d.hl.indexOf(c) >= 0, hid = d.hide.indexOf(c) >= 0;
+      var x1 = cx + R * Math.sin(a), y1 = cy - R * Math.cos(a), lx = cx + 88 * Math.sin(a), ly = cy - 88 * Math.cos(a);
+      b += '<line x1="' + cx + '" y1="' + cy + '" x2="' + x1.toFixed(1) + '" y2="' + y1.toFixed(1) + '" class="' + (hl ? 'ar' : 'ln') + '" stroke-width="' + (hl ? 3.5 : card ? 2 : 1.2) + '"/>';
+      if (hl) b += '<circle cx="' + lx.toFixed(1) + '" cy="' + ly.toFixed(1) + '" r="15" class="hl"/>';
+      if (hid) b += '<circle cx="' + lx.toFixed(1) + '" cy="' + ly.toFixed(1) + '" r="15" class="qq"/>' + T(lx.toFixed(1), ly.toFixed(1), '?', 'tq', 'middle');
+      else b += T(lx.toFixed(1), ly.toFixed(1), c, 't1' + (card ? ' tb' : ''), 'middle');
+    });
+    b += '<circle cx="' + cx + '" cy="' + cy + '" r="4" class="num"/>';
+    if (d.ang != null) {
+      var an = d.ang * Math.PI / 180, ex = cx + 64 * Math.sin(an), ey = cy - 64 * Math.cos(an);
+      b += '<line x1="' + cx + '" y1="' + cy + '" x2="' + cx + '" y2="' + (cy - 64) + '" class="ln" stroke-dasharray="4 4"/>';
+      b += '<line x1="' + cx + '" y1="' + cy + '" x2="' + ex.toFixed(1) + '" y2="' + ey.toFixed(1) + '" class="ar" stroke-width="3.5"/>';
+      var ah = 9, ux = Math.sin(an), uy = -Math.cos(an), px = -uy, py = ux;
+      b += '<path d="M' + ex.toFixed(1) + ' ' + ey.toFixed(1) + 'l' + (-ux * ah + px * 5).toFixed(1) + ' ' + (-uy * ah + py * 5).toFixed(1) + 'M' + ex.toFixed(1) + ' ' + ey.toFixed(1) + 'l' + (-ux * ah - px * 5).toFixed(1) + ' ' + (-uy * ah - py * 5).toFixed(1) + '" class="ar"/>';
+      var rr = 30, sx = cx, sy = cy - rr, tx = cx + rr * Math.sin(an), ty = cy - rr * Math.cos(an);
+      if (d.ang > 0) b += '<path d="M' + sx + ' ' + sy + 'A' + rr + ' ' + rr + ' 0 ' + (d.ang > 180 ? 1 : 0) + ' 1 ' + tx.toFixed(1) + ' ' + ty.toFixed(1) + '" class="ar" stroke-width="1.6"/>';
+      var mid = d.ang / 2 * Math.PI / 180, lbl = d.hide.indexOf('ang') >= 0 ? '?' : d.ang + '°';
+      b += '<g>' + T((cx + 46 * Math.sin(mid)).toFixed(1), (cy - 46 * Math.cos(mid)).toFixed(1), lbl, 't1 tb halo', 'middle') + '</g>';
+    }
+    return { h: 244, b: b };
+  }
+  function dGR(d) {
+    var nc = d.xl.length, nr = d.yl.length, x0 = 58, x1 = 336, y0 = 20, stepY = Math.min(46, 180 / (nr - 1)), y1 = y0 + (nr - 1) * stepY, b = '';
+    var sx = (x1 - x0) / (nc - 1);
+    d.xl.forEach(function (l, i) { var x = x0 + i * sx; b += '<line x1="' + x + '" y1="' + y0 + '" x2="' + x + '" y2="' + y1 + '" class="ln" stroke-width="1.4"/>' + T(x, y1 + 18, l, 't3', 'middle'); });
+    d.yl.forEach(function (l, j) { var y = y0 + j * stepY; b += '<line x1="' + x0 + '" y1="' + y + '" x2="' + x1 + '" y2="' + y + '" class="ln" stroke-width="1.4"/>' + T(x0 - 8, y, l, 't3', 'end'); });
+    d.m.forEach(function (m) {
+      var x = x0 + m[0] * sx, y = y0 + m[1] * stepY, q = m[2] === '?', right = x > 230;
+      if (q) b += '<circle cx="' + x + '" cy="' + y + '" r="11" class="qq"/>' + T(x, y, '?', 'tq', 'middle');
+      else b += '<circle cx="' + x + '" cy="' + y + '" r="6" class="doth"/>' + '<g>' + T(right ? x - 10 : x + 10, y - 11, m[2], 't1 tb halo', right ? 'end' : 'start') + '</g>';
+    });
+    return { h: y1 + 32, b: b };
+  }
+  function dCT(d) {
+    var n = d.labels.length, cx = 180, cy = 120, b = '', i;
+    function ell(x, y, rx, ry) { return '<ellipse cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" rx="' + rx.toFixed(1) + '" ry="' + ry.toFixed(1) + '" class="ct"/>'; }
+    for (i = 0; i < n; i++) {
+      var rx, ry, x = cx, tx;
+      if (d.kind === 'curam') { rx = 124 - i * 10; ry = rx * .62; }
+      else if (d.kind === 'landai') { rx = 160 - i * (120 / Math.max(1, n - 1)); ry = rx * .62; }
+      else if (d.kind === 'tidaksekata') { var l = 40 + i * 9, r = 322 - i * (250 / Math.max(1, n - 1)) * .62; rx = (r - l) / 2; x = (l + r) / 2; ry = 100 - i * 16; }
+      else { rx = 150 - i * (100 / Math.max(1, n - 1)); ry = rx * .62; }
+      if (ry < 14) ry = 14;
+      var th = d.kind === 'curam' ? (-90 + i * 26) * Math.PI / 180 : -Math.PI / 2;
+      b += ell(x, cy, rx, ry) + '<g>' + T((x + rx * Math.cos(th)).toFixed(1), (cy + ry * Math.sin(th)).toFixed(1), d.labels[i], 't3 halo', 'middle') + '</g>';
+    }
+    if (d.kind === 'bukit') b += '<path d="M180 ' + (cy - 5) + 'l8 12h-16z" class="doth"/>';
+    return { h: 244, b: b };
+  }
+  function dLY(d) {
+    var n = d.l.length, cx = 106, cy = 118, R = 100, b = '', i;
+    for (i = 0; i < n; i++) { var r = R * (n - i) / n; b += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r.toFixed(1) + '" fill="var(--ch)" fill-opacity="' + (.08 + i * .14).toFixed(2) + '" class="lyr' + (i === d.hl ? ' lyh' : '') + '"/>'; }
+    for (i = 0; i < n; i++) {
+      var rm = R * (n - i - .5) / n, a = (-30 - i * 6) * Math.PI / 180, ax = cx + rm * Math.cos(a), ay = cy + rm * Math.sin(a), ly = 30 + i * (176 / Math.max(1, n - 1)), q = d.l[i] === '?';
+      b += '<circle cx="' + ax.toFixed(1) + '" cy="' + ay.toFixed(1) + '" r="3.5" class="num"/><line x1="' + ax.toFixed(1) + '" y1="' + ay.toFixed(1) + '" x2="222" y2="' + ly.toFixed(1) + '" class="ln" stroke-width="1.4"/>';
+      b += q ? '<rect x="226" y="' + (ly - 13) + '" width="46" height="26" rx="8" class="qq"/>' + T(249, ly, '?', 'tq', 'middle') : T(228, ly, d.l[i], 't1' + (i === d.hl ? ' tb' : ''));
+    }
+    return { h: 238, b: b };
+  }
+
+  var CWC = ['#e32636', '#ee5a2a', '#f58a1f', '#fbb41c', '#f7e11b', '#b5d334', '#3ea64a', '#1f9c92', '#2c6fc6', '#4b4bb8', '#7a3fa8', '#b83a8a'];
+  var CWN = ['Merah', 'Merah Jingga', 'Jingga', 'Kuning Jingga', 'Kuning', 'Kuning Hijau', 'Hijau', 'Biru Hijau', 'Biru', 'Biru Ungu', 'Ungu', 'Merah Ungu'];
+  var uid = 0;
+  function dCW(d) {
+    var cx = 180, cy = 124, R = 80, r = 34, b = '', i;
+    for (i = 0; i < 12; i++) {
+      var a0 = (i * 30 - 15 - 90) * Math.PI / 180, a1 = (i * 30 + 15 - 90) * Math.PI / 180, hl = d.hl.indexOf(i) >= 0 || d.hide.indexOf(i) >= 0;
+      function P(rr, an) { return (cx + rr * Math.cos(an)).toFixed(1) + ' ' + (cy + rr * Math.sin(an)).toFixed(1); }
+      b += '<path d="M' + P(R, a0) + 'A' + R + ' ' + R + ' 0 0 1 ' + P(R, a1) + 'L' + P(r, a1) + 'A' + r + ' ' + r + ' 0 0 0 ' + P(r, a0) + 'Z" fill="' + CWC[i] + '" stroke="' + (hl ? 'var(--fg)' : 'var(--card2)') + '" stroke-width="' + (hl ? 3 : 1.5) + '"/>';
+    }
+    for (i = 0; i < 12; i++) {
+      var q = d.hide.indexOf(i) >= 0, h = d.hl.indexOf(i) >= 0;
+      if (!q && !h) continue;
+      var am = (i * 30 - 90) * Math.PI / 180, co = Math.cos(am), lx = cx + (R + 11) * co, ly = cy + (R + 11) * Math.sin(am), an = co > 0.3 ? 'start' : co < -0.3 ? 'end' : 'middle';
+      if (Math.abs(co) <= 0.3) ly += Math.sin(am) > 0 ? 8 : -8;
+      b += q ? T(lx.toFixed(1), ly.toFixed(1), '?', 'tq', an) : T(lx.toFixed(1), ly.toFixed(1), CWN[i], 't1 tb', an);
+    }
+    return { h: 250, b: b };
+  }
+  function dSW(d) {
+    var n = d.items.length, cols = Math.min(4, n), rows = Math.ceil(n / cols), w = 344 / cols, b = '';
+    d.items.forEach(function (it, i) {
+      var r = Math.floor(i / cols), c = i % cols, x = 8 + c * w, y = 6 + r * 100, q = it[1] === '?';
+      b += '<rect x="' + (x + 3) + '" y="' + y + '" width="' + (w - 6) + '" height="58" rx="10" fill="' + it[0] + '" stroke="var(--line)" stroke-width="1.5"/>';
+      b += q ? '<rect x="' + (x + w / 2 - 22) + '" y="' + (y + 68) + '" width="44" height="24" rx="8" class="qq"/>' + T(x + w / 2, y + 80, '?', 'tq', 'middle') : TM(x + w / 2, y + 80, wrap(it[1], Math.floor((w - 12) / 5.9), 2), 't3', 13);
+    });
+    return { h: rows * 100 + 10, b: b };
+  }
+  function lnSample(k, W) {
+    var m = W / 2, p, sw = 3.4, dash = '', i;
+    if (k === 'lurus') p = 'M0 22H' + W;
+    else if (k === 'tegak') p = 'M' + m + ' 0V44';
+    else if (k === 'condong') p = 'M4 40L' + (W - 4) + ' 4';
+    else if (k === 'melengkung') p = 'M2 38Q' + m + ' -16 ' + (W - 2) + ' 38';
+    else if (k === 'zigzag') { p = 'M0 36'; for (i = 1; i <= 6; i++) p += 'L' + (i * W / 6).toFixed(1) + ' ' + (i % 2 ? 8 : 36); }
+    else if (k === 'bergelombang') p = 'M0 22Q' + (W / 8).toFixed(1) + ' -4 ' + (W / 4).toFixed(1) + ' 22T' + (W / 2).toFixed(1) + ' 22T' + (3 * W / 4).toFixed(1) + ' 22T' + W + ' 22';
+    else if (k === 'putus') { p = 'M0 22H' + W; dash = '12 8'; }
+    else if (k === 'bertitik') { p = 'M3 22H' + W; dash = '0.1 9'; sw = 5; }
+    else if (k === 'tebal') { p = 'M0 22H' + W; sw = 9; }
+    else if (k === 'nipis') { p = 'M0 22H' + W; sw = 1.4; }
+    else if (k === 'spiral') { p = ''; for (i = 0; i <= 60; i++) { var th = i / 60 * 3 * 2 * Math.PI, rr = 2 + i / 60 * 19; p += (i ? 'L' : 'M') + (m + rr * Math.cos(th)).toFixed(1) + ' ' + (22 + rr * Math.sin(th)).toFixed(1); } }
+    else p = 'M0 22H' + W;
+    return { p: p, sw: sw, dash: dash };
+  }
+  function dLN(d) {
+    var n = d.items.length, cols = Math.min(3, n), rows = Math.ceil(n / cols), w = 344 / cols, b = '';
+    d.items.forEach(function (it, i) {
+      var r = Math.floor(i / cols), c = i % cols, x = 8 + c * w, y = 4 + r * 98, W = w - 36, s = lnSample(it[0], W), q = it[1] === '?';
+      b += '<rect x="' + (x + 3) + '" y="' + y + '" width="' + (w - 6) + '" height="90" rx="12" class="box"/>';
+      b += '<path d="' + s.p + '" transform="translate(' + (x + 18) + ' ' + (y + 8) + ')" fill="none" stroke="var(--fg)" stroke-width="' + s.sw + '" stroke-linecap="round" stroke-linejoin="round"' + (s.dash ? ' stroke-dasharray="' + s.dash + '"' : '') + '/>';
+      b += q ? '<rect x="' + (x + w / 2 - 22) + '" y="' + (y + 58) + '" width="44" height="26" rx="8" class="qq"/>' + T(x + w / 2, y + 71, '?', 'tq', 'middle') : TM(x + w / 2, y + 70, wrap(it[1], Math.floor((w - 12) / 5.9), 2), 't3', 13);
+    });
+    return { h: rows * 98 + 8, b: b };
+  }
+  function shp(k) {
+    switch (k) {
+      case 'bulat': return '<circle cx="24" cy="24" r="17" class="shp"/>';
+      case 'segiempat': return '<rect x="8" y="10" width="32" height="28" class="shp"/>';
+      case 'segitiga': return '<polygon points="24,6 43,40 5,40" class="shp"/>';
+      case 'bujur': return '<ellipse cx="24" cy="24" rx="19" ry="12" class="shp"/>';
+      case 'organik': return '<path d="M10 26C6 14 16 6 26 9c10 3 16 10 12 20-3 9-14 13-22 10-4-2-5-8-6-13z" class="shp"/>';
+      case 'bintang': return '<path d="' + ICONS.star + '" class="shp"/>';
+      case 'heksagon': return '<polygon points="24,5 41,15 41,33 24,43 7,33 7,15" class="shp"/>';
+      case 'kubus': return '<polygon points="24,5 41,14 24,23 7,14" class="shp"/><polygon points="7,14 24,23 24,43 7,34" class="shp2"/><polygon points="41,14 24,23 24,43 41,34" class="shp3"/>';
+      case 'silinder': return '<path d="M8 12v24a16 6 0 0 0 32 0V12" class="shp2"/><ellipse cx="24" cy="12" rx="16" ry="6" class="shp"/>';
+      case 'kon': return '<path d="M24 5L8 36a16 6 0 0 0 32 0z" class="shp2"/>';
+      case 'sfera': return '<circle cx="24" cy="24" r="17" class="shp2"/><path d="M13 19a12 12 0 0 1 12-9" class="shpl"/>';
+      case 'piramid': return '<polygon points="24,5 42,38 24,44 6,38" class="shp2"/><polygon points="24,5 42,38 24,44" class="shp3"/>';
+      default: return '<circle cx="24" cy="24" r="14" class="shp"/>';
+    }
+  }
+  function dSH(d) {
+    var n = d.items.length, cols = Math.min(4, n), rows = Math.ceil(n / cols), w = 344 / cols, s = cols <= 2 ? 1.5 : 1.1, ih = 48 * s, rh = ih + 52, b = '';
+    d.items.forEach(function (it, i) {
+      var r = Math.floor(i / cols), c = i % cols, x = 8 + c * w, y = 4 + r * (rh + 6), q = it[1] === '?';
+      b += '<rect x="' + (x + 3) + '" y="' + y + '" width="' + (w - 6) + '" height="' + rh + '" rx="12" class="box"/>';
+      b += '<g transform="translate(' + (x + w / 2 - ih / 2).toFixed(1) + ' ' + (y + 8) + ') scale(' + s + ')">' + shp(it[0]) + '</g>';
+      b += q ? '<rect x="' + (x + w / 2 - 22) + '" y="' + (y + ih + 14) + '" width="44" height="26" rx="8" class="qq"/>' + T(x + w / 2, y + ih + 27, '?', 'tq', 'middle') : TM(x + w / 2, y + ih + 30, wrap(it[1], Math.floor((w - 12) / 5.9), 2), 't3', 13);
+    });
+    return { h: rows * (rh + 6) + 6, b: b };
+  }
+  function txSample(k, x, y, w, h) {
+    var id = 'tx' + (++uid), g = '', i, j, seed = 7;
+    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    g += '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="var(--chsoft)"/>';
+    if (k === 'kasar') { for (i = 0; i < 90; i++) { var px = x + rnd() * w, py = y + rnd() * h, an = rnd() * 6.28; g += '<line x1="' + px.toFixed(1) + '" y1="' + py.toFixed(1) + '" x2="' + (px + 6 * Math.cos(an)).toFixed(1) + '" y2="' + (py + 6 * Math.sin(an)).toFixed(1) + '" stroke="var(--fg)" stroke-opacity=".55" stroke-width="1.4"/>'; } }
+    else if (k === 'licin') g += '<ellipse cx="' + (x + w * .35) + '" cy="' + (y + h * .35) + '" rx="' + w * .28 + '" ry="' + h * .2 + '" fill="#fff" fill-opacity=".6"/>';
+    else if (k === 'berjalur') { for (i = 0; i < w; i += 8) g += '<line x1="' + (x + i) + '" y1="' + y + '" x2="' + (x + i) + '" y2="' + (y + h) + '" stroke="var(--ch)" stroke-width="3"/>'; }
+    else if (k === 'kekisi') { for (i = 0; i < w; i += 9) g += '<line x1="' + (x + i) + '" y1="' + y + '" x2="' + (x + i) + '" y2="' + (y + h) + '" stroke="var(--ch)" stroke-width="2"/>'; for (j = 0; j < h; j += 9) g += '<line x1="' + x + '" y1="' + (y + j) + '" x2="' + (x + w) + '" y2="' + (y + j) + '" stroke="var(--ch)" stroke-width="2"/>'; }
+    else if (k === 'bertitik') { for (i = 5; i < w; i += 10) for (j = 5; j < h; j += 10) g += '<circle cx="' + (x + i) + '" cy="' + (y + j) + '" r="2.4" fill="var(--ch)"/>'; }
+    else if (k === 'bergelombang') { for (j = 6; j < h; j += 10) g += '<path d="M' + x + ' ' + (y + j) + 'q' + (w / 8) + ' -8 ' + (w / 4) + ' 0t' + (w / 4) + ' 0t' + (w / 4) + ' 0t' + (w / 4) + ' 0" fill="none" stroke="var(--ch)" stroke-width="2"/>'; }
+    else if (k === 'bersisik') { for (j = 0; j < h + 8; j += 8) for (i = (j / 8 % 2 ? -8 : 0); i < w; i += 16) g += '<path d="M' + (x + i) + ' ' + (y + j) + 'a8 8 0 0 0 16 0" fill="none" stroke="var(--ch)" stroke-width="1.8"/>'; }
+    return '<clipPath id="' + id + '"><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="8"/></clipPath><g clip-path="url(#' + id + ')">' + g + '</g><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="8" fill="none" stroke="var(--ch)" stroke-width="1.5"/>';
+  }
+  function dTX(d) {
+    var n = d.items.length, cols = Math.min(3, n), rows = Math.ceil(n / cols), w = 344 / cols, b = '';
+    d.items.forEach(function (it, i) {
+      var r = Math.floor(i / cols), c = i % cols, x = 8 + c * w, y = 4 + r * 98, q = it[1] === '?';
+      b += '<rect x="' + (x + 3) + '" y="' + y + '" width="' + (w - 6) + '" height="90" rx="12" class="box"/>';
+      b += txSample(it[0], x + 14, y + 8, w - 28, 50);
+      b += q ? '<rect x="' + (x + w / 2 - 22) + '" y="' + (y + 62) + '" width="44" height="24" rx="8" class="qq"/>' + T(x + w / 2, y + 74, '?', 'tq', 'middle') : TM(x + w / 2, y + 74, wrap(it[1], Math.floor((w - 12) / 5.9), 1), 't3', 13);
+    });
+    return { h: rows * 98 + 8, b: b };
+  }
+  function dBL(d) {
+    var b = '<rect x="8" y="6" width="344" height="196" rx="10" class="box"/>', k = d.kind, i;
+    function R(x, y, w, h, c) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="5" fill="' + c + '"/>'; }
+    if (k === 'simetri') {
+      b += '<line x1="180" y1="12" x2="180" y2="196" stroke="var(--ch)" stroke-width="2" stroke-dasharray="6 5"/>';
+      [[36, 30, 80, 50], [36, 100, 100, 70], [120, 60, 40, 30]].forEach(function (bl) { b += R(bl[0], bl[1], bl[2], bl[3], 'var(--ch)') + R(360 - bl[0] - bl[2], bl[1], bl[2], bl[3], 'var(--ch)'); });
+      b += '<circle cx="180" cy="40" r="16" fill="var(--sun)"/>';
+    } else if (k === 'jejarian') {
+      b += '<circle cx="180" cy="104" r="26" fill="var(--sun)"/>';
+      for (i = 0; i < 8; i++) { var an = i * Math.PI / 4; b += '<line x1="180" y1="104" x2="' + (180 + 70 * Math.cos(an)).toFixed(1) + '" y2="' + (104 + 70 * Math.sin(an)).toFixed(1) + '" stroke="var(--ch)" stroke-width="2"/><circle cx="' + (180 + 70 * Math.cos(an)).toFixed(1) + '" cy="' + (104 + 70 * Math.sin(an)).toFixed(1) + '" r="12" fill="var(--ch)"/>'; }
+    } else {
+      b += R(26, 24, 150, 160, 'var(--ch)') + R(214, 32, 62, 38, 'var(--sun)') + R(262, 100, 44, 44, 'var(--sun)') + R(204, 150, 50, 30, 'var(--sun)');
+      b += '<line x1="190" y1="14" x2="190" y2="196" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>';
+    }
+    return { h: 208, b: b };
+  }
+  function dIR(d) {
+    var k = d.kind, b = '', i, n = 6;
+    b += '<rect x="8" y="6" width="344" height="116" rx="10" class="box"/>';
+    for (i = 0; i < n; i++) {
+      var x = 44 + i * 54;
+      if (k === 'berulang') b += '<circle cx="' + x + '" cy="64" r="18" fill="var(--ch)"/>';
+      else if (k === 'berselang') b += i % 2 ? '<rect x="' + (x - 16) + '" y="48" width="32" height="32" rx="4" fill="var(--sun)"/>' : '<circle cx="' + x + '" cy="64" r="18" fill="var(--ch)"/>';
+      else if (k === 'berperingkat') { var s = 8 + i * 6; b += '<rect x="' + (x - s / 2) + '" y="' + (64 - s / 2) + '" width="' + s + '" height="' + s + '" rx="3" fill="var(--ch)"/>'; }
+      else b += '<circle cx="' + x + '" cy="' + (64 + 28 * Math.sin(i * 1.05)).toFixed(1) + '" r="12" fill="var(--ch)"/>';
+    }
+    b += '<path d="M30 146h300m-10-6l10 6-10 6" class="ar"/>';
+    return { h: 160, b: b };
+  }
+
+  var CRD = {
+    bolasepak: { z: [['Garisan tengah', 180, 60], ['Bulatan tengah', 180, 104], ['Kawasan penalti', 46, 76], ['Kawasan gol', 30, 104], ['Tempat penalti', 52, 104], ['Garisan gol', 20, 150]],
+      d: function () { return '<rect x="20" y="20" width="320" height="168" class="ct"/><line x1="180" y1="20" x2="180" y2="188" class="ct"/><circle cx="180" cy="104" r="26" class="ct"/><rect x="20" y="60" width="52" height="88" class="ct"/><rect x="320" y="60" width="20" height="88" class="ct" style="display:none"/><rect x="288" y="60" width="52" height="88" class="ct"/><rect x="20" y="82" width="20" height="44" class="ct"/><rect x="320" y="82" width="20" height="44" class="ct"/><rect x="12" y="92" width="8" height="24" class="ct"/><rect x="340" y="92" width="8" height="24" class="ct"/><circle cx="54" cy="104" r="2.5" fill="var(--fg)"/><circle cx="306" cy="104" r="2.5" fill="var(--fg)"/>'; } },
+    bolajaring: { z: [['Bulatan gol', 62, 104], ['Bulatan tengah', 180, 104], ['Garisan sepertiga', 130, 52], ['Tiang gol', 30, 104], ['Garisan gol', 30, 160], ['Sepertiga tengah', 180, 52]],
+      d: function () { return '<rect x="30" y="30" width="300" height="150" class="ct"/><line x1="130" y1="30" x2="130" y2="180" class="ct"/><line x1="230" y1="30" x2="230" y2="180" class="ct"/><circle cx="180" cy="105" r="12" class="ct"/><path d="M30 65a40 40 0 0 1 0 80" class="ct"/><path d="M330 65a40 40 0 0 0 0 80" class="ct"/><rect x="26" y="101" width="8" height="8" fill="var(--fg)"/><rect x="326" y="101" width="8" height="8" fill="var(--fg)"/>'; } },
+    bolatampar: { z: [['Jaring', 180, 28], ['Garisan serang', 133, 104], ['Zon belakang', 84, 104], ['Zon depan', 156, 64], ['Garisan hujung', 40, 150], ['Garisan tengah', 180, 150]],
+      d: function () { return '<rect x="40" y="34" width="280" height="140" class="ct"/><line x1="180" y1="22" x2="180" y2="186" stroke="var(--ch)" stroke-width="4"/><line x1="133" y1="34" x2="133" y2="174" class="ct" stroke-dasharray="5 4"/><line x1="227" y1="34" x2="227" y2="174" class="ct" stroke-dasharray="5 4"/>'; } },
+    badminton: { z: [['Jaring', 180, 28], ['Garisan servis pendek', 136, 70], ['Garisan tengah', 82, 104], ['Garisan tepi sisi', 100, 46], ['Garisan servis panjang', 47, 150], ['Garisan tepi luar', 270, 36]],
+      d: function () { return '<rect x="30" y="36" width="300" height="136" class="ct"/><line x1="30" y1="46" x2="330" y2="46" class="ct"/><line x1="30" y1="162" x2="330" y2="162" class="ct"/><line x1="180" y1="24" x2="180" y2="184" stroke="var(--ch)" stroke-width="4"/><line x1="136" y1="36" x2="136" y2="172" class="ct"/><line x1="224" y1="36" x2="224" y2="172" class="ct"/><line x1="30" y1="104" x2="136" y2="104" class="ct"/><line x1="224" y1="104" x2="330" y2="104" class="ct"/><line x1="47" y1="36" x2="47" y2="172" class="ct"/><line x1="313" y1="36" x2="313" y2="172" class="ct"/>'; } },
+    balapan: { z: [['Lurusan', 180, 40], ['Selekoh', 314, 104], ['Lorong', 180, 62], ['Garisan penamat', 262, 40], ['Padang dalam', 180, 104], ['Garisan mula', 98, 40]],
+      d: function () { return '<rect x="28" y="28" width="304" height="152" rx="76" class="ct"/><rect x="40" y="40" width="280" height="128" rx="64" class="ct"/><rect x="52" y="52" width="256" height="104" rx="52" class="ct"/><rect x="64" y="64" width="232" height="80" rx="40" class="ct" fill="var(--card2)"/><line x1="262" y1="28" x2="262" y2="64" stroke="var(--fg)" stroke-width="3"/><line x1="98" y1="28" x2="98" y2="64" stroke="var(--ch)" stroke-width="3"/>'; } }
+  };
+  function dCR(d) {
+    var c = CRD[d.kind], b = '<rect x="4" y="4" width="352" height="200" rx="10" class="box"/><rect x="12" y="12" width="336" height="184" rx="8" fill="var(--chsoft)" opacity=".6"/><g fill="none" stroke="var(--fg)" stroke-width="1.6" opacity=".85">' + c.d().replace(/class="ct"/g, '') + '</g>', i;
+    d.marks.forEach(function (m, i) {
+      var z = c.z[m];
+      b += '<circle cx="' + z[1] + '" cy="' + z[2] + '" r="11" fill="var(--ch)"/>' + T(z[1], z[2] + 0.5, String(i + 1), 'numt', 'middle');
+    });
+    return { h: 208, b: b };
+  }
+  function dPY(d) {
+    var n = d.levels.length, b = '', i, H = 168 / n, cx = 180;
+    for (i = 0; i < n; i++) {
+      var y0 = 14 + i * H, y1 = y0 + H - 3, w0 = 150 + (y0 - 14) / 168 * 180, w1 = 150 + (y1 - 14) / 168 * 180, hl = i === d.hl;
+      b += '<polygon points="' + (cx - w0 / 2) + ',' + y0 + ' ' + (cx + w0 / 2) + ',' + y0 + ' ' + (cx + w1 / 2) + ',' + y1 + ' ' + (cx - w1 / 2) + ',' + y1 + '" fill="' + (hl ? 'var(--sun)' : 'var(--chsoft)') + '" stroke="var(--ch)" stroke-width="1.5"/>';
+      b += T(cx, (y0 + y1) / 2, d.levels[i], 't3', 'middle');
+    }
+    return { h: 188, b: b };
+  }
+  function dPI(d) {
+    var tot = 0, a = -Math.PI / 2, b = '', cx = 100, cy = 100, r = 84, i;
+    d.items.forEach(function (it) { tot += it[1]; });
+    d.items.forEach(function (it, i) {
+      var a2 = a + it[1] / tot * 2 * Math.PI, big = (a2 - a) > Math.PI ? 1 : 0, hue = 'hsl(calc(var(--h) + ' + (i * 38) + '),62%,' + (i % 2 ? '46%' : '38%') + ')';
+      if (d.items.length === 1) b += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="' + hue + '"/>';
+      else b += '<path d="M' + cx + ' ' + cy + 'L' + (cx + r * Math.cos(a)).toFixed(1) + ' ' + (cy + r * Math.sin(a)).toFixed(1) + 'A' + r + ' ' + r + ' 0 ' + big + ' 1 ' + (cx + r * Math.cos(a2)).toFixed(1) + ' ' + (cy + r * Math.sin(a2)).toFixed(1) + 'Z" fill="' + hue + '" stroke="var(--bg)" stroke-width="2"/>';
+      var am = (a + a2) / 2;
+      b += '<text x="' + (cx + r * 0.6 * Math.cos(am)).toFixed(1) + '" y="' + (cy + r * 0.6 * Math.sin(am)).toFixed(1) + '" class="t3" text-anchor="middle" dominant-baseline="central" style="fill:#fff;font-weight:700">' + it[1] + '%</text>';
+      b += '<rect x="212" y="' + (28 + i * 34) + '" width="14" height="14" rx="3" fill="' + hue + '"/>' + T(232, 35 + i * 34, it[0], 't3');
+      a = a2;
+    });
+    return { h: 204, b: b };
+  }
+  var DR = { CR: dCR, PY: dPY, PI: dPI, CW: dCW, SW: dSW, LN: dLN, SH: dSH, TX: dTX, BL: dBL, IR: dIR, CP: dCP, GR: dGR, CT: dCT, LY: dLY, TL: dTL, FL: dFL, CY: dCY, TB: dTB, BR: dBR, TR: dTR, IC: dIC, VN: dVN };
+  function fig(d) {
+    var r = DR[d.t](d);
+    return '<figure class="dg"><svg viewBox="0 0 360 ' + r.h + '" role="img" aria-label="Rajah rujukan soalan">' + r.b + '</svg>' + (d.cap ? '<figcaption>' + esc(d.cap) + '</figcaption>' : '') + '</figure>';
+  }
+
+  /* ---------- Paparan ---------- */
+  var S = { view: 'home', b: 0, tab: 'nota' }, Z = null, timerId = null, rvFilter = 'salah';
+  function stopTimer() { if (timerId) { clearInterval(timerId); timerId = null; } }
+  function setHue(i) { app.style.setProperty('--h', HUE[i % HUE.length]); }
+  function stars(n, big) { var h = '<span class="stars" aria-label="' + n + ' bintang">'; for (var i = 0; i < 3; i++) h += '<svg viewBox="0 0 48 48" class="' + (i < n ? 'star-on' : 'star-off') + '" stroke-width="3" stroke-linejoin="round"><path d="' + ICONS.star + '"/></svg>'; return h + '</span>'; }
+  function starsFor(sc, tot) { var p = sc / tot; return p >= .9 ? 3 : p >= .7 ? 2 : p >= .5 ? 1 : 0; }
+  function go(v, extra) { stopTimer(); S.view = v; if (extra) for (var k in extra) S[k] = extra[k]; render(); window.scrollTo(0, 0); }
+
+  function render() {
+    btnMenu.hidden = S.view === 'home';
+    if (S.view === 'home') return home();
+    setHue(S.b);
+    if (S.view === 'bab') return babView();
+    if (S.view === 'quiz') return quizView();
+    if (S.view === 'hasil') return hasil();
+  }
+
+  function home() {
+    app.style.removeProperty('--h');
+    var done = 0, sum = 0, weakN = 0;
+    BAB.forEach(function (b) { var bs = store.best[b.id]; if (bs) { done++; sum += bs.s / bs.t; } weakN += (store.wrong[b.id] || []).length; });
+    var h = '<section class="hero"><h1>Kuiz Pendidikan Jasmani dan Kesihatan Tingkatan 1</h1><p>Baca nota ringkas, jawab 30 soalan setiap unit dengan rajah rujukan, kemudian semak semula soalan yang salah.</p></section>';
+    h += '<div class="stats"><div class="stat"><b>' + done + '/' + BAB.length + '</b><span>Unit dicuba</span></div><div class="stat"><b>' + (done ? Math.round(sum / done * 100) + '%' : '-') + '</b><span>Purata markah terbaik</span></div><div class="stat"><b>' + weakN + '</b><span>Soalan perlu diulang</span></div></div>';
+    var open_ = false;
+    BAB.forEach(function (b, i) {
+      var bs = store.best[b.id];
+      if (SECS[b.id]) { if (open_) h += '</div>'; h += '<h2 class="secname">' + esc(SECS[b.id]) + '</h2><div class="grid">'; open_ = true; }
+      h += '<button class="bab" style="--h:' + HUE[i % HUE.length] + '" data-act="open" data-i="' + i + '"><span class="no">' + (b.no || b.id) + '</span><span><h3>' + esc(b.tajuk) + '</h3><span class="meta"><span>Nota + ' + b.soalan.length + ' soalan</span>' + (bs ? '<span>Terbaik ' + bs.s + '/' + bs.t + '</span>' + stars(starsFor(bs.s, bs.t)) : '<span>Belum dicuba</span>') + '</span></span></button>';
+    });
+    if (open_) h += '</div>';
+    if (weakN) h += '<div class="weak"><p><b>Latihan soalan lemah</b><br>Ulang ' + weakN + ' soalan yang pernah anda jawab salah, dari semua bab.</p><button class="btn pri" data-act="weakall">Mula latihan</button></div>';
+    app.innerHTML = h;
+  }
+
+  function babView() {
+    var b = BAB[S.b], h = '<div class="chead"><span class="no">' + (b.no || b.id) + '</span><div><small>' + (b.id > 7 ? 'Kesihatan' : 'Jasmani') + ' · Unit ' + (b.no || b.id) + '</small><h2>' + esc(b.tajuk) + '</h2></div></div>';
+    h += '<div class="tabs" role="tablist"><button class="tab" role="tab" data-act="tab" data-t="nota" aria-selected="' + (S.tab === 'nota') + '">Nota ringkas</button><button class="tab" role="tab" data-act="tab" data-t="kuiz" aria-selected="' + (S.tab === 'kuiz') + '">Kuiz</button></div>';
+    if (S.tab === 'nota') {
+      b.nota.forEach(function (n) {
+        h += '<section class="note"><h3>' + esc(n.h) + '</h3><ul>' + n.pts.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>';
+        if (n.kw.length) h += '<div class="kw" aria-label="Kata kunci">' + n.kw.map(function (k) { return '<span>' + esc(k) + '</span>'; }).join('') + '</div>';
+        h += '</section>';
+      });
+      h += '<div class="actions"><button class="btn pri" data-act="tab" data-t="kuiz">Sedia? Mulakan kuiz</button></div>';
+    } else {
+      var lv = { 1: 0, 2: 0, 3: 0 }; b.soalan.forEach(function (q) { lv[q.l]++; });
+      var bs = store.best[b.id], wr = (store.wrong[b.id] || []).filter(function (i) { return i < b.soalan.length; });
+      h += '<div class="panel"><div><h3>' + b.soalan.length + ' soalan bergambar rajah</h3><p style="color:var(--muted);margin-top:4px">Setiap soalan ada rajah rujukan. Selepas menjawab, anda terus nampak penjelasan.</p></div>';
+      h += '<div class="lvrow"><span class="lv l1">Rendah ' + lv[1] + '</span><span class="lv l2">Sederhana ' + lv[2] + '</span><span class="lv l3">KBAT ' + lv[3] + '</span></div>';
+      if (bs) h += '<p>Markah terbaik: <b>' + bs.s + '/' + bs.t + '</b> ' + stars(starsFor(bs.s, bs.t)) + '</p>';
+      h += '<label class="switch"><input type="checkbox" id="timerChk"' + (store.timer ? ' checked' : '') + ' data-act="timer"><span>Mod masa: 40 saat setiap soalan</span></label>';
+      h += '<div class="actions"><button class="btn pri" data-act="start">Mula kuiz</button>' + (wr.length ? '<button class="btn" data-act="startwrong">Ulang ' + wr.length + ' soalan salah</button>' : '') + '</div></div>';
+    }
+    app.innerHTML = h;
+  }
+
+  /* ---------- Kuiz ---------- */
+  function newSession(items, mode) {
+    Z = { mode: mode, items: shuffle(items), i: 0, pts: 0, streak: 0, maxStreak: 0, res: [], picked: -1, opts: [], left: 40 };
+  }
+  function startQuiz(mode) {
+    var b = BAB[S.b], idx;
+    if (mode === 'wrong') idx = (store.wrong[b.id] || []).filter(function (i) { return i < b.soalan.length; });
+    else idx = b.soalan.map(function (_, i) { return i; });
+    if (!idx.length) return;
+    newSession(idx.map(function (i) { return { b: S.b, i: i }; }), mode);
+    go('quiz');
+  }
+  function startWeakAll() {
+    var items = [];
+    BAB.forEach(function (b, bi) { (store.wrong[b.id] || []).forEach(function (i) { if (i < b.soalan.length) items.push({ b: bi, i: i }); }); });
+    if (!items.length) return;
+    S.b = items[0].b; newSession(items, 'weak'); go('quiz');
+  }
+  function cur() { var it = Z.items[Z.i]; return { it: it, q: BAB[it.b].soalan[it.i] }; }
+  function quizView() {
+    var c = cur(), q = c.q, n = Z.items.length;
+    S.b = c.it.b; setHue(S.b);
+    if (Z.picked === -1 && Z.opts.length === 0) Z.opts = shuffle([0, 1, 2, 3]);
+    var h = '<div class="qtop"><span class="pill">Soalan ' + (Z.i + 1) + '/' + n + '</span><span class="lv l' + q.l + '">' + LVN[q.l] + '</span><span class="pill">' + Z.pts + ' mata' + (Z.streak > 1 ? ' · ' + Z.streak + ' berturut' : '') + '</span></div>';
+    h += '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="' + n + '" aria-valuenow="' + Z.i + '"><i style="width:' + (Z.i / n * 100) + '%"></i></div>';
+    if (store.timer && Z.picked === -1) h += '<div class="bar time" aria-hidden="true"><i id="tbar" style="width:100%"></i></div>';
+    h += '<div class="qcard">' + fig(q.d) + '<p class="qtext">' + esc(q.q) + '</p><div class="opts" id="opts">';
+    Z.opts.forEach(function (oi, k) {
+      var cls = 'opt', dis = '';
+      if (Z.picked !== -1) { dis = ' disabled'; if (oi === 0) cls += ' ok'; else if (oi === Z.picked) cls += ' no'; else cls += ' dim'; }
+      h += '<button class="' + cls + '"' + dis + ' data-act="pick" data-o="' + oi + '"><span class="ltr">' + 'ABCD'[k] + '</span><span>' + esc(q.o[oi]) + '</span></button>';
+    });
+    h += '</div>';
+    if (Z.picked !== -1) {
+      var ok = Z.picked === 0;
+      h += '<div class="fb ' + (ok ? 'good' : 'bad') + '" id="fb"><b>' + (ok ? 'Betul!' : (Z.picked === -2 ? 'Masa tamat' : 'Belum tepat')) + '</b><span>' + esc(q.e) + '</span></div>';
+      h += '<div class="actions"><button class="btn pri" data-act="next">' + (Z.i + 1 >= n ? 'Lihat keputusan' : 'Soalan seterusnya') + '</button></div>';
+    }
+    h += '</div><div class="actions" style="margin-top:14px"><button class="btn sm" data-act="quit">Berhenti dan kembali ke bab</button></div>';
+    app.innerHTML = h;
+    if (store.timer && Z.picked === -1) startTimer();
+    if (Z.picked !== -1) { var fb = document.getElementById('fb'); if (fb && fb.scrollIntoView) fb.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' }); }
+  }
+  function startTimer() {
+    stopTimer(); Z.left = 40; var t0 = Date.now();
+    timerId = setInterval(function () {
+      var el = document.getElementById('tbar'); if (!el) { stopTimer(); return; }
+      var f = 1 - (Date.now() - t0) / 40000; el.style.width = Math.max(0, f * 100) + '%';
+      if (f <= 0) { stopTimer(); answer(-2); }
+    }, 100);
+  }
+  function answer(oi) {
+    if (Z.picked !== -1) return;
+    stopTimer();
+    var c = cur(), ok = oi === 0;
+    Z.picked = oi;
+    if (ok) { Z.streak++; Z.maxStreak = Math.max(Z.maxStreak, Z.streak); Z.pts += 10 + [0, 0, 2, 5][c.q.l] + Math.min(Z.streak - 1, 5); } else Z.streak = 0;
+    Z.res.push({ b: c.it.b, i: c.it.i, pick: oi, ok: ok, opts: Z.opts.slice() });
+    quizView();
+  }
+  function nextQ() {
+    if (Z.i + 1 >= Z.items.length) return finish();
+    Z.i++; Z.picked = -1; Z.opts = []; quizView(); window.scrollTo(0, 0);
+  }
+  function finish() {
+    var tot = Z.res.length, sc = Z.res.filter(function (r) { return r.ok; }).length;
+    if (Z.mode === 'full') {
+      var b = BAB[S.b], prev = store.best[b.id];
+      if (!prev || sc / tot > prev.s / prev.t) store.best[b.id] = { s: sc, t: tot };
+      store.wrong[b.id] = Z.res.filter(function (r) { return !r.ok; }).map(function (r) { return r.i; });
+    } else {
+      Z.res.forEach(function (r) {
+        var id = BAB[r.b].id, w = store.wrong[id] || [], k = w.indexOf(r.i);
+        if (r.ok && k >= 0) w.splice(k, 1); else if (!r.ok && k < 0) w.push(r.i);
+        store.wrong[id] = w;
+      });
+    }
+    save(); rvFilter = sc === tot ? 'semua' : 'salah'; go('hasil');
+  }
+
+  function hasil() {
+    var tot = Z.res.length, sc = Z.res.filter(function (r) { return r.ok; }).length, st = starsFor(sc, tot);
+    var lv = { 1: [0, 0], 2: [0, 0], 3: [0, 0] };
+    Z.res.forEach(function (r) { var l = BAB[r.b].soalan[r.i].l; lv[l][1]++; if (r.ok) lv[l][0]++; });
+    var msg = sc === tot ? 'Sempurna! Semua jawapan betul.' : st === 3 ? 'Cemerlang! Hampir sempurna.' : st === 2 ? 'Bagus! Teruskan berlatih.' : st === 1 ? 'Boleh tahan. Baca nota dan cuba lagi.' : 'Jangan risau. Baca nota, semak soalan salah dan cuba lagi.';
+    var h = '<div class="score"><span>' + (Z.mode === 'full' ? esc(BAB[S.b].tajuk) : 'Latihan soalan lemah') + '</span><div class="big">' + sc + '/' + tot + '</div>' + stars(st) + '<p>' + msg + '</p><p style="color:var(--muted)">' + Z.pts + ' mata · jawapan betul berturut terbaik ' + Z.maxStreak + '</p>';
+    h += '<div class="break"><div><b>' + lv[1][0] + '/' + lv[1][1] + '</b><span>Rendah</span></div><div><b>' + lv[2][0] + '/' + lv[2][1] + '</b><span>Sederhana</span></div><div><b>' + lv[3][0] + '/' + lv[3][1] + '</b><span>KBAT</span></div></div></div>';
+    var wrongN = Z.res.filter(function (r) { return !r.ok; }).length;
+    h += '<div class="actions" style="margin-top:14px">';
+    if (wrongN) h += '<button class="btn pri" data-act="redo">Cuba semula ' + wrongN + ' soalan salah</button>';
+    if (Z.mode === 'full') h += '<button class="btn' + (wrongN ? '' : ' pri') + '" data-act="start">Main semula</button><button class="btn" data-act="tabnota">Baca nota</button>';
+    h += '<button class="btn" data-act="menu">Semua bab</button></div>';
+    h += '<div class="sec"><h3>Semak jawapan</h3><div class="chips"><button class="chip" data-act="filt" data-f="salah" aria-pressed="' + (rvFilter === 'salah') + '">Salah (' + wrongN + ')</button><button class="chip" data-act="filt" data-f="semua" aria-pressed="' + (rvFilter === 'semua') + '">Semua (' + tot + ')</button></div></div>';
+    var list = Z.res.filter(function (r) { return rvFilter === 'semua' || !r.ok; });
+    if (!list.length) h += '<div class="empty">Tiada soalan salah. Tahniah!</div>';
+    list.forEach(function (r) {
+      var q = BAB[r.b].soalan[r.i], n = Z.res.indexOf(r) + 1;
+      h += '<article class="rv" style="--h:' + HUE[r.b % HUE.length] + '"><div class="tag"><span>Soalan ' + n + '</span><span class="lv l' + q.l + '">' + LVN[q.l] + '</span><span>Unit ' + (BAB[r.b].no || BAB[r.b].id) + '</span></div>' + fig(q.d) + '<p class="qtext">' + esc(q.q) + '</p><div class="ans">';
+      if (!r.ok) h += '<div class="y"><b>Jawapan anda</b>' + (r.pick === -2 ? 'Tiada jawapan (masa tamat)' : esc(q.o[r.pick])) + '</div>';
+      h += '<div class="c"><b>Jawapan betul</b>' + esc(q.o[0]) + '</div></div><p class="exp">' + esc(q.e) + '</p></article>';
+    });
+    app.innerHTML = h;
+  }
+
+  /* ---------- Acara ---------- */
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-act]'); if (!el) return;
+    var a = el.getAttribute('data-act');
+    if (a === 'timer') { store.timer = el.checked; save(); return; }
+    if (a === 'open') return go('bab', { b: +el.getAttribute('data-i'), tab: 'nota' });
+    if (a === 'tab') return go('bab', { tab: el.getAttribute('data-t') });
+    if (a === 'tabnota') return go('bab', { tab: 'nota' });
+    if (a === 'menu') return go('home');
+    if (a === 'quit') return go('bab', { tab: 'kuiz' });
+    if (a === 'start') return startQuiz('full');
+    if (a === 'startwrong') return startQuiz('wrong');
+    if (a === 'weakall') return startWeakAll();
+    if (a === 'pick') return answer(+el.getAttribute('data-o'));
+    if (a === 'next') return nextQ();
+    if (a === 'filt') { rvFilter = el.getAttribute('data-f'); return hasil(); }
+    if (a === 'redo') {
+      var items = Z.res.filter(function (r) { return !r.ok; }).map(function (r) { return { b: r.b, i: r.i }; });
+      var mode = Z.mode === 'full' ? 'wrong' : Z.mode;
+      newSession(items, mode); return go('quiz');
+    }
+  });
+  render();
+})();
+
+</script>
+
+</body></html>
