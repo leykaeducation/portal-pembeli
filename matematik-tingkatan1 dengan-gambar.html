@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Matematik Tingkatan 1 – Latihan 13 Bab</title>
+<style>
+:root{--ink:#26264f;--card:#fff;--line:#d9d4ff;--pri:#6c5ce7;--ok:#16a34a;--bad:#e5484d;--sun:#ffb703;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f1eeff;--card:#2b2a5c;--line:#4b4a8a}}
+*{box-sizing:inherit}
+html{min-height:100%;background:linear-gradient(160deg,#ffe3ef,#e4f0ff,#e8ffe9,#fff4d6);background-size:300% 300%;animation:bg 20s ease infinite}
+@media (prefers-color-scheme:dark){html{background:linear-gradient(160deg,#2a2150,#1c2f5c,#20483f);background-size:300% 300%}}
+@keyframes bg{50%{background-position:100% 100%}}
+body{margin:0;font-family:"Trebuchet MS","Comic Sans MS",system-ui,sans-serif;color:var(--ink);display:flex;justify-content:center}
+#fx{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#fx span{position:absolute;bottom:-60px;opacity:.5;animation:fl linear infinite}
+@keyframes fl{to{transform:translateY(-115vh) rotate(30deg)}}
+#app{position:relative;z-index:1;width:100%;max-width:520px;padding:14px;display:flex;flex-direction:column;gap:12px;min-height:100vh}
+.card{background:var(--card);border-radius:20px;padding:16px;border:3px solid #fff;box-shadow:0 6px 0 rgba(0,0,0,.07);text-align:center}
+h1{margin:4px 0;font-size:28px}h2{margin:0;font-size:21px}p{margin:4px 0;opacity:.8}
+.big{font-size:56px;line-height:1}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px;padding:12px 16px;font-weight:700;font-size:17px;color:#fff;background:var(--pri);box-shadow:0 4px 0 rgba(0,0,0,.2)}
+button:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.b3{background:var(--sun);color:#3a2a00}.b4{background:var(--ok)}
+.bk{padding:8px 14px;background:#ff6b9d}
+.ch{display:flex;align-items:center;gap:10px;text-align:left;padding:12px}
+.ch .tx{flex:1;line-height:1.3}.ch small{display:block;opacity:.7;font-size:13px}.ch .bt{display:flex;gap:8px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700}
+.bar{height:12px;border-radius:6px;background:rgba(0,0,0,.12);overflow:hidden}.bar i{display:block;height:100%;background:var(--sun);transition:width .3s}
+.q{font-size:21px;font-weight:800;line-height:1.4;text-align:left}
+.ans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ans button{background:var(--card);color:var(--ink);border:3px solid var(--line);font-size:18px;min-height:56px;box-shadow:none}
+.ans button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.ans button.no{background:var(--bad);color:#fff;border-color:var(--bad)}
+.sh{animation:sh .35s}@keyframes sh{20%{transform:translateX(-8px)}60%{transform:translateX(8px)}}
+.fb{background:var(--card);border:3px solid var(--line);border-radius:16px;padding:14px;text-align:left;line-height:1.55}
+.cara{margin-top:8px;padding:10px;border-radius:12px;background:rgba(108,92,231,.12);font-size:16px}
+.nx{width:100%;margin-top:10px;background:var(--ok)}
+.st{font-size:42px;letter-spacing:5px}
+.row{display:flex;gap:8px;text-align:left;padding:8px 0;border-bottom:2px dashed var(--line);font-size:15px;line-height:1.4}
+.pb{height:10px;background:rgba(0,0,0,.12);border-radius:5px;overflow:hidden;margin-top:4px}.pb i{display:block;height:100%;background:var(--ok)}
+@media (prefers-reduced-motion:reduce){html,#fx span{animation:none}}
+.stp{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:17px;line-height:1.45;animation:pop .45s}
+.nm{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pri);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.ans2{background:rgba(22,163,74,.15);border-radius:12px;padding:10px;font-size:19px;display:block}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.96)}}
+.ans button:disabled:not(.ok):not(.no){opacity:.6}
+.mg{display:grid;grid-template-columns:3fr 2fr;gap:10px}.mg>div{display:flex;flex-direction:column;gap:10px}
+.t{background:var(--card);color:var(--ink);border:3px solid var(--line);font-size:15px;min-height:60px;box-shadow:none;text-align:left}
+.t.sel{border-color:var(--pri);background:rgba(108,92,231,.18)}.t.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+@media (prefers-reduced-motion:reduce){.stp,.sh{animation:none}}
+.dg{--d1:#5b4bd5;--d2:#15803d;--d3:#b45309;--d4:#dc2626;background:rgba(108,92,231,.07);border:2px dashed var(--line);border-radius:14px;padding:6px 4px;color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .dg{--d1:#b8aeff;--d2:#4ade80;--d3:#fbbf24;--d4:#ff8a8e}}
+.dg svg{display:block;width:100%;height:auto;max-height:215px;margin:0 auto;font-family:inherit;font-weight:700}
+.dg text{fill:currentColor;dominant-baseline:central}
+.dg .k1{fill:var(--d1)}.dg .k2{fill:var(--d2)}.dg .k3{fill:var(--d3)}.dg .k4{fill:var(--d4)}
+.dg .ln{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dg .ln.g{stroke-width:1;opacity:.35}
+.dg .c1{stroke:var(--d1)}.dg .c2{stroke:var(--d2)}.dg .c3{stroke:var(--d3)}.dg .c4{stroke:var(--d4)}
+.dg .t0{fill:rgba(128,128,170,.14);stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
+.dg .t1{fill:rgba(108,92,231,.3);stroke:var(--d1);stroke-width:2}
+.dg .t2{fill:rgba(22,163,74,.3);stroke:var(--d2);stroke-width:2}
+.dg .t3{fill:rgba(255,183,3,.42);stroke:var(--d3);stroke-width:2}
+.dg .t4{fill:rgba(229,72,77,.28);stroke:var(--d4);stroke-width:2}
+.dg .fl0{fill:currentColor}.dg .fl1{fill:var(--d1)}.dg .fl2{fill:var(--d2)}.dg .fl3{fill:var(--d3)}.dg .fl4{fill:var(--d4)}
+.dg .s1{fill:var(--d1);stroke:var(--d1)}.dg .s2{fill:var(--d2);stroke:var(--d2)}.dg .s3{fill:var(--d3);stroke:var(--d3)}.dg .s4{fill:var(--d4);stroke:var(--d4)}
+.dg .o1,.dg .o2,.dg .o3,.dg .o4{fill:var(--card);stroke-width:2.5}
+.dg .o1{stroke:var(--d1)}.dg .o2{stroke:var(--d2)}.dg .o3{stroke:var(--d3)}.dg .o4{stroke:var(--d4)}
+.row .dg{margin-top:6px}.row .dg svg{max-height:140px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+var R=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,P=a=>a[R(0,a.length-1)],sh=a=>a.slice().sort(()=>Math.random()-.5);
+var gcd=(a,b)=>b?gcd(b,a%b):a,lcm=(a,b)=>a/gcd(a,b)*b,f=n=>n<0?'('+n+')':''+n,sg=n=>(n<0?'− ':'+ ')+Math.abs(n);
+var fr=(n,d)=>{var g=gcd(Math.abs(n),d);n/=g;d/=g;return d==1?''+n:n+'/'+d};
+var pf=n=>{var r=[],p=2;while(n>1){while(n%p==0){r.push(p);n/=p}p++}return r};
+var fc=n=>{var r=[];for(var i=1;i<=n;i++)if(n%i==0)r.push(i);return r};
+var rg=(a,b)=>{var r=[];for(var i=a;i<=b;i++)r.push(i);return r},asc=a=>a.sort((x,y)=>x-y),ss=a=>a.length?'{'+a.join(', ')+'}':'{ }';
+var nz=(a,b)=>{var v=0;while(!v)v=R(a,b);return v};
+var poly=t=>{var s='';t.forEach(e=>{var c=e[0],v=e[1];if(!c)return;var a=Math.abs(c);s+=(s?(c<0?' − ':' + '):(c<0?'−':''))+((a==1&&v)?'':a)+v});return s||'0'};
+var OPS=['<','>','≤','≥'],FL={'<':'>','>':'<','≤':'≥','≥':'≤'},ow=(v,op)=>OPS.filter(o=>o!=op).map(o=>'x '+o+' '+v);
+var TR=[[3,4,5],[5,12,13],[8,15,17],[7,24,25]],tr=()=>{var k=R(1,3);return P(TR).map(v=>v*k)};
+var fd=()=>{var n=sh(['Merah','Biru','Hijau','Kuning','Ungu','Oren']).slice(0,4),q=sh(rg(2,12)).slice(0,4);return{n:n,q:q,t:n.map((x,i)=>x+' '+q[i]).join(', ')}};
+var TT=['Nombor Nisbah','Faktor dan Gandaan','Kuasa Dua, Punca Kuasa Dua, Kuasa Tiga dan Punca Kuasa Tiga','Nisbah, Kadar dan Kadaran','Ungkapan Algebra','Persamaan Linear','Ketaksamaan Linear','Garis dan Sudut','Poligon Asas','Perimeter dan Luas','Pengenalan Set','Pengendalian Data','Teorem Pythagoras'];
+// Setiap penjana: [soalan, jawapan, langkah[], pilihan salah?, unit?]
+var GEN={
+1:[
+()=>{var a=R(-15,15),b=R(-15,15),c=R(-15,15),r=a+b-c;return[`Hitung ${a} + ${f(b)} − ${f(c)}.`,r,[`${a} + ${f(b)} = ${a+b}`,`Tolak negatif = tambah positif: ${a+b} − ${f(c)} = ${r}`]]},
+()=>{var c=R(2,6),a=c*R(1,4)*P([1,-1]),b=R(2,7)*P([1,-1]),p=a*b;return[`Hitung ${f(a)} × ${f(b)} ÷ ${c}.`,p/c,['Tanda sama → positif, tanda beza → negatif',`${f(a)} × ${f(b)} = ${p}`,`${p} ÷ ${c} = ${p/c}`]]},
+()=>{var L=[2,3,4,5,6,8,9],b=P(L),d=b;while(d==b)d=P(L);var a=R(1,b-1),c=R(1,d-1),l=lcm(b,d),x=a*l/b,y=c*l/d,n=x+y,r=fr(n,l);return[`Hitung ${a}/${b} + ${c}/${d}.`,r,[`GSTK ${b} dan ${d} = ${l}`,`${a}/${b} = ${x}/${l} dan ${c}/${d} = ${y}/${l}`,`${x}/${l} + ${y}/${l} = ${n}/${l}`,`Permudahkan: ${r}`],[fr(a+c,b+d),fr(n+1,l),fr(n-1,l),fr(n,l+1)]]},
+()=>{var L=[2,3,4,5,6,8,9],a,b,c,d,l,x,y;do{b=P(L);d=P(L);a=R(1,b-1);c=R(1,d-1);l=lcm(b,d);x=a*l/b;y=c*l/d}while(b==d||x<=y);var n=x-y,r=fr(n,l);return[`Hitung ${a}/${b} − ${c}/${d}.`,r,[`GSTK ${b} dan ${d} = ${l}`,`${a}/${b} = ${x}/${l} dan ${c}/${d} = ${y}/${l}`,`${x}/${l} − ${y}/${l} = ${n}/${l}`,`Permudahkan: ${r}`],[fr(Math.abs(a-c),Math.abs(b-d)),fr(n+1,l),fr(n-1,l),fr(n,l+1)]]},
+()=>{var x=R(12,95),y=R(2,9),p=x*y;return[`Hitung ${x/10} × 0.${y}.`,+(p/100).toFixed(2),[`Abaikan titik perpuluhan: ${x} × ${y} = ${p}`,'Jumlah tempat perpuluhan = 1 + 1 = 2',`${p} → ${+(p/100).toFixed(2)}`]]},
+()=>{var x=R(-95,95),y=R(-95,95);return[`Hitung ${x/10} + ${f(y/10)}.`,(x+y)/10,[`Darab 10: ${x} + ${f(y)} = ${x+y}`,`${x+y} ÷ 10 = ${(x+y)/10}`]]}],
+2:[
+()=>{var g=R(2,9),p=R(2,8),q=R(2,8),a=g*p,b=g*q;if(a==b)b+=g;var h=gcd(a,b);return[`Cari FSTB bagi ${a} dan ${b}.`,h,[`Faktor ${a}: ${fc(a).join(', ')}`,`Faktor ${b}: ${fc(b).join(', ')}`,`Faktor sepunya terbesar = ${h}`]]},
+()=>{var a=R(4,16),b=a;while(b==a)b=R(4,16);var l=lcm(a,b);return[`Cari GSTK bagi ${a} dan ${b}.`,l,[`${a} = ${pf(a).join(' × ')}`,`${b} = ${pf(b).join(' × ')}`,'Ambil semua faktor perdana dengan kuasa tertinggi',`GSTK = ${l}`]]},
+()=>{var n=P([R(6,60)*2,R(4,40)*3]),m=n,s=[];pf(n).forEach(p=>{s.push(`${m} ÷ ${p} = ${m/p}`);m/=p});var r=pf(n).join(' × ');return[`Ungkapkan ${n} sebagai hasil darab faktor perdana.`,r,s.concat(`${n} = ${r}`),[n+2,n-2,n+4].map(v=>pf(v).join(' × '))]},
+()=>{var n=R(11,97),ok=pf(n).length==1;return[`Adakah ${n} nombor perdana?`,ok?'Ya':'Tidak',ok?[`${n} hanya boleh dibahagi dengan 1 dan ${n}`]:[`${n} = ${pf(n).join(' × ')}`,'Ada faktor lain selain 1 dan dirinya, jadi bukan perdana'],[ok?'Tidak':'Ya']]},
+()=>{var a=R(4,12),b=a;while(b==a)b=R(4,12);var l=lcm(a,b);return[`Dua lampu berkelip setiap ${a} saat dan ${b} saat. Jika berkelip serentak sekarang, selepas berapa saat lagi ia berkelip serentak?`,l,[`Cari GSTK bagi ${a} dan ${b}`,`${a} = ${pf(a).join(' × ')}, ${b} = ${pf(b).join(' × ')}`,`GSTK = ${l}`],0,' saat']},
+()=>{var g=R(2,8),p=R(2,7),q=R(2,7),a=g*p,b=g*q;if(a==b)b+=g;var h=gcd(a,b);return[`Terdapat ${a} pen dan ${b} buku. Semuanya dibahagi sama banyak ke dalam beberapa beg tanpa baki. Berapakah bilangan beg maksimum?`,h,[`Cari FSTB bagi ${a} dan ${b}`,`Faktor ${a}: ${fc(a).join(', ')}`,`Faktor ${b}: ${fc(b).join(', ')}`,`FSTB = ${h}`],0,' beg']}],
+3:[
+()=>{var n=R(11,25);return[`Hitung ${n}².`,n*n,[`${n}² = ${n} × ${n}`,`= ${n*n}`]]},
+()=>{var n=R(5,30);return[`Hitung √${n*n}.`,n,[`Cari nombor yang apabila didarab dengan dirinya = ${n*n}`,`${n} × ${n} = ${n*n}`,`√${n*n} = ${n}`]]},
+()=>{var n=R(2,12);return[`Hitung ${n}³.`,n**3,[`${n}³ = ${n} × ${n} × ${n}`,`${n} × ${n} = ${n*n}`,`${n*n} × ${n} = ${n**3}`]]},
+()=>{var n=R(2,12);return[`Hitung ∛${n**3}.`,n,[`Cari nombor yang didarab 3 kali = ${n**3}`,`${n} × ${n} × ${n} = ${n**3}`,`∛${n**3} = ${n}`]]},
+()=>{var x=R(3,12),y=R(2,6),z=R(1,30),r=x+y**3-z;return[`Hitung √${x*x} + ${y}³ − ${z}.`,r,[`√${x*x} = ${x}`,`${y}³ = ${y**3}`,`${x} + ${y**3} − ${z} = ${r}`]]},
+()=>{var s=R(4,20);return[`Luas sebuah segi empat sama ialah ${s*s} cm². Berapakah panjang sisinya?`,s,['Luas = sisi²',`Sisi = √${s*s} = ${s}`],0,' cm']},
+()=>{var s=R(2,9);return[`Sebuah kubus mempunyai sisi ${s} cm. Hitung isi padunya.`,s**3,['Isi padu kubus = sisi³',`${s} × ${s} × ${s} = ${s**3}`],0,' cm³']},
+()=>{var m=R(4,14),n=R(m*m-m+1,m*m+m),r=Math.round(Math.sqrt(n));return[`Anggarkan √${n} kepada integer terdekat.`,r,[`${m-1}² = ${(m-1)**2}, ${m}² = ${m*m}, ${m+1}² = ${(m+1)**2}`,`√${n} ≈ ${Math.sqrt(n).toFixed(2)}`,`Integer terdekat = ${r}`]]}],
+4:[
+()=>{var g=R(2,9),p=R(1,9),q=R(1,9),d=gcd(p,q);p/=d;q/=d;return[`Permudahkan nisbah ${g*p} : ${g*q}.`,`${p} : ${q}`,[`FSTB bagi ${g*p} dan ${g*q} = ${g}`,`${g*p} ÷ ${g} = ${p}`,`${g*q} ÷ ${g} = ${q}`],[`${p+1} : ${q}`,`${p} : ${q+1}`,`${q} : ${p}`,`${g*p} : ${g*q}`]]},
+()=>{var p=R(1,7),q=R(1,7);while(q==p)q=R(1,7);var k=R(2,12),T=k*(p+q),m=Math.max(p,q);return[`RM${T} dibahagi mengikut nisbah ${p} : ${q}. Berapakah bahagian yang lebih besar?`,m*k,[`Jumlah bahagian = ${p} + ${q} = ${p+q}`,`1 bahagian = RM${T} ÷ ${p+q} = RM${k}`,`Bahagian besar = ${m} × RM${k} = RM${m*k}`],0,'^RM']},
+()=>{var v=R(30,110),t=R(2,6);return[`Sebuah kereta bergerak ${v*t} km dalam ${t} jam. Hitung laju puratanya.`,v,['Laju = jarak ÷ masa',`${v*t} ÷ ${t} = ${v}`],0,' km/j']},
+()=>{var u=R(2,15),a=R(3,9),c=R(a+1,15);return[`Harga ${a} buah buku ialah RM${a*u}. Berapakah harga ${c} buah buku?`,c*u,[`Harga 1 buku = RM${a*u} ÷ ${a} = RM${u}`,`Harga ${c} buku = ${c} × RM${u} = RM${c*u}`],0,'^RM']},
+()=>{var p=R(1,6),q=R(1,6),k=R(2,6);return[`Diberi ${p} : ${q} = ${p*k} : x. Cari nilai x.`,q*k,[`Faktor pendaraban = ${p*k} ÷ ${p} = ${k}`,`x = ${q} × ${k} = ${q*k}`],0,'^x = ']},
+()=>{var h=R(3,9),r=R(4,15);return[`Zul bekerja ${h} jam dan memperoleh RM${h*r}. Berapakah kadar upahnya sejam?`,r,['Kadar upah = jumlah upah ÷ bilangan jam',`RM${h*r} ÷ ${h} = RM${r}`],0,'^RM']}],
+5:[
+()=>{var a=R(2,6),b=P([-5,-4,-3,-2,2,3,4,5]),x=R(-4,6),y=R(-4,6),r=a*x+b*y;return[`Nilai ${poly([[a,'x'],[b,'y']])} jika x = ${x} dan y = ${y}.`,r,[`Gantikan: ${a} × ${f(x)} + ${f(b)} × ${f(y)}`,`= ${a*x} + ${f(b*y)}`,`= ${r}`]]},
+()=>{var c=[nz(-6,6),nz(-6,6),nz(-6,6),nz(-6,6)],A=c[0]+c[2],B=c[1]+c[3],r=poly([[A,'a'],[B,'b']]);return[`Permudahkan ${poly([[c[0],'a'],[c[1],'b'],[c[2],'a'],[c[3],'b']])}.`,r,[`Sebutan a: ${f(c[0])} + ${f(c[2])} = ${A}`,`Sebutan b: ${f(c[1])} + ${f(c[3])} = ${B}`,`Jawapan: ${r}`],[poly([[A+1,'a'],[B,'b']]),poly([[A,'a'],[B+1,'b']]),poly([[c[0]-c[2],'a'],[B,'b']])]]},
+()=>{var k=R(2,7),p=nz(-6,6),q=nz(-9,9),r=poly([[k*p,'x'],[k*q,'']]);return[`Kembangkan ${k}(${poly([[p,'x'],[q,'']])}).`,r,[`${k} × ${f(p)}x = ${k*p}x`,`${k} × ${f(q)} = ${k*q}`,`Jawapan: ${r}`],[poly([[k*p,'x'],[q,'']]),poly([[p,'x'],[k*q,'']]),poly([[k*p,'x'],[-k*q,'']])]]},
+()=>{var a=R(2,5),c=R(2,5),b=nz(-6,6),d=nz(-6,6),r=poly([[a+c,'x'],[a*b+c*d,'']]);return[`Permudahkan ${a}(x ${sg(b)}) + ${c}(x ${sg(d)}).`,r,[`Kembang: ${poly([[a,'x'],[a*b,'']])} dan ${poly([[c,'x'],[c*d,'']])}`,`Sebutan x: ${a}x + ${c}x = ${a+c}x`,`Pemalar: ${f(a*b)} + ${f(c*d)} = ${a*b+c*d}`],[poly([[a+c,'x'],[b+d,'']]),poly([[a+c,'x'],[a*b-c*d,'']]),poly([[a*c,'x'],[a*b+c*d,'']])]]},
+()=>{var a=R(2,9),b=R(2,9);while(b==a)b=R(2,9);return[`Sebuah buku berharga RMx dan sebuah pen berharga RMy. Tulis ungkapan bagi jumlah harga ${a} buku dan ${b} pen.`,`${a}x + ${b}y`,[`${a} buku = ${a} × x = ${a}x`,`${b} pen = ${b} × y = ${b}y`,`Jumlah = ${a}x + ${b}y`],[`${b}x + ${a}y`,`${a+b}xy`,`${a}x + ${b}x`]]}],
+6:[
+()=>{var x=R(-9,15),a=R(1,15),o=R(0,1);return[o?`Selesaikan x + ${a} = ${x+a}.`:`Selesaikan x − ${a} = ${x-a}.`,x,[o?`x = ${x+a} − ${a}`:`x = ${x-a} + ${a}`,`x = ${x}`],0,'^x = ']},
+()=>{var a=R(2,9),x=nz(-9,12);return[`Selesaikan ${a}x = ${a*x}.`,x,[`Bahagi kedua-dua belah dengan ${a}`,`x = ${a*x} ÷ ${a} = ${x}`],0,'^x = ']},
+()=>{var a=R(2,8),b=nz(-12,12),x=R(-6,9),c=a*x+b;return[`Selesaikan ${a}x ${sg(b)} = ${c}.`,x,[`${a}x = ${c} ${b<0?'+':'−'} ${Math.abs(b)} = ${c-b}`,`x = ${c-b} ÷ ${a} = ${x}`],0,'^x = ']},
+()=>{var a=R(2,6),x=a*R(-5,8),b=nz(-8,8),c=x/a+b;return[`Selesaikan x/${a} ${sg(b)} = ${c}.`,x,[`x/${a} = ${c} ${b<0?'+':'−'} ${Math.abs(b)} = ${c-b}`,`x = ${c-b} × ${a} = ${x}`],0,'^x = ']},
+()=>{var a,b,c,d,x;do{a=R(3,9);c=R(1,a-1);x=R(-5,8);b=nz(-10,10);d=a*x+b-c*x}while(!d);return[`Selesaikan ${a}x ${sg(b)} = ${c}x ${sg(d)}.`,x,[`Kumpul sebutan x: ${a}x − ${c}x = ${d} − ${f(b)}`,`${a-c}x = ${d-b}`,`x = ${d-b} ÷ ${a-c} = ${x}`],0,'^x = ']},
+()=>{var n=R(5,40);return[`Hasil tambah dua nombor bulat berturut-turut ialah ${2*n+1}. Cari nombor yang lebih kecil.`,n,['Katakan nombor kecil = x, nombor besar = x + 1',`x + (x + 1) = ${2*n+1}`,`2x = ${2*n}`,`x = ${n}`]]},
+()=>{var x=R(2,12),y=R(1,x-1),s=x+y,d=x-y,k=R(0,1);return[`Selesaikan x + y = ${s} dan x − y = ${d}. Cari nilai ${k?'y':'x'}.`,k?y:x,[`Tambah kedua-dua persamaan: 2x = ${s} + ${d} = ${s+d}`,`x = ${x}`,`y = ${s} − ${x} = ${y}`]]},
+()=>{var x=R(1,9),y=R(1,9);return[`Selesaikan 2x + y = ${2*x+y} dan x + y = ${x+y}. Cari nilai y.`,y,[`Tolak persamaan kedua daripada pertama: x = ${2*x+y} − ${x+y} = ${x}`,`Gantikan ke x + y = ${x+y}: ${x} + y = ${x+y}`,`y = ${y}`]]}],
+7:[
+()=>{var a=nz(-9,9),b=nz(-9,9);while(a==b)b=nz(-9,9);return[`Pilih simbol yang betul: ${a} ___ ${b}`,a>b?'>':'<',['Pada garis nombor, nombor di sebelah kanan lebih besar',`${a} berada di sebelah ${a>b?'kanan':'kiri'} ${b}, maka ${a} ${a>b?'>':'<'} ${b}`],['<','>','=']]},
+()=>{var op=P(OPS),a=nz(-9,9),b=R(-8,12),v=b-a;return[`Selesaikan x ${sg(a)} ${op} ${b}.`,`x ${op} ${v}`,[`Pindahkan ${a} ke kanan: x ${op} ${b} − ${f(a)}`,`x ${op} ${v}`],ow(v,op)]},
+()=>{var op=P(OPS),a=R(2,6),v=R(-6,9);return[`Selesaikan ${a}x ${op} ${a*v}.`,`x ${op} ${v}`,[`Bahagi kedua-dua belah dengan ${a} (positif, simbol kekal)`,`x ${op} ${a*v} ÷ ${a} = ${v}`],ow(v,op)]},
+()=>{var op=P(OPS),a=R(2,6),v=R(-6,8),r=FL[op];return[`Selesaikan −${a}x ${op} ${-a*v}.`,`x ${r} ${v}`,[`Bahagi kedua-dua belah dengan −${a} (negatif)`,`Simbol terbalik: ${op} menjadi ${r}`,`x ${r} ${v}`],ow(v,r)]},
+()=>{var op=P(OPS),a=R(2,6),v=R(-5,8),b=nz(-9,9),c=a*v+b;return[`Selesaikan ${a}x ${sg(b)} ${op} ${c}.`,`x ${op} ${v}`,[`${a}x ${op} ${c} − ${f(b)} = ${c-b}`,`x ${op} ${c-b} ÷ ${a} = ${v}`],ow(v,op)]},
+()=>{var a=R(-6,4),b=R(a+3,a+9);return[`Berapakah bilangan integer x yang memenuhi ${a} < x ≤ ${b}?`,b-a,[`Integer: ${rg(a+1,b).join(', ')}`,`Bilangan integer = ${b-a}`]]},
+()=>{var s=P([['melebihi','>'],['kurang daripada','<'],['tidak kurang daripada','≥'],['tidak melebihi','≤']]),n=R(5,60);return[`Jisim sebuah beg, m kg, ${s[0]} ${n} kg. Tulis ketaksamaan yang sesuai.`,`m ${s[1]} ${n}`,[`"${s[0]}" bermaksud ${s[1]}`,`m ${s[1]} ${n}`],OPS.filter(o=>o!=s[1]).map(o=>'m '+o+' '+n)]}],
+8:[
+()=>{var a=R(10,80);return[`Cari sudut pelengkap bagi ${a}°.`,90-a,['Sudut pelengkap berjumlah 90°',`90° − ${a}° = ${90-a}°`],0,'°']},
+()=>{var a=R(20,160);return[`Cari sudut penggenap bagi ${a}°.`,180-a,['Sudut penggenap berjumlah 180°',`180° − ${a}° = ${180-a}°`],0,'°']},
+()=>{var a=R(20,80),b=R(20,80);return[`Pada satu garis lurus, tiga sudut bersebelahan ialah ${a}°, ${b}° dan x°. Cari x.`,180-a-b,['Sudut pada garis lurus = 180°',`x = 180° − ${a}° − ${b}° = ${180-a-b}°`],0,'°']},
+()=>{var a=R(40,120),b=R(40,120),c=R(40,100);return[`Sudut di sekeliling satu titik ialah ${a}°, ${b}°, ${c}° dan x°. Cari x.`,360-a-b-c,['Sudut di sekeliling satu titik = 360°',`x = 360° − ${a}° − ${b}° − ${c}° = ${360-a-b-c}°`],0,'°']},
+()=>{var a=R(25,155),k=R(0,1);return[`Dua garis lurus bersilang. Satu sudut ialah ${a}°. Cari sudut yang ${k?'bersebelahan dengannya':'bertentang bucu dengannya'}.`,k?180-a:a,[k?'Sudut bersebelahan pada garis lurus berjumlah 180°':'Sudut bertentang bucu adalah sama besar',k?`180° − ${a}° = ${180-a}°`:`Sudut = ${a}°`],0,'°']},
+()=>{var a=R(40,140),t=P([['sepadan',0],['selang-seli',0],['pedalaman',1]]);return[`Dua garis selari dipotong oleh garis rentas lintang. Satu sudut ialah ${a}°. Cari sudut ${t[0]} yang berkaitan.`,t[1]?180-a:a,[t[1]?'Sudut pedalaman berjumlah 180°':`Sudut ${t[0]} adalah sama besar`,t[1]?`180° − ${a}° = ${180-a}°`:`Sudut = ${a}°`],0,'°']}],
+9:[
+()=>{var a=R(30,85),b=R(30,80);return[`Dua sudut pedalaman sebuah segi tiga ialah ${a}° dan ${b}°. Cari sudut yang ketiga.`,180-a-b,['Jumlah sudut dalam segi tiga = 180°',`180° − ${a}° − ${b}° = ${180-a-b}°`],0,'°']},
+()=>{var a=R(30,85),b=R(30,80);return[`Dua sudut pedalaman bertentangan sebuah segi tiga ialah ${a}° dan ${b}°. Cari sudut peluaran.`,a+b,['Sudut peluaran = jumlah dua sudut pedalaman bertentangan',`${a}° + ${b}° = ${a+b}°`],0,'°']},
+()=>{var a=R(60,110),b=R(60,110),c=R(60,110);return[`Tiga sudut sebuah sisi empat ialah ${a}°, ${b}° dan ${c}°. Cari sudut keempat.`,360-a-b-c,['Jumlah sudut dalam sisi empat = 360°',`360° − ${a}° − ${b}° − ${c}° = ${360-a-b-c}°`],0,'°']},
+()=>{var a=R(50,130),k=R(0,1);return[`Dalam segi empat selari ABCD, ∠A = ${a}°. Cari ∠${k?'C':'B'}.`,k?a:180-a,[k?'Sudut bertentangan segi empat selari adalah sama':'Sudut bersebelahan segi empat selari berjumlah 180°',k?`∠C = ${a}°`:`180° − ${a}° = ${180-a}°`],0,'°']},
+()=>{var a=2*R(10,60);return[`Sebuah segi tiga sama kaki mempunyai sudut puncak ${a}°. Cari sudut tapak.`,(180-a)/2,[`Jumlah sudut = 180°. Dua sudut tapak sama besar`,`(180° − ${a}°) ÷ 2 = ${(180-a)/2}°`],0,'°']},
+()=>{var b=R(30,80);return[`Sebuah segi tiga sama kaki mempunyai sudut tapak ${b}°. Cari sudut puncak.`,180-2*b,['Dua sudut tapak sama besar',`180° − ${b}° − ${b}° = ${180-2*b}°`],0,'°']},
+()=>{var a=R(50,130);return[`Dalam trapezium ABCD dengan AB // DC, ∠A = ${a}°. Cari ∠D.`,180-a,['AB // DC, maka ∠A dan ∠D ialah sudut pedalaman = 180°',`180° − ${a}° = ${180-a}°`],0,'°']}],
+10:[
+()=>{var l=R(5,25),w=R(3,15);return[`Hitung perimeter segi empat tepat berukuran ${l} cm × ${w} cm.`,2*(l+w),['Perimeter = 2(panjang + lebar)',`2(${l} + ${w}) = 2 × ${l+w} = ${2*(l+w)}`],0,' cm']},
+()=>{var l=R(5,25),w=R(3,15);return[`Hitung luas segi empat tepat berukuran ${l} cm × ${w} cm.`,l*w,['Luas = panjang × lebar',`${l} × ${w} = ${l*w}`],0,' cm²']},
+()=>{var b=2*R(2,10),h=R(3,15);return[`Hitung luas segi tiga yang tapaknya ${b} cm dan tingginya ${h} cm.`,b*h/2,['Luas = ½ × tapak × tinggi',`½ × ${b} × ${h} = ${b*h/2}`],0,' cm²']},
+()=>{var b=R(5,20),h=R(3,12);return[`Hitung luas segi empat selari yang tapaknya ${b} cm dan tingginya ${h} cm.`,b*h,['Luas = tapak × tinggi',`${b} × ${h} = ${b*h}`],0,' cm²']},
+()=>{var a=R(4,12),b=R(5,15),h=2*R(2,6);return[`Sebuah trapezium mempunyai dua sisi selari ${a} cm dan ${b} cm, tinggi ${h} cm. Hitung luasnya.`,(a+b)*h/2,['Luas = ½ × (hasil tambah sisi selari) × tinggi',`½ × (${a} + ${b}) × ${h} = ½ × ${a+b} × ${h} = ${(a+b)*h/2}`],0,' cm²']},
+()=>{var w=R(3,12),l=R(w+1,20);return[`Luas sebuah segi empat tepat ialah ${l*w} cm². Jika lebarnya ${w} cm, cari panjangnya.`,l,['Panjang = luas ÷ lebar',`${l*w} ÷ ${w} = ${l}`],0,' cm']},
+()=>{var s=R(3,15);return[`Perimeter sebuah segi empat sama ialah ${4*s} cm. Hitung luasnya.`,s*s,[`Sisi = ${4*s} ÷ 4 = ${s} cm`,`Luas = sisi × sisi = ${s} × ${s} = ${s*s}`],0,' cm²']}],
+11:[
+()=>{var a=R(8,20),b=R(6,18),c=R(2,Math.min(a,b)-1);return[`Diberi n(A) = ${a}, n(B) = ${b} dan n(A ∩ B) = ${c}. Cari n(A ∪ B).`,a+b-c,['n(A ∪ B) = n(A) + n(B) − n(A ∩ B)',`${a} + ${b} − ${c} = ${a+b-c}`]]},
+()=>{var a=R(5,15),b=R(5,15),c=R(1,4),d=R(2,10);return[`Dalam gambar rajah Venn, n(A) = ${a}, n(B) = ${b}, n(A ∩ B) = ${c} dan n((A ∪ B)′) = ${d}. Cari n(ξ).`,a+b-c+d,[`n(A ∪ B) = ${a} + ${b} − ${c} = ${a+b-c}`,'n(ξ) = n(A ∪ B) + n((A ∪ B)′)',`${a+b-c} + ${d} = ${a+b-c+d}`]]},
+()=>{var a=R(15,40),b=R(3,12);return[`Diberi n(ξ) = ${a} dan n(A) = ${b}. Cari n(A′).`,a-b,['n(A′) = n(ξ) − n(A)',`${a} − ${b} = ${a-b}`]]},
+()=>{var N=R(9,12),A=asc(sh(rg(1,N)).slice(0,R(3,5))),C=rg(1,N).filter(x=>A.indexOf(x)<0),r=ss(C);return[`ξ = {1, 2, 3, ..., ${N}} dan A = ${ss(A)}. Senaraikan unsur bagi A′.`,r,['A′ ialah unsur dalam ξ yang bukan unsur A',`Buang ${A.join(', ')} daripada ξ`,`A′ = ${r}`],[ss(C.slice(1)),ss(A),ss(asc(C.slice(0,-1).concat(A[0])))]]},
+()=>{var p=sh(rg(1,16)),m=R(1,3),x=R(1,3),y=R(1,3),C=asc(p.slice(0,m)),OA=asc(p.slice(m,m+x)),OB=asc(p.slice(m+x,m+x+y)),A=asc(C.concat(OA)),B=asc(C.concat(OB)),U=asc(C.concat(OA,OB)),I=R(0,1);return[`A = ${ss(A)} dan B = ${ss(B)}. Cari ${I?'A ∩ B':'A ∪ B'}.`,ss(I?C:U),I?['A ∩ B = unsur yang ada dalam A dan juga B',`Unsur sepunya: ${C.join(', ')}`]:['A ∪ B = semua unsur dalam A atau B (tanpa ulang)',`Gabungan: ${U.join(', ')}`],I?[ss(U),ss(OA),ss(OB)]:[ss(C),ss(A),ss(B)]]},
+()=>{var A=asc(sh(rg(1,12)).slice(0,R(5,6))),S=asc(sh(A).slice(0,R(2,3))),W=[0,1,2].map(()=>ss(asc([A[R(0,A.length-1)],R(13,20)])));return[`Manakah subset bagi A = ${ss(A)}?`,ss(S),['Subset: semua unsurnya mesti ada dalam A',`${ss(S)}: ${S.join(', ')} semuanya ada dalam A`,'Pilihan lain mengandungi unsur yang bukan dalam A'],W]}],
+12:[
+()=>{var v=[R(2,20),R(2,20),R(2,20),R(2,20)],s=v[0]+v[1]+v[2]+v[3],e=R(3,20);e+=(5-(s+e)%5)%5;v.push(e);var t=s+e;return[`Cari min bagi data: ${v.join(', ')}.`,t/5,['Min = jumlah nilai ÷ bilangan data',`${v.join(' + ')} = ${t}`,`${t} ÷ 5 = ${t/5}`]]},
+()=>{var n=P([5,7]),v=[];for(var i=0;i<n;i++)v.push(R(1,30));var s=v.slice().sort((x,y)=>x-y),m=s[(n-1)/2];return[`Cari median bagi data: ${v.join(', ')}.`,m,[`Susun tertib menaik: ${s.join(', ')}`,`Terdapat ${n} data, nilai tengah ialah nilai ke-${(n+1)/2}`,`Median = ${m}`]]},
+()=>{var m=R(1,15),o=[];while(o.length<4){var x=R(1,15);if(x!=m&&o.indexOf(x)<0)o.push(x)}return[`Cari mod bagi data: ${sh([m,m,m].concat(o)).join(', ')}.`,m,['Mod = nilai yang paling kerap muncul',`${m} muncul 3 kali, nilai lain hanya 1 kali`,`Mod = ${m}`]]},
+()=>{var v=[];for(var i=0;i<6;i++)v.push(R(3,40));var M=Math.max(...v),m=Math.min(...v);return[`Cari julat bagi data: ${v.join(', ')}.`,M-m,[`Nilai terbesar = ${M}, nilai terkecil = ${m}`,`Julat = ${M} − ${m} = ${M-m}`]]},
+()=>{var k=P([2,5,10]),n=R(2,9)+(k!=5&&R(0,1)?.5:0),C=P(['5 Amanah','5 Bestari','5 Cemerlang','5 Dedikasi']);return[`Dalam piktograf, 1 simbol mewakili ${k} murid. Kelas ${C} mempunyai ${Number.isInteger(n)?n:Math.floor(n)+'½'} simbol. Berapakah bilangan murid kelas itu?`,k*n,[`Bilangan murid = bilangan simbol × ${k}`,`${n} × ${k} = ${k*n}`],0,' murid']},
+()=>{var d=fd(),m=Math.max(...d.q),i=d.q.indexOf(m);return[`Jadual kekerapan warna kegemaran murid: ${d.t}. Apakah mod data ini?`,d.n[i],['Mod = kategori dengan kekerapan tertinggi',`Kekerapan tertinggi = ${m}, iaitu ${d.n[i]}`],d.n.filter((x,j)=>j!=i)]},
+()=>{var d=fd(),s=d.q.reduce((a,b)=>a+b,0);return[`Jadual kekerapan warna kegemaran murid: ${d.t}. Berapakah jumlah murid yang dikaji?`,s,['Jumlah = tambah semua kekerapan',`${d.q.join(' + ')} = ${s}`],0,' murid']}],
+13:[
+()=>{var t=tr(),a=t[0],b=t[1],c=t[2];if(R(0,1)){a=t[1];b=t[0]}return[`Sebuah segi tiga bersudut tegak mempunyai sisi tegak ${a} cm dan ${b} cm. Hitung hipotenusnya.`,c,['c² = a² + b²',`c² = ${a}² + ${b}² = ${a*a} + ${b*b} = ${a*a+b*b}`,`c = √${c*c} = ${c}`],0,' cm']},
+()=>{var t=tr(),a=t[R(0,1)],b=t[0]+t[1]-a,c=t[2];return[`Hipotenus sebuah segi tiga bersudut tegak ialah ${c} cm dan satu sisi tegaknya ${a} cm. Hitung sisi tegak yang lain.`,b,['b² = c² − a²',`b² = ${c}² − ${a}² = ${c*c} − ${a*a} = ${b*b}`,`b = √${b*b} = ${b}`],0,' cm']},
+()=>{var t=tr(),ok=R(0,1);if(!ok)t[2]+=R(1,2);var s=sh(t);return[`Adakah segi tiga bersisi ${s[0]} cm, ${s[1]} cm dan ${s[2]} cm bersudut tegak?`,ok?'Ya':'Tidak',[`Sisi terpanjang = ${t[2]} cm`,`${t[0]}² + ${t[1]}² = ${t[0]**2+t[1]**2}`,`${t[2]}² = ${t[2]**2}`,ok?'Kedua-duanya sama, maka segi tiga itu bersudut tegak':'Tidak sama, maka bukan segi tiga bersudut tegak'],[ok?'Tidak':'Ya']]},
+()=>{var t=tr(),a=t[0],b=t[1],c=t[2];return[`Sebuah tangga sepanjang ${c} m bersandar pada dinding tegak. Kaki tangga ${a} m dari dinding. Berapakah tinggi dinding yang dicapai tangga itu?`,b,['Dinding, tanah dan tangga membentuk segi tiga bersudut tegak',`Tinggi² = ${c}² − ${a}² = ${c*c} − ${a*a} = ${b*b}`,`Tinggi = √${b*b} = ${b}`],0,' m']},
+()=>{var t=tr(),a=t[0],b=t[1],c=t[2];return[`Sebuah segi empat tepat berukuran ${a} cm × ${b} cm. Hitung panjang pepenjurunya.`,c,['Pepenjuru ialah hipotenus segi tiga bersudut tegak',`d² = ${a}² + ${b}² = ${a*a} + ${b*b} = ${a*a+b*b}`,`d = √${c*c} = ${c}`],0,' cm']},
+()=>{var t=tr(),a=t[0],b=t[1],c=t[2];return[`Sebuah segi tiga bersudut tegak mempunyai sisi tegak ${a} cm dan ${b} cm. Hitung perimeternya.`,a+b+c,[`Hipotenus² = ${a}² + ${b}² = ${a*a+b*b}, maka hipotenus = ${c} cm`,`Perimeter = ${a} + ${b} + ${c} = ${a+b+c}`],0,' cm']}]
+};
+var U=(v,u)=>u?(u[0]=='^'?u.slice(1)+v:v+u):''+v;
+function near(a){var r=[],I=Number.isInteger(a);sh(I?[1,-1,2,-2,3,-3,5,-5,10,-10,4]:[.5,-.5,1,-1,.1,-.1,2,-2]).forEach(d=>{var v=+(a+d).toFixed(2);if(v!=a&&!(a>=0&&v<0)&&r.indexOf(v)<0)r.push(v)});return r.slice(0,3)}
+var gen=b=>{var k=R(0,GEN[b].length-1),x=GEN[b][k]();x.b=b;x.k=k;return x};
+function mk(x){var a=U(x[1],x[4]),w=(x[3]||near(x[1]).map(v=>U(v,x[4]))).filter((v,i,r)=>v!=a&&r.indexOf(v)==i).slice(0,3);return{q:x[0],a:a,o:sh([a].concat(w)),s:x[2],g:(function(){try{return DG[x.b][x.k](x[0],x[1])||''}catch(err){return ''}})()}}
+function build(b){var seen={},out=[],t=0,G=GEN[b];while(out.length<30&&t++<2000){var x=gen(b);if(seen[x[0]])continue;seen[x[0]]=1;out.push(mk(x))}return out}
+var e=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+/* ===== GAMBAR RAJAH RUJUKAN (SVG) bagi setiap soalan ===== */
+var RAD=Math.PI/180,r1=v=>+(+v).toFixed(1),NS=t=>(t.match(/-?\d+(?:\.\d+)?/g)||[]).map(Number),mn=v=>v<0?'−'+(-v):''+v,pn=v=>v<0?'('+mn(v)+')':''+v;
+var SV=(w,h,b,mh)=>`<div class="dg"><svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Gambar rajah rujukan soalan"${mh?` style="max-height:${mh}px"`:''}>${b}</svg></div>`;
+var TX=(x,y,t,o)=>{o=o||{};return `<text x="${r1(x)}" y="${r1(y)}" text-anchor="${o.a||'middle'}" font-size="${o.s||13}"${o.k?` class="${o.k}"`:''}>${e(t)}</text>`};
+var LN=(a,b,c,d,k,dash)=>`<line x1="${r1(a)}" y1="${r1(b)}" x2="${r1(c)}" y2="${r1(d)}" class="ln ${k||''}"${dash?' stroke-dasharray="4 4"':''}/>`;
+var RC=(x,y,w,h,k,rx)=>`<rect x="${r1(x)}" y="${r1(y)}" width="${r1(w)}" height="${r1(h)}" rx="${rx||0}" class="${k||'t0'}"/>`;
+var CI=(x,y,r,k)=>`<circle cx="${r1(x)}" cy="${r1(y)}" r="${r}" class="${k||'t0'}"/>`;
+var PL=(P,k)=>`<polygon points="${P.map(p=>r1(p[0])+','+r1(p[1])).join(' ')}" class="${k||'t0'}"/>`;
+var PO=(cx,cy,r,d)=>[cx+r*Math.cos(d*RAD),cy-r*Math.sin(d*RAD)];
+var ARC=(cx,cy,r,a1,a2,k)=>{var p=PO(cx,cy,r,a1),q=PO(cx,cy,r,a2);return `<path d="M${r1(p[0])} ${r1(p[1])}A${r} ${r} 0 ${(((a2-a1)%360)+360)%360>180?1:0} 0 ${r1(q[0])} ${r1(q[1])}" class="ln ${k||''}"/>`};
+var AN=(cx,cy,r,a1,a2,l,k)=>{var m=PO(cx,cy,r+14+(a2-a1<40?9:0),(a1+a2)/2);return ARC(cx,cy,r,a1,a2,'c'+k)+TX(m[0],m[1],l,{k:'k'+k,s:13})};
+var AH=(x,y,dx,dy,k)=>{var L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,px=-uy,py=ux;return `<polygon class="fl${k||0}" points="${r1(x)},${r1(y)} ${r1(x-ux*8+px*4)},${r1(y-uy*8+py*4)} ${r1(x-ux*8-px*4)},${r1(y-uy*8-py*4)}"/>`};
+var AR=(a,b,c,d,k)=>LN(a,b,c,d,'c'+k)+AH(c,d,c-a,d-b,k);
+var RA=(x,y,ux,uy,vx,vy,s)=>{s=s||12;return `<polyline class="ln" points="${r1(x+ux*s)},${r1(y+uy*s)} ${r1(x+(ux+vx)*s)},${r1(y+(uy+vy)*s)} ${r1(x+vx*s)},${r1(y+vy*s)}"/>`};
+var CHV=(x,y)=>`<polyline class="ln" points="${x-5},${y-5} ${x},${y} ${x-5},${y+5}"/>`;
+var FIT=(P,W,H,pd)=>{var xs=P.map(p=>p[0]),ys=P.map(p=>p[1]),x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys),s=Math.min((W-2*pd)/((x1-x0)||1),(H-2*pd)/((y1-y0)||1)),ox=(W-(x1-x0)*s)/2-x0*s,oy=(H-(y1-y0)*s)/2-y0*s;return P.map(p=>[p[0]*s+ox,p[1]*s+oy])};
+var DIR=(V,Q)=>Math.atan2(-(Q[1]-V[1]),Q[0]-V[0])/RAD;
+/* poligon + sudut dalam; mk[i]={l,k} atau {ra:1} */
+var PG=(P,nm,mk,fill,r)=>{r=r||17;var n=P.length,s=PL(P,fill||'t0');P.forEach((V,i)=>{var a1=DIR(V,P[(i+n-1)%n]),a2=DIR(V,P[(i+1)%n]),d=((a2-a1+540)%360)-180,st=d>0?a1:a2,sp=Math.abs(d),mid=st+sp/2,m=mk&&mk[i];
+  if(nm){var q=PO(V[0],V[1],-15,mid);s+=TX(q[0],q[1],nm[i],{s:13})}
+  if(m&&m.ra){var u=PO(0,0,1,a1),v=PO(0,0,1,a2);s+=RA(V[0],V[1],u[0],u[1],v[0],v[1],11)}
+  else if(m)s+=AN(V[0],V[1],r,st,st+sp,m.l,m.k)});return s};
+var TK=(P,Q)=>{var mx=(P[0]+Q[0])/2,my=(P[1]+Q[1])/2,dx=Q[0]-P[0],dy=Q[1]-P[1],L=Math.hypot(dx,dy)||1;return LN(mx-dy/L*5,my+dx/L*5,mx+dy/L*5,my-dx/L*5)};
+/* label sisi di luar poligon */
+var SL=(P,Q,C,txt,k)=>{var mx=(P[0]+Q[0])/2,my=(P[1]+Q[1])/2,dx=Q[0]-P[0],dy=Q[1]-P[1],L=Math.hypot(dx,dy)||1,nx=dy/L,ny=-dx/L;if((mx+nx-C[0])*nx+(my+ny-C[1])*ny<0){nx=-nx;ny=-ny}return TX(mx+nx*17,my+ny*14,txt,{k:k,s:13})};
+/* garis nombor dengan lorong lompatan */
+function NL(lo,hi,o){var L=o.lanes||[],P=o.pts||[],W=340,m=24,rg=hi-lo;if(rg<8){lo=Math.floor((lo+hi)/2-4);hi=lo+8;rg=8}
+  var st=rg<=14?1:rg<=28?2:rg<=70?5:10,X=v=>m+(v-lo)/rg*(W-2*m),ay=30+L.length*28,s='';
+  L.forEach((l,i)=>{var y=24+i*28;s+=LN(X(l.a),y,X(l.b),y,'c'+l.k)+AH(X(l.b),y,l.b-l.a||1,0,l.k)+LN(X(l.a),y,X(l.a),ay,'c'+l.k,1)+LN(X(l.b),y,X(l.b),ay,'c'+l.k,1)+TX((X(l.a)+X(l.b))/2,y-10,l.l,{k:'k'+l.k,s:12})});
+  s+=LN(m-10,ay,W-m+10,ay)+AH(W-m+10,ay,1,0)+AH(m-10,ay,-1,0);
+  for(var v=Math.ceil(lo/st)*st;v<=hi+1e-9;v+=st)s+=LN(X(v),ay-4,X(v),ay+4)+TX(X(v),ay+16,mn(v),{s:11});
+  P.forEach((p,i)=>{if(p.seg)s+=LN(X(p.seg[0]),ay,X(p.seg[1]),ay,'c'+p.k)+LN(X(p.seg[0]),ay-3,X(p.seg[1]),ay-3,'c'+p.k)+LN(X(p.seg[0]),ay+3,X(p.seg[1]),ay+3,'c'+p.k);
+    s+=CI(X(p.v),ay,6,(p.o||p.q?'o':'s')+p.k)+(p.l?TX(X(p.v),ay+34+(i%2?14:0),p.l,{k:'k'+p.k,s:12}):'')});
+  return SV(W,ay+(P.some(p=>p.l)?64:30),s)}
+var DG={};
+/* ---------- BAB 1 ---------- */
+var FB=(x,y,w,n,k,c)=>{var s='',u=w/n;for(var i=0;i<n;i++)s+=RC(x+i*u,y,u,28,i<k?c:'t0',0);return s};
+DG[1]=[
+t=>{var n=NS(t),A=n[0],B=n[1],C=n[2],M=A+B,Rr=M-C,v=[0,A,M,Rr];return NL(Math.min(...v)-1,Math.max(...v)+1,{lanes:[{a:A,b:M,k:1,l:'+ '+pn(B)},{a:M,b:Rr,k:3,l:'− '+pn(C)}],pts:[{v:A,k:1,l:'mula '+mn(A)},{v:Rr,k:4,l:'?',q:1}]})},
+t=>{var n=NS(t),ch=(x,v)=>RC(x,14,72,34,v<0?'t4':'t2',10)+TX(x+36,31,pn(v),{s:17});return SV(340,112,ch(14,n[0])+TX(100,31,'×',{s:20})+ch(116,n[1])+TX(202,31,'÷',{s:20})+ch(218,n[2])+TX(170,70,'hijau = positif   ·   merah = negatif',{s:12})+TX(170,92,'tanda sama → +   |   tanda beza → −',{s:12}))},
+t=>{var n=NS(t),op=t.includes('−')?'−':'+';return SV(340,100,FB(12,22,126,n[1],n[0],'t1')+TX(75,62,n[0]+'/'+n[1],{s:15})+TX(170,36,op,{s:26})+FB(202,22,126,n[3],n[2],'t2')+TX(265,62,n[2]+'/'+n[3],{s:15})+TX(170,88,'bahagian berlorek = pecahan',{s:11}))},
+t=>DG[1][2](t),
+t=>{var n=NS(t),w=n[0]*28,h=Math.max(n[1]*90,18),x0=(340-w)/2;return SV(340,h+66,RC(x0,28,w,h,'t1',0)+TX(170,14,n[0]+' unit',{s:13})+TX(x0+w+8,28+h/2,n[1],{a:'start',s:13})+TX(170,28+h/2,'luas = ?',{s:13})+TX(170,h+52,'model luas: panjang × lebar',{s:11}))},
+t=>{var n=NS(t),x=n[0],y=n[1],S=+(x+y).toFixed(1),v=[0,x,S];return NL(Math.floor(Math.min(...v))-1,Math.ceil(Math.max(...v))+1,{lanes:[{a:x,b:S,k:1,l:(y<0?'− ':'+ ')+Math.abs(y)}],pts:[{v:x,k:1,l:'mula '+mn(x)},{v:S,k:4,l:'?',q:1}]})}];
+/* ---------- BAB 2 ---------- */
+var GR=(x,y,ti,it,c,cols)=>{cols=cols||5;var rows=Math.ceil(it.length/cols),h=36+rows*26,s=RC(x,y,152,h,c,12)+TX(x+76,y+16,ti,{s:13});it.forEach((v,i)=>{var cx=x+8+(i%cols)*28,cy=y+30+Math.floor(i/cols)*26;s+=RC(cx,cy,26,22,'t0',6)+TX(cx+13,cy+11,v,{s:11})});return [s,h]};
+var BU=(x,y,c)=>{var s=CI(x,y,17,c)+RC(x-8,y+17,16,9,'t0',2);for(var a=25;a<=155;a+=32){var p=PO(x,y,22,a),q=PO(x,y,30,a);s+=LN(p[0],p[1],q[0],q[1])}return s};
+DG[2]=[
+t=>{var n=NS(t),A=GR(10,6,'Faktor '+n[0],fc(n[0]),'t1'),B=GR(178,6,'Faktor '+n[1],fc(n[1]),'t2');return SV(340,Math.max(A[1],B[1])+12,A[0]+B[0])},
+t=>{var n=NS(t),A=GR(10,6,'Gandaan '+n[0],rg(1,6).map(i=>i*n[0]),'t1',3),B=GR(178,6,'Gandaan '+n[1],rg(1,6).map(i=>i*n[1]),'t2',3);return SV(340,Math.max(A[1],B[1])+12,A[0]+B[0])},
+t=>{var n=NS(t)[0],p=pf(n)[0];return SV(340,130,LN(170,38,105,86)+LN(170,38,235,86)+CI(170,28,20,'t1')+TX(170,28,n,{s:15})+CI(105,98,18,'t3')+TX(105,98,p,{s:15})+CI(235,98,18,'o4')+TX(235,98,'?',{s:16,k:'k4'})+TX(170,124,'pokok faktor: pecahkan sehingga semua faktor perdana',{s:11}))},
+t=>{var n=NS(t)[0],s='';for(var i=1;i<=100;i++){var x=14+((i-1)%10)*24,y=6+Math.floor((i-1)/10)*24;s+=RC(x,y,23,23,i==n?'t4':'t0',3)+TX(x+11.5,y+12,i,{s:i==n?12:10,k:i==n?'k4':''})}return SV(268,252,s,250)},
+t=>{var n=NS(t);return SV(340,120,BU(80,40,'t3')+TX(80,88,'setiap '+n[0]+' saat',{s:14})+BU(260,40,'t1')+TX(260,88,'setiap '+n[1]+' saat',{s:14})+TX(170,40,'serentak pada 0 s',{s:11})+TX(170,108,'cari: kali pertama berkelip serentak lagi',{s:11}))},
+t=>{var n=NS(t),pen=(x,y)=>`<polygon class="t3" points="${x},${y} ${x+30},${y-10} ${x+34},${y-5} ${x+4},${y+5}"/>`,bag=x=>`<polygon class="t1" points="${x},${74} ${x+50},${74} ${x+58},${118} ${x-8},${118}"/><path class="ln" d="M${x+14} 74Q${x+25} 54 ${x+36} 74"/>`;return SV(340,150,pen(24,40)+TX(100,38,'× '+n[0]+' pen',{s:14,a:'start'})+RC(24,70,32,24,'t2',3)+LN(30,70,30,94)+TX(100,84,'× '+n[1]+' buku',{s:14,a:'start'})+bag(180)+bag(262)+TX(170,138,'sama banyak, tiada baki: beg = ?',{s:12}))}];
+/* ---------- BAB 3 ---------- */
+var CU=(cx,cy,s,lb,k)=>{var d=s*.45,bx=cx-(s+d)/2,by=cy-(s+d)/2,A=[bx,by+d+s],B=[bx+s,by+d+s],C=[bx+s,by+d],D=[bx,by+d],q=p=>[p[0]+d,p[1]-d];return PL([A,B,C,D],'t1')+PL([D,C,q(C),q(D)],'t2')+PL([B,q(B),q(C),C],'t3')+TX((A[0]+B[0])/2,A[1]+14,lb,{k:k||'k1'})+TX(B[0]+d/2+12,(B[1]+q(B)[1])/2+8,lb,{k:k||'k1'})+TX(A[0]-12,(A[1]+D[1])/2,lb,{k:k||'k1'})};
+var SQ=(txt,lb)=>SV(340,170,RC(105,22,120,120,'t1',2)+TX(165,82,txt,{s:15})+TX(165,12,lb,{k:'k4',s:15})+TX(94,82,lb,{a:'end',k:'k4',s:15})+TX(165,158,'segi empat sama',{s:11}));
+DG[3]=[
+t=>{var n=NS(t)[0],c=150/n,s='';for(var i=1;i<n;i++)s+=LN(95+i*c,20,95+i*c,170)+LN(95,20+i*c,245,20+i*c);return SV(340,200,RC(95,20,150,150,'t1',0)+s.replace(/class="ln "/g,'class="ln g"')+TX(170,10,n,{k:'k1',s:14})+TX(84,95,n,{a:'end',k:'k1',s:14})+TX(170,188,'luas = '+n+' × '+n+' = ?',{s:13}))},
+t=>SQ('luas = '+NS(t)[0],'?'),
+t=>SV(340,196,CU(170,78,84,NS(t)[0])+TX(170,184,'isi padu = ?',{s:13})),
+t=>SV(340,196,CU(170,78,84,'?','k4')+TX(170,184,'isi padu = '+NS(t)[0],{s:13})),
+t=>{var n=NS(t);return SV(340,140,RC(22,24,64,64,'t1',2)+TX(54,56,'luas '+n[0],{s:12})+TX(54,104,'cari sisi, √',{s:12})+TX(104,56,'+',{s:22})+CU(166,56,46,'','k1')+TX(166,104,n[1]+' × '+n[1]+' × '+n[1],{s:12})+TX(226,56,'−',{s:22})+RC(246,38,62,36,'t4',10)+TX(277,56,n[2],{s:16})+TX(277,104,'tolak '+n[2],{s:12}))},
+t=>SQ('luas = '+NS(t)[0]+' cm²','? cm'),
+t=>{var s=NS(t)[0];return SV(340,196,CU(170,78,84,s+' cm')+TX(170,184,'isi padu = ?',{s:13}))},
+t=>{var n=NS(t)[0],m=Math.round(Math.sqrt(n)),lo=(m-1)*(m-1),hi=(m+1)*(m+1);return NL(lo,hi,{pts:[{v:lo,k:1,l:''+lo},{v:m*m,k:1,l:''+m*m},{v:hi,k:1,l:''+hi},{v:n,k:4,l:'n = '+n,q:1}]})}];
+/* ---------- BAB 4 ---------- */
+DG[4]=[
+t=>{var n=NS(t),mx=Math.max(...n),w=a=>a/mx*270;return SV(340,110,RC(35,14,w(n[0]),30,'t1',4)+TX(35+w(n[0])/2,29,n[0],{s:15})+RC(35,56,w(n[1]),30,'t2',4)+TX(35+w(n[1])/2,71,n[1],{s:15})+TX(170,102,'bandingkan dua kuantiti',{s:11}))},
+t=>{var n=NS(t),T=n[0],p=n[1],q=n[2],u=290/(p+q),s='';for(var i=0;i<p+q;i++)s+=RC(25+i*u,50,u,34,i<p?'t1':'t2',0);return SV(340,120,s+LN(25,38,315,38)+LN(25,38,25,44)+LN(315,38,315,44)+TX(170,24,'jumlah = RM'+T,{s:14})+TX(25+p*u/2,100,p+' bahagian',{k:'k1',s:12})+TX(25+p*u+q*u/2,100,q+' bahagian',{k:'k2',s:12}))},
+t=>{var n=NS(t),car=`${RC(30,60,60,22,'t1',6)}${RC(42,46,34,16,'t1',5)}${CI(44,86,7,'t0')}${CI(76,86,7,'t0')}`;return SV(340,130,LN(15,93,325,93)+car+TX(300,60,'🏁',{s:20})+AR(40,28,300,28,1)+TX(170,14,'jarak = '+n[0]+' km',{s:14})+TX(170,116,'masa = '+n[1]+' jam   →   laju = ?',{s:13}))},
+t=>{var n=NS(t),a=n[0],c=n[2],bk=(x,y,k)=>RC(x,y,15,20,k,2)+LN(x+3,y,x+3,y+20),s='';for(var i=0;i<a;i++)s+=bk(20+i*20,28,'t1');for(var j=0;j<c;j++)s+=bk(20+j*20,88,'t2');return SV(340,140,s+TX(20,14,a+' buku = RM'+n[1],{a:'start',k:'k1',s:13})+TX(20,74,c+' buku = RM ?',{a:'start',k:'k4',s:13})+TX(170,134,'cari harga 1 buku dahulu',{s:11}),170)},
+t=>{var n=NS(t),p=n[0],q=n[1],u=3.2,w1=p*u*10,w2=q*u*10,k=n[2]/p,W1=p*k*u*10;var M=Math.max(w1+w2,W1+w2*k)||1,sc=280/M;return SV(340,130,RC(30,26,w1*sc,30,'t1',3)+RC(30+w1*sc,26,w2*sc,30,'t2',3)+TX(30+w1*sc/2,41,p,{s:14})+TX(30+w1*sc+w2*sc/2,41,q,{s:14})+RC(30,78,W1*sc,30,'t1',3)+RC(30+W1*sc,78,w2*k*sc,30,'o4',3)+TX(30+W1*sc/2,93,n[2],{s:14})+TX(30+W1*sc+w2*k*sc/2,93,'x',{s:14,k:'k4'})+TX(170,14,p+' : '+q,{s:13})+TX(170,122,n[2]+' : x  (nisbah setara)',{s:12}))},
+t=>{var n=NS(t),clock=(x,y)=>CI(x,y,20,'t3')+LN(x,y,x,y-13)+LN(x,y,x+9,y+4),coin=(x,y)=>CI(x,y,16,'t2')+TX(x,y,'RM',{s:10});return SV(340,130,clock(50,30)+TX(50,64,n[0]+' jam',{s:13})+AR(80,30,230,30,1)+coin(270,30)+TX(270,60,'RM'+n[1],{s:13})+clock(50,94)+TX(50,124,'1 jam',{s:13})+AR(80,94,230,94,4)+coin(270,94)+TX(270,124,'RM ?',{s:13,k:'k4'}))}];
+/* ---------- BAB 5 ---------- */
+var PT=s=>(s.replace(/\s+/g,'').match(/[+−-]?\d*[a-z]?/g)||[]).filter(x=>x).map(x=>{var g=/^[−-]/.test(x)?-1:1,m=x.replace(/^[+−-]/,'').match(/^(\d*)([a-z]?)$/);return {c:g*(m[1]?+m[1]:1),v:m[2],s:x.replace(/^\+/,'')}});
+var AM=(x,y,k,top,w1,w2,h,left)=>RC(x,y,w1,h,'t1',0)+RC(x+w1,y,w2,h,'t3',0)+TX(x+w1/2,y-10,top[0],{s:13})+TX(x+w1+w2/2,y-10,top[1],{s:13})+TX(x-14,y+h/2,left,{s:13})+TX(x+w1/2,y+h/2,'?',{k:'k4'})+TX(x+w1+w2/2,y+h/2,'?',{k:'k4'});
+DG[5]=[
+t=>{var m=t.match(/Nilai (.+?) jika x = (-?\d+) dan y = (-?\d+)/);return SV(340,110,RC(12,12,88,34,'t1',8)+TX(56,29,'x = '+mn(+m[2]),{s:14})+RC(12,62,88,34,'t3',8)+TX(56,79,'y = '+mn(+m[3]),{s:14})+AR(100,29,138,48,1)+AR(100,79,138,60,3)+RC(138,26,110,56,'t0',10)+TX(193,54,m[1],{s:15})+AR(248,54,286,54,4)+RC(286,36,42,36,'o4',8)+TX(307,54,'?',{k:'k4',s:16})+TX(193,98,'mesin: gantikan nilai',{s:11}))},
+t=>{var tk=PT(t.match(/Permudahkan (.+)\./)[1]),vs=[...new Set(tk.map(x=>x.v))],s='';vs.forEach((v,i)=>{var y=14+i*54;s+=TX(26,y+20,v,{s:18,k:'k1'})+TX(46,y+20,':',{s:16});tk.filter(x=>x.v==v).forEach((x,j)=>{s+=RC(62+j*72,y,66,40,x.c<0?'t4':'t2',10)+TX(95+j*72,y+20,x.s,{s:16})})});return SV(340,vs.length*54+30,s+TX(170,vs.length*54+14,'kumpul sebutan serupa',{s:11}))},
+t=>{var m=t.match(/Kembangkan (\d+)\((.+)\)\./),tk=PT(m[2]);return SV(340,150,AM(76,38,0,[tk[0].s,tk[1].s],130,90,70,m[1])+TX(170,134,'luas segi empat = hasil darab sisi',{s:11}))},
+t=>{var m=t.match(/Permudahkan (\d+)\((.+?)\) \+ (\d+)\((.+)\)\./),a=PT(m[2]),b=PT(m[4]);return SV(340,150,AM(34,40,0,[a[0].s,a[1].s],70,56,56,m[1])+TX(186,68,'+',{s:24})+AM(222,40,0,[b[0].s,b[1].s],60,50,56,m[3])+TX(170,134,'kembangkan, kemudian kumpul sebutan serupa',{s:11}))},
+t=>{var n=NS(t),bk=(x,y,l)=>RC(x,y,26,32,'t1',3)+LN(x+5,y,x+5,y+32)+TX(x+16,y+16,l,{s:13}),pe=(x,y,l)=>RC(x,y,10,40,'t3',3)+TX(x+5,y+20,l,{s:11}),s='';for(var i=0;i<n[0];i++)s+=bk(20+i*34,22,'x');for(var j=0;j<n[1];j++)s+=pe(20+j*34,82,'y');return SV(340,140,TX(20,10,n[0]+' buku, setiap satu RMx',{a:'start',k:'k1',s:12})+s+TX(20,76,n[1]+' pen, setiap satu RMy',{a:'start',k:'k3',s:12}).replace('y="76"','y="70"')+TX(170,132,'jumlah harga = ?',{s:12}))}];
+/* ---------- BAB 6 ---------- */
+var BAL=(L,R)=>{var bw=l=>Math.min(150,Math.max(64,l.length*9+18));return LN(50,36,290,36)+LN(170,36,170,128)+RC(130,126,80,8,'t3',3)+CI(170,36,5,'t3')+LN(75,36,45,70)+LN(75,36,105,70)+LN(265,36,235,70)+LN(265,36,295,70)+`<path class="ln" d="M45 70Q75 92 105 70Z"/><path class="ln" d="M235 70Q265 92 295 70Z"/>`+RC(75-bw(L)/2,96,bw(L),30,'t1',8)+TX(75,111,L,{s:14})+RC(265-bw(R)/2,96,bw(R),30,'t2',8)+TX(265,111,R,{s:14})+TX(170,20,'seimbang',{s:11})};
+var EQ=t=>{var q=t.replace(/^Selesaikan /,'').replace(/\.$/,'').split(' = ');return SV(340,142,BAL(q[0],q[1]))};
+DG[6]=[EQ,EQ,EQ,EQ,EQ,
+t=>{var S=NS(t)[0];return SV(340,100,RC(40,44,110,34,'t1',6)+TX(95,61,'x',{s:16})+RC(150,44,150,34,'t2',6)+TX(225,61,'x + 1',{s:16})+LN(40,34,300,34)+LN(40,34,40,40)+LN(300,34,300,40)+TX(170,18,'jumlah = '+S,{s:14})+TX(170,94,'dua nombor bulat berturut-turut',{s:11}))},
+t=>{var n=NS(t);return SV(340,176,RC(30,34,150,24,'t1',4)+TX(105,46,'x',{s:14})+RC(180,34,100,24,'t2',4)+TX(230,46,'y',{s:14})+LN(30,26,280,26)+TX(155,12,'x + y = '+n[0],{s:13})+RC(30,92,150,24,'t1',4)+TX(105,104,'x',{s:14})+RC(30,122,100,24,'t2',4)+TX(80,134,'y',{s:14})+RC(130,92,50,24,'o4',4)+LN(130,160,180,160,'c4')+TX(155,172,'x − y = '+n[1],{s:13,k:'k4'}).replace('y="172"','y="168"'))},
+t=>{var n=NS(t),c=n[0],ch=(x,y,l,k)=>RC(x,y,32,32,k,6)+TX(x+16,y+16,l,{s:15}),s='';for(var i=0;i<c;i++)s+=ch(20+i*38,22,'x','t1');s+=ch(20+c*38,22,'y','t3')+TX(30+c*38+50,38,'= '+n[1],{s:16,a:'start'})+ch(20,76,'x','t1')+ch(58,76,'y','t3')+TX(116,92,'= '+n[2],{s:16,a:'start'});return SV(340,124,s+TX(170,116,'bandingkan kedua-dua persamaan',{s:11}))}];
+/* ---------- BAB 7 ---------- */
+var SYMS=[['>','x > a',1,0],['<','x < a',0,0],['≥','x ≥ a',1,1],['≤','x ≤ a',0,1]];
+var CARD=op=>{var s='';SYMS.forEach((m,i)=>{var cx=8+(i%2)*166,cy=6+Math.floor(i/2)*72,on=m[0]==op;s+=RC(cx,cy,160,66,on?'t1':'t0',10)+TX(cx+80,cy+14,m[1],{s:14})+AR(cx+80,cy+44,m[2]?cx+146:cx+14,cy+44,on?1:0)+LN(cx+14,cy+44,cx+146,cy+44,'',0)+CI(cx+80,cy+44,6,(m[3]?'s':'o')+1)});return SV(340,170,s+TX(170,158,'○ tidak termasuk   ●  termasuk (sama dengan)',{s:11}))};
+DG[7]=[
+t=>{var n=NS(t),a=n[0],b=n[1];return NL(Math.min(a,b)-1,Math.max(a,b)+1,{pts:[{v:a,k:1,l:''+mn(a)},{v:b,k:3,l:''+mn(b)}]})},
+t=>CARD(t.match(/[<>≤≥]/)[0]),t=>CARD(t.match(/[<>≤≥]/)[0]),
+t=>{var s='';[[-2,3,'−2 < 3',34],[2,-3,'kali (−1):  2 > −3',104]].forEach(r=>{var y=r[3]+18,X=v=>170+v*34;s+=TX(170,r[3]-8,r[2],{s:14})+LN(X(-4.4),y,X(4.4),y)+AH(X(4.4),y,1,0);for(var v=-4;v<=4;v++)s+=LN(X(v),y-3,X(v),y+3)+TX(X(v),y+13,mn(v),{s:10});s+=CI(X(r[0]),y,5,'s1')+CI(X(r[1]),y,5,'s3')});return SV(340,160,s+TX(170,150,'kali / bahagi dengan negatif → tanda terbalik',{s:12,k:'k4'}))},
+t=>CARD(t.match(/[<>≤≥]/)[0]),
+t=>{var n=NS(t),a=n[0],b=n[1];return NL(a-1,b+1,{pts:[{v:a,k:1,o:1,l:'tidak termasuk',seg:[a,b]},{v:b,k:3,l:'termasuk'}]})},
+t=>{var n=NS(t)[0],rows=[['melebihi','>'],['kurang daripada','<'],['tidak kurang daripada','≥'],['tidak melebihi','≤']],s='';rows.forEach((r,i)=>{s+=RC(140,10+i*32,190,28,'t0',8)+TX(150,24+i*32,r[0],{a:'start',s:12})+TX(318,24+i*32,r[1],{a:'end',s:16,k:'k1'})});return SV(340,146,`<path class="t1" d="M34 70h58l10 56h-78z"/><path class="ln" d="M52 70q14-26 28 0"/>`+TX(63,100,'m kg',{s:14})+TX(63,138,'banding '+n+' kg',{s:11})+s)}];
+/* ---------- BAB 8 ---------- */
+DG[8]=[
+t=>{var a=NS(t)[0],O=[60,150];return SV(340,176,LN(60,150,270,150)+LN(60,150,60,24)+LN(60,150,PO(60,150,150,a)[0],PO(60,150,150,a)[1],'c1')+RA(60,150,1,0,0,-1,13)+AN(60,150,56,0,a,a+'°',1).replace(/<path/,'<path')+AN(60,150,40,a,90,'?',4)+TX(200,100,'sudut pelengkap = 90°',{s:12}))},
+t=>{var a=NS(t)[0],p=PO(170,134,150,a);return SV(340,160,LN(16,134,324,134)+LN(170,134,p[0],p[1],'c1')+AN(170,134,46,0,a,a+'°',1)+AN(170,134,70,a,180,'?',4)+TX(170,152,'garis lurus = 180°',{s:11}))},
+t=>{var n=NS(t),a=n[0],b=n[1],p=PO(170,134,130,a),q=PO(170,134,130,a+b);return SV(340,160,LN(16,134,324,134)+LN(170,134,p[0],p[1],'c1')+LN(170,134,q[0],q[1],'c2')+AN(170,134,38,0,a,a+'°',1)+AN(170,134,58,a,a+b,b+'°',2)+AN(170,134,78,a+b,180,'x°',4))},
+t=>{var n=NS(t),c=[0,n[0],n[0]+n[1],n[0]+n[1]+n[2]],s='';[1,2,3].forEach(i=>{var p=PO(170,84,70,c[i]);s+=LN(170,84,p[0],p[1])});var p0=PO(170,84,70,0);s+=LN(170,84,p0[0],p0[1]);var ks=[1,2,3,4],ls=[n[0]+'°',n[1]+'°',n[2]+'°','x°'];ks.forEach((k,i)=>{var a1=i?c[i]:0,a2=i<3?c[i+1]:360;s+=AN(170,84,24+i%2*10,a1,a2,ls[i],k)});return SV(340,170,s,200)},
+t=>{var a=NS(t)[0],adj=!/bertentang/.test(t),p=PO(170,84,110,a),q=PO(170,84,110,a+180);return SV(340,170,LN(50,84,290,84)+LN(p[0],p[1],q[0],q[1])+AN(170,84,34,0,a,a+'°',1)+(adj?AN(170,84,46,a,180,'?',4):AN(170,84,34,180,180+a,'?',4)),200)},
+t=>{var a=NS(t)[0],ty=/sepadan/.test(t)?0:/selang-seli/.test(t)?1:2,sn=Math.sin(a*RAD),cs=Math.cos(a*RAD),y1=62,y2=142,tt=(y2-y1)/sn,x1=170+cs*tt/2,x2=170-cs*tt/2,s=LN(16,y1,324,y1)+LN(16,y2,324,y2)+LN(x1+cs*42,y1-sn*42,x2-cs*42,y2+sn*42,'c0')+CHV(300,y1)+CHV(300,y2)+AN(x1,y1,24,180,180+a,a+'°',1);s+=ty==0?AN(x2,y2,24,180,180+a,'?',4):ty==1?AN(x2,y2,24,0,a,'?',4):AN(x2,y2,24,a,180,'?',4);return SV(340,200,s+TX(60,y1-12,'garis selari',{s:11,a:'start'}),210)}];
+/* ---------- BAB 9 ---------- */
+var TRI=(A,B)=>{var c=180-A-B,AC=100*Math.sin(B*RAD)/Math.sin(c*RAD);return [[0,0],[100,0],[AC*Math.cos(A*RAD),-AC*Math.sin(A*RAD)]]};
+var QUAD=(a,b,c)=>{var d=360-a-b-c,h1=180-b,h2=h1+180-c,h3=h2+180-d,U=h=>[Math.cos(h*RAD),Math.sin(h*RAD)],u0=U(0),u1=U(h1),u2=U(h2),u3=U(h3),best=null;for(var l1=30;l1<=220;l1+=10){var rx=-(100*u0[0]+l1*u1[0]),ry=-(100*u0[1]+l1*u1[1]),det=u2[0]*u3[1]-u2[1]*u3[0];if(Math.abs(det)<1e-6)continue;var l2=(rx*u3[1]-ry*u3[0])/det,l3=(u2[0]*ry-u2[1]*rx)/det;if(l2>20&&l3>20){best=[l1,l2,l3];break}}
+  if(!best)best=[100,80,80];var A=[0,0],B=[100,0],C=[B[0]+best[0]*u1[0],B[1]+best[0]*u1[1]],D=[C[0]+best[1]*u2[0],C[1]+best[1]*u2[1]];return [A,B,C,D].map(p=>[p[0],-p[1]])};
+DG[9]=[
+t=>{var n=NS(t),P=FIT(TRI(n[0],n[1]),340,150,30);return SV(340,150,PG(P,['A','B','C'],[{l:n[0]+'°',k:1},{l:n[1]+'°',k:2},{l:'?',k:4}]))},
+t=>{var n=NS(t),a=n[0],b=n[1],c=180-a-b,T=TRI(a,c),A=T[0],B=T[1],C=T[2],D=[150,0],P=FIT([A,B,C,D],340,150,30);var s=LN(P[1][0],P[1][1],P[3][0],P[3][1])+PG(P.slice(0,3),['A','B','C'],[{l:a+'°',k:1},null,{l:b+'°',k:2}]);s+=AN(P[1][0],P[1][1],26,0,DIR(P[1],P[2]),'?',4);return SV(340,150,s)},
+t=>{var n=NS(t),P=FIT(QUAD(n[0],n[1],n[2]),340,160,32);return SV(340,160,PG(P,['A','B','C','D'],[{l:n[0]+'°',k:1},{l:n[1]+'°',k:2},{l:n[2]+'°',k:3},{l:'?',k:4}],'t0',16))},
+t=>{var a=NS(t)[0],tg=t.match(/Cari ∠(\w)/)[1],sk=70,D=[sk*Math.cos(a*RAD),-sk*Math.sin(a*RAD)],P=FIT([[0,0],[110,0],[110+D[0],D[1]],D],340,150,32),mk=[{l:a+'°',k:1},tg=='B'?{l:'?',k:4}:null,tg=='C'?{l:'?',k:4}:null,null];return SV(340,150,PG(P,['A','B','C','D'],mk)+TK(P[0],P[3])+TK(P[1],P[2])+TX(170,142,'ABCD segi empat selari',{s:11}))},
+t=>{var a=NS(t)[0],b=(180-a)/2,P=FIT(TRI(b,b),340,200,34);return SV(340,200,PG(P,['A','B','C'],[{l:'?',k:4},{l:'?',k:4},{l:a+'°',k:1}])+TK(P[0],P[2])+TK(P[1],P[2]))},
+t=>{var b=NS(t)[0],P=FIT(TRI(b,b),340,200,34);return SV(340,200,PG(P,['A','B','C'],[{l:b+'°',k:1},{l:b+'°',k:1},{l:'?',k:4}])+TK(P[0],P[2])+TK(P[1],P[2]))},
+t=>{var a=NS(t)[0],h=70,D=[h/Math.tan(a*RAD),h],P=FIT([[0,0],[120,0],[D[0]+190,h],D],340,150,32);return SV(340,150,PG(P,['A','B','C','D'],[{l:a+'°',k:1},null,null,{l:'?',k:4}])+CHV((P[0][0]+P[1][0])/2+4,P[0][1])+CHV((P[2][0]+P[3][0])/2+4,P[2][1])+TX(170,142,'AB // DC',{s:11}))}];
+/* ---------- BAB 10 ---------- */
+DG[10]=[
+t=>{var n=NS(t),l=n[0],w=n[1],s=Math.min(220/l,100/w),rw=l*s,rh=w*s,x0=(340-rw)/2,pm=/perimeter/.test(t);return SV(340,rh+70,RC(x0,32,rw,rh,'t1',0)+TX(170,20,l+' cm',{s:14})+TX(x0+rw+8,32+rh/2,w+' cm',{a:'start',s:14})+TX(170,32+rh/2,pm?'perimeter = ?':'luas = ?',{s:14})+TX(170,rh+56,pm?'jumlah semua sisi':'panjang × lebar',{s:11}))},
+t=>DG[10][0](t),
+t=>{var n=NS(t),b=n[0],h=n[1],s=Math.min(220/b,110/h),bw=b*s,hh=h*s,x0=(340-bw)/2,ax=x0+bw*.35,y0=20;return SV(340,hh+76,PL([[x0,y0+hh],[x0+bw,y0+hh],[ax,y0]],'t1')+LN(ax,y0,ax,y0+hh,'c4',1)+RA(ax,y0+hh,1,0,0,-1,10)+TX(170,y0+hh+18,b+' cm',{s:14})+TX(ax+6,y0+hh/2,h+' cm',{a:'start',s:14,k:'k4'})+TX(170,y0+hh+42,'luas = ½ × tapak × tinggi',{s:11}))},
+t=>{var n=NS(t),b=n[0],h=n[1],s=Math.min(180/b,110/h),bw=b*s,hh=h*s,sk=bw*.3,x0=(340-bw-sk)/2,y0=20;return SV(340,hh+76,PL([[x0,y0+hh],[x0+bw,y0+hh],[x0+bw+sk,y0],[x0+sk,y0]],'t1')+LN(x0+sk,y0,x0+sk,y0+hh,'c4',1)+RA(x0+sk,y0+hh,1,0,0,-1,10)+TX(x0+bw/2,y0+hh+18,b+' cm',{s:14})+TX(x0+sk+6,y0+hh/2,h+' cm',{a:'start',s:14,k:'k4'})+TX(170,y0+hh+42,'luas = tapak × tinggi',{s:11}))},
+t=>{var n=NS(t),a=Math.min(n[0],n[1]),b=Math.max(n[0],n[1]),h=n[2],s=Math.min(240/b,100/h),aw=a*s,bw=b*s,hh=h*s,x0=(340-bw)/2,ox=(bw-aw)/2,y0=26;return SV(340,hh+84,PL([[x0,y0+hh],[x0+bw,y0+hh],[x0+ox+aw,y0],[x0+ox,y0]],'t1')+LN(x0+ox,y0,x0+ox,y0+hh,'c4',1)+RA(x0+ox,y0+hh,1,0,0,-1,10)+TX(x0+ox+aw/2,y0-12,a+' cm',{s:14})+TX(x0+bw/2,y0+hh+18,b+' cm',{s:14})+TX(x0+ox+6,y0+hh/2,h+' cm',{a:'start',s:14,k:'k4'})+TX(170,y0+hh+44,'luas = ½ × (hasil tambah sisi selari) × tinggi',{s:11}))},
+t=>{var n=NS(t);return SV(340,130,RC(70,30,200,70,'t1',0)+TX(170,18,'? cm',{s:14,k:'k4'})+TX(278,65,n[1]+' cm',{a:'start',s:14})+TX(170,65,'luas = '+n[0]+' cm²',{s:14}))},
+t=>{var P=NS(t)[0];return SV(340,170,RC(110,24,110,110,'t1',0)+TX(165,12,'sisi = ?',{s:13,k:'k4'})+TX(165,79,'luas = ?',{s:14})+TX(165,152,'perimeter = '+P+' cm',{s:14}))}];
+/* ---------- BAB 11 ---------- */
+var ELS=(cx,cy,it,per)=>{per=per||3;var rows=Math.ceil(it.length/per),s='';it.forEach((v,i)=>{var r=Math.floor(i/per),cnt=Math.min(per,it.length-r*per),c=i%per;s+=TX(cx+(c-(cnt-1)/2)*34,cy+(r-(rows-1)/2)*24,v,{s:15})});return s};
+var LST=(t,n)=>{var m=[...t.matchAll(/([AB]) = \{([^}]*)\}/g)];return m[n][2].split(',').map(x=>x.trim())};
+DG[11]=[
+t=>{var n=NS(t);return SV(340,170,RC(8,8,324,154,'t0',10)+CI(138,98,54,'t1')+CI(202,98,54,'t2')+TX(24,26,'A',{a:'start',s:16,k:'k1'})+TX(316,26,'B',{a:'end',s:16,k:'k2'})+TX(80,98,'',{})+TX(170,98,n[2],{s:18})+TX(24,148,'n(A) = '+n[0],{a:'start',s:13,k:'k1'})+TX(316,148,'n(B) = '+n[1],{a:'end',s:13,k:'k2'}))},
+t=>{var n=NS(t);return SV(340,170,RC(8,8,324,154,'t0',10)+CI(138,92,50,'t1')+CI(202,92,50,'t2')+TX(170,92,n[2],{s:18})+TX(24,24,'n(A) = '+n[0],{a:'start',s:13,k:'k1'})+TX(316,24,'n(B) = '+n[1],{a:'end',s:13,k:'k2'})+TX(316,148,'luar = '+n[3],{a:'end',s:14,k:'k4'})+TX(24,148,'n(ξ) = ?',{a:'start',s:14,k:'k4'}))},
+t=>{var n=NS(t);return SV(340,170,RC(8,8,324,154,'t0',10)+CI(150,88,56,'t1')+TX(150,88,'n(A) = '+n[1],{s:14,k:'k1'})+TX(24,24,'n(ξ) = '+n[0],{a:'start',s:14})+TX(262,130,'A′ = ?',{s:15,k:'k4'}))},
+t=>{var N=+t.match(/\.\.\., (\d+)\}/)[1],A=LST(t,0);return SV(340,170,RC(8,8,324,154,'t0',10)+CI(170,92,58,'t1')+TX(170,30,'A',{s:15,k:'k1'})+ELS(170,96,A)+TX(24,24,'ξ = {1, 2, …, '+N+'}',{a:'start',s:12})+TX(300,140,'A′ = ?',{s:14,k:'k4'}))},
+t=>{var A=LST(t,0),B=LST(t,1);return SV(340,170,RC(8,8,324,154,'t0',10)+CI(92,80,56,'t1')+CI(248,80,56,'t2')+TX(92,18,'A',{s:15,k:'k1'})+TX(248,18,'B',{s:15,k:'k2'})+ELS(92,84,A)+ELS(248,84,B)+TX(170,148,/∩/.test(t)?'A ∩ B = unsur sepunya':'A ∪ B = semua unsur',{s:12}))},
+t=>{var A=LST(t,0);return SV(340,170,RC(8,8,324,154,'t0',10)+CI(120,88,64,'t1')+TX(120,16,'A',{s:15,k:'k1'})+ELS(120,92,A,A.length>4?3:2)+TX(262,70,'subset:',{s:13})+TX(262,92,'semua unsur',{s:13})+TX(262,112,'dalam A',{s:13}))}];
+/* ---------- BAB 12 ---------- */
+var BARS=(v,o)=>{o=o||{};var x0=34,x1=o.x1||330,yb=(o.h||170)-34,yt=22,mx=Math.max(...v),n=v.length,gap=(x1-x0)/n,bw=Math.min(36,gap*.62),s=LN(x0,yb,x1,yb)+LN(x0,yt,x0,yb);v.forEach((q,i)=>{var h=q/mx*(yb-yt-12),x=x0+gap*i+(gap-bw)/2;s+=(o.col?`<rect x="${r1(x)}" y="${r1(yb-h)}" width="${r1(bw)}" height="${r1(h)}" rx="3" style="fill:${o.col[i]};fill-opacity:.7;stroke:${o.col[i]};stroke-width:2"/>`:RC(x,yb-h,bw,h,'t1',3))+TX(x+bw/2,yb-h-9,q,{s:12})+(o.lab?TX(x+bw/2,yb+14,o.lab[i],{s:11}):'')});return s};
+var CLR={Merah:'#e5484d',Biru:'#3b82f6',Hijau:'#16a34a',Kuning:'#f5b800',Ungu:'#8b5cf6',Oren:'#f97316'};
+var FTAB=t=>{var m=t.match(/murid: (.*?)\. (?:Apakah|Berapakah)/)[1].split(', ').map(x=>x.split(' '));return {n:m.map(x=>x[0]),q:m.map(x=>+x[1])}};
+var PI=(x,y,k)=>`<g${k?' clip-path="url(#hf)"':''}>${CI(x,y-6,6,'t1')}<path class="t1" d="M${x-10} ${y+18}Q${x} ${y} ${x+10} ${y+18}Z"/></g>`;
+DG[12]=[
+t=>{var v=NS(t).slice(0,5);return SV(340,170,BARS(v)+TX(170,160,'nilai setiap data',{s:11}))},
+t=>{var v=NS(t);return SV(340,170,BARS(v)+TX(170,160,'data mengikut urutan asal',{s:11}))},
+t=>{var v=NS(t),u=[...new Set(v)].sort((a,b)=>a-b),s=LN(24,138,316,138),g=292/u.length;u.forEach((x,i)=>{var cx=24+g*i+g/2,c=v.filter(y=>y==x).length;s+=TX(cx,152,x,{s:13});for(var j=0;j<c;j++)s+=CI(cx,128-j*17,7,'s1')});return SV(340,166,s+TX(170,12,'plot titik: satu titik = satu data',{s:11}))},
+t=>{var v=NS(t),mx=Math.max(...v),mi=Math.min(...v),yb=136,yt=22,H=yb-yt-12,ym=yb-mx/mx*H,yi=yb-mi/mx*H;return SV(340,170,BARS(v,{x1:270})+LN(34,ym,300,ym,'c4',1)+LN(34,yi,300,yi,'c3',1)+AR(300,yi,300,ym,4)+AR(300,ym,300,yi,4)+TX(300,(ym+yi)/2,'',{})+TX(318,(ym+yi)/2,'?',{k:'k4',s:16})+TX(150,160,'julat = terbesar − terkecil',{s:11}))},
+t=>{var m=t.match(/mewakili (\d+) murid\. Kelas (.+?) mempunyai (\d+)(½)?/),k=m[1],n=+m[3],h=!!m[4],s=`<defs><clipPath id="hf" clipPathUnits="objectBoundingBox"><rect width=".5" height="1"/></clipPath></defs>`+RC(10,8,320,36,'t0',8)+PI(34,22,0)+TX(56,26,'= '+k+' murid',{a:'start',s:14})+TX(20,66,'Kelas '+m[2],{a:'start',s:14,k:'k1'});for(var i=0;i<n;i++)s+=PI(32+i*30,98,0);if(h)s+=`<g opacity=".25">${PI(32+n*30,98,0)}</g>`+PI(32+n*30,98,1);return SV(340,130,s)},
+t=>{var d=FTAB(t);return SV(340,176,BARS(d.q,{col:d.n.map(x=>CLR[x]||'#888'),lab:d.n,x1:320})+TX(170,168,'kekerapan warna kegemaran',{s:10}))},
+t=>DG[12][5](t)];
+/* ---------- BAB 13 ---------- */
+var RTR=(a,b,la,lb,lc,ex)=>{var P=FIT([[0,0],[a,0],[0,-b]],340,150,38),O=P[0],X=P[1],Y=P[2],hx=(X[0]+Y[0])/2,hy=(X[1]+Y[1])/2,nx=b,ny=-a,L=Math.hypot(nx,ny);return SV(340,150,PL(P,'t1')+RA(O[0],O[1],1,0,0,-1,12)+TX((O[0]+X[0])/2,O[1]+16,la,{s:13})+TX(O[0]-8,(O[1]+Y[1])/2,lb,{a:'end',s:13})+TX(hx+nx/L*24,hy+ny/L*14,lc,{k:'k4',s:14})+(ex?TX(170,142,ex,{s:11}):''))};
+DG[13]=[
+t=>{var n=NS(t);return RTR(n[0],n[1],n[0]+' cm',n[1]+' cm','?')},
+t=>{var n=NS(t),c=n[0],a=n[1],b=Math.sqrt(c*c-a*a);return RTR(a,b,a+' cm','? cm',c+' cm')},
+t=>{var s=NS(t).sort((p,q)=>p-q),x=s[0],y=s[1],z=s[2],rx=(z*z+y*y-x*x)/(2*z),ry=Math.sqrt(Math.max(y*y-rx*rx,1)),P=FIT([[0,0],[z,0],[rx,-ry]],340,150,34),C=[(P[0][0]+P[1][0]+P[2][0])/3,(P[0][1]+P[1][1]+P[2][1])/3];return SV(340,150,PG(P,['','',''],[null,null,{l:'?',k:4}])+SL(P[0],P[1],C,z+' cm')+SL(P[0],P[2],C,y+' cm')+SL(P[1],P[2],C,x+' cm'))},
+t=>{var n=NS(t),c=n[0],a=n[1],b=Math.sqrt(c*c-a*a),s=Math.min(190/a,110/b),wx=250,gy=140,fx=wx-a*s,ty=gy-b*s;return SV(340,170,RC(wx,ty-12,28,b*s+12,'t3',0)+LN(10,gy,330,gy)+LN(fx,gy,wx,ty,'c1')+RA(wx,gy,-1,0,0,-1,12)+TX(fx+(wx-fx)/2-14,(gy+ty)/2-8,c+' m',{a:'end',k:'k1',s:14})+TX((fx+wx)/2,gy+16,a+' m',{s:14})+TX(wx+34,(gy+ty)/2,'? m',{a:'start',k:'k4',s:14})+TX(300,ty-24,'dinding',{s:11}))},
+t=>{var n=NS(t),a=n[0],b=n[1],s=Math.min(220/a,100/b),w=a*s,h=b*s,x0=(340-w)/2,y0=24;return SV(340,h+64,RC(x0,y0,w,h,'t1',0)+LN(x0,y0+h,x0+w,y0,'c4',1)+TX(x0+w/2,y0+h+16,a+' cm',{s:14})+TX(x0+w+8,y0+h/2,b+' cm',{a:'start',s:14})+TX(x0+w/2+16,y0+h/2+16,'?',{k:'k4',s:16}))},
+t=>{var n=NS(t);return RTR(n[0],n[1],n[0]+' cm',n[1]+' cm','?','perimeter = ? (cari hipotenus dahulu)')}];
+
+var H={};try{H=JSON.parse(localStorage.getItem('mt1_v1'))||{}}catch(x){}
+var A=document.getElementById('app'),C={};
+var tm=s=>Math.floor(s/60)+'m '+s%60+'s';
+var ac;function snd(f,d,t){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain();o.type=t||'sine';o.frequency.value=f;g.gain.value=.1;o.connect(g);g.connect(ac.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.stop(ac.currentTime+d)}catch(x){}}
+var HOME='https://leykaeducation.github.io/';
+function menu(){var h='<button class="bk" style="align-self:flex-start" onclick="location.href=HOME">🏠 Halaman Utama (pilih subjek lain)</button><div class="card"><div class="big">📐</div><h1>Matematik Tingkatan 1</h1><p>Pilih bab. Setiap bab ada 7 langkah belajar dan ujian 30 soalan dengan cara kira.</p></div>';
+  TT.forEach((t,i)=>{var b=i+1,l=H[b]||[],best=l.reduce((m,x)=>Math.max(m,x.s),0);h+=`<div class="card ch"><div class="tx"><b>Bab ${b}</b> ${t}<small>${l.length?l.length+' cubaan · Terbaik '+best+'/30':'Belum dimain'}</small></div><div class="bt"><button onclick="lesson(${b})">▶️</button><button class="b3" onclick="hist(${b})">📒</button></div></div>`});
+  A.innerHTML=h;scrollTo(0,0)}
+function go(b){C={b:b,q:build(b),i:0,s:0,t0:Date.now(),w:[]};show()}
+function show(){if(C.i>=C.q.length)return end();var q=C.q[C.i];C.lock=0;
+  A.innerHTML=`<div class="top"><button class="bk" onclick="menu()">⬅️</button><span>Bab ${C.b}</span><span>${C.i+1}/${C.q.length}</span><span>⭐ ${C.s}</span></div><div class="bar"><i style="width:${C.i/C.q.length*100}%"></i></div><div class="card q">${e(q.q)}</div>${q.g||''}<div class="ans">${q.o.map((o,i)=>`<button onclick="pk(${i})">${e(o)}</button>`).join('')}</div><div id="fb"></div>`;scrollTo(0,0)}
+function pk(i){if(C.lock)return;C.lock=1;var q=C.q[C.i],ok=q.o[i]==q.a,bs=document.querySelectorAll('.ans button');
+  bs.forEach((b,j)=>{if(q.o[j]==q.a)b.classList.add('ok')});
+  if(ok){C.s++;snd(660,.15)}else{bs[i].classList.add('no','sh');C.w.push(q);snd(200,.3,'square')}
+  var fb=document.getElementById('fb');
+  fb.innerHTML=`<div class="fb"><b>${ok?'Betul! 🎉':'Belum tepat 💪 Jawapan: '+e(q.a)}</b><div class="cara">📝 Cara kira:<br>${q.s.map((x,j)=>(j+1)+'. '+e(x)).join('<br>')}</div></div><button class="nx" onclick="C.i++;show()">${C.i+1>=C.q.length?'Lihat Keputusan 🏁':'Seterusnya ➡️'}</button>`;
+  fb.scrollIntoView({behavior:'smooth',block:'end'})}
+function end(){if(C.mode=='lat')return endL();var n=C.q.length,sec=Math.round((Date.now()-C.t0)/1000),st=C.s>=n*.9?3:C.s>=n*.65?2:C.s>=n*.4?1:0;
+  H[C.b]=[{t:Date.now(),s:C.s,n:n,sec:sec}].concat(H[C.b]||[]).slice(0,30);try{localStorage.setItem('mt1_v1',JSON.stringify(H))}catch(x){}
+  if(C.s>=n*.85)done(C.b,6);snd(st>1?880:300,.4);
+  A.innerHTML=`<div class="card"><div class="big">${st>1?'🏆':'📘'}</div><h1>Bab ${C.b} Selesai!</h1><div class="st">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div><p>Markah: <b>${C.s}/${n}</b> (${Math.round(C.s/n*100)}%) · Masa ${tm(sec)}</p>${ms(C.s/n)}</div>`
+  +(C.w.length?`<div class="card"><b>Semak soalan yang salah (${C.w.length})</b>${C.w.map(q=>`<div class="row"><span>❌</span><span>${e(q.q)}<br><b>Jawapan: ${e(q.a)}</b>${q.g||''}</span></div>`).join('')}</div>`:'')
+  +`<button class="b4" onclick="go(${C.b})">🔁 Main Semula (soalan baharu)</button><button class="b3" onclick="hist(${C.b})">📒 Sejarah Bab ${C.b}</button><button class="b3" onclick="lesson(${C.b})">📚 Menu Pelajaran</button><button onclick="menu()">🏠 Senarai Bab</button><button style="background:#e8507a" onclick="location.href=HOME">🏠 Halaman Utama (subjek lain)</button>`;scrollTo(0,0)}
+function hist(b){var l=H[b]||[],best=l.reduce((m,x)=>Math.max(m,x.s),0),avg=l.length?Math.round(l.reduce((m,x)=>m+x.s/x.n,0)/l.length*100):0;
+  var h=`<button class="bk" style="align-self:flex-start" onclick="menu()">⬅️ Kembali</button><div class="card"><h2>📒 Sejarah Bab ${b}</h2><p>${TT[b-1]}</p><p>${l.length} cubaan · Terbaik ${best}/30 · Purata ${avg}%</p></div>`;
+  if(!l.length)h+='<div class="card"><p>Belum ada aktiviti untuk bab ini. Jom cuba! 🚀</p></div>';
+  else h+='<div class="card"><b>Cubaan terkini</b>'+l.map((x,i)=>`<div class="row"><span style="flex:1">${i?'':'🆕 '}${new Date(x.t).toLocaleString('ms-MY',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}<br><b>${x.s}/${x.n}</b> (${Math.round(x.s/x.n*100)}%) · ${tm(x.sec)}<div class="pb"><i style="width:${x.s/x.n*100}%"></i></div></span></div>`).join('')+'</div>';
+  A.innerHTML=h+`<button class="b4" onclick="lesson(${b})">📚 Belajar Bab ${b}</button>`;scrollTo(0,0)}
+(function(){var f=document.createElement('div');f.id='fx';var E=['➕','➖','✖️','➗','📐','⭐','🔢','✨'];for(var i=0;i<14;i++){var s=document.createElement('span');s.textContent=E[i%E.length];s.style.cssText='left:'+Math.random()*95+'%;font-size:'+(20+Math.random()*24)+'px;animation-duration:'+(14+Math.random()*14)+'s;animation-delay:-'+Math.random()*20+'s';f.appendChild(s)}document.body.prepend(f)})();
+var LS={};try{LS=JSON.parse(localStorage.getItem('mt1_l1'))||{}}catch(x){}
+var STEPS=[['📖','Kenali konsep','Penerangan ringkas dalam bahasa mudah'],['🎬','Lihat animasi','Tengok bagaimana pengiraan berlaku'],['📝','Contoh penyelesaian','Jalan kerja satu demi satu'],['🤝','Cuba bersama','Dengan petunjuk, boleh cuba semula'],['✏️','Latihan kendiri','10 soalan tanpa bantuan'],['🎮','Mini Game','Padankan soalan dengan jawapan'],['🏅','Ujian penguasaan','30 soalan. 85% ke atas = dikuasai']];
+var N=[['Integer ialah nombor bulat: positif, negatif dan sifar.','Pada garis nombor, ke kanan semakin besar, ke kiri semakin kecil.','Menolak nombor negatif sama dengan menambah: 5 − (−2) = 5 + 2 = 7.','Pecahan dan perpuluhan juga boleh positif atau negatif.'],
+['Faktor ialah nombor yang boleh membahagi tepat sesuatu nombor.','Faktor perdana ialah faktor yang juga nombor perdana (2, 3, 5, 7 ...).','FSTB ialah faktor sepunya terbesar. GSTK ialah gandaan sepunya terkecil.','Gandaan dapat dengan mendarab nombor itu dengan 1, 2, 3 ...'],
+['Kuasa dua ialah nombor didarab dengan dirinya: 5² = 5 × 5 = 25.','Punca kuasa dua ialah songsangnya: √25 = 5.','Kuasa tiga: 2³ = 2 × 2 × 2 = 8. Punca kuasa tiga: ∛8 = 2.'],
+['Nisbah membandingkan dua kuantiti yang sama unit, contoh 2 : 3.','Kadar membandingkan dua kuantiti berbeza unit, contoh 60 km sejam.','Kadaran ialah dua nisbah yang sama nilainya, contoh 2 : 3 = 4 : 6.'],
+['Pemboleh ubah ialah huruf yang mewakili nilai yang belum diketahui.','Dalam 3x + 2, pekali ialah 3 dan 2 ialah sebutan malar.','Hanya sebutan serupa boleh ditambah atau ditolak: 2x + 3x = 5x.'],
+['Persamaan linear mempunyai tanda sama dengan (=).','Matlamat: dapatkan x berseorangan.','Apa yang dibuat pada satu belah, buat juga pada belah satu lagi, seperti penimbang yang seimbang.'],
+['Ketaksamaan menggunakan tanda <, >, ≤ dan ≥.','Selesaikannya seperti persamaan.','Apabila mendarab atau membahagi dengan nombor negatif, tukar arah tanda.'],
+['Sudut diukur dalam darjah. Sudut tegak ialah 90° dan garis lurus ialah 180°.','Sudut bertentang bucu adalah sama.','Garis selari dipotong garis rentas: sudut sepadan sama, sudut berselang-seli sama, sudut dalam berurutan berjumlah 180°.'],
+['Poligon ialah bentuk tertutup yang sisinya garis lurus.','Jumlah sudut pedalaman segi tiga ialah 180°, segi empat ialah 360°.','Sudut pedalaman + sudut peluaran = 180°.'],
+['Perimeter ialah jumlah panjang semua sisi.','Luas segi empat tepat = panjang × lebar. Luas segi tiga = ½ × tapak × tinggi.','Luas dalam unit persegi (cm²), perimeter dalam unit biasa (cm).'],
+['Set ialah kumpulan objek yang jelas takrifannya.','Unsur set ditulis dalam kurungan { }, contoh {2, 4, 6}.','Set semesta ξ ialah semua unsur yang dibincangkan. Subset ialah set yang terkandung dalam set lain.'],
+['Data dikumpul, disusun dan diwakilkan dalam jadual, piktograf atau carta.','Kekerapan ialah berapa kali sesuatu data muncul.','Mod ialah data dengan kekerapan tertinggi.'],
+['Untuk segi tiga bersudut tegak: c² = a² + b².','c ialah hipotenus, sisi paling panjang dan bertentang dengan sudut tegak.','Triple Pythagoras contohnya 3, 4, 5 dan 5, 12, 13.']];
+var gid=i=>document.getElementById(i),tmr;
+function halt(){clearInterval(tmr)}
+function done(b,i){LS[b]=LS[b]||{};LS[b][i]=1;try{localStorage.setItem('mt1_l1',JSON.stringify(LS))}catch(x){}}
+var hd=(b,i)=>`<div class="top"><button class="bk" onclick="lesson(${b})">⬅️</button><span>Bab ${b}</span><span>${i+1}/7 ${STEPS[i][1]}</span></div>`;
+var nextBtn=(b,i)=>`<button class="nx" onclick="done(${b},${i});step(${b},${i+1})">Seterusnya ➡️</button>`;
+var ex=b=>mk(gen(b));
+var cr=q=>`<div class="fb"><b>Betul! 🎉</b><div class="cara">📝 Cara kira:<br>${q.s.map((x,j)=>(j+1)+'. '+e(x)).join('<br>')}</div></div>`;
+var ms=p=>p>=.85?'<div class="cara">🏅 <b>Topik dikuasai!</b> Tahniah, teruskan ke bab seterusnya.</div>':p>=.7?'<div class="cara">👍 Hampir! Buat latihan pengukuhan sekali lagi.</div>':p>=.5?'<div class="cara">📘 Tambah latihan asas, kemudian cuba ujian semula.</div>':'<div class="cara">🔁 Jom ulang pelajaran dan lihat contoh sekali lagi. Anda boleh!</div>';
+function lesson(b){halt();var d=LS[b]||{},n=Object.keys(d).length;
+  var h=`<button class="bk" style="align-self:flex-start" onclick="menu()">⬅️ Senarai Bab</button><div class="card"><h2>Bab ${b}</h2><p>${TT[b-1]}</p><div class="pb"><i style="width:${n/7*100}%"></i></div><p>${n}/7 langkah selesai</p></div>`;
+  STEPS.forEach((s,i)=>{h+=`<div class="card ch"><div class="tx"><b>${i+1}. ${s[0]} ${s[1]}</b> ${d[i]?'✅':''}<small>${s[2]}</small></div><div class="bt"><button onclick="step(${b},${i})">▶️</button></div></div>`});
+  A.innerHTML=h+'<p style="text-align:center">Ikut turutan 1 hingga 7. Boleh ulang bila-bila masa.</p>';scrollTo(0,0)}
+function step(b,i){halt();[s0,s1,s2,s3,s4,s5,s6][i](b);scrollTo(0,0)}
+function s0(b){A.innerHTML=hd(b,0)+`<div class="card"><div class="big">📖</div><h2>${TT[b-1]}</h2></div><div class="card" style="text-align:left">${N[b-1].map(x=>`<div class="row"><span>💡</span><span>${e(x)}</span></div>`).join('')}</div>`+nextBtn(b,0)}
+function s1(b){var q=ex(b),k=0;
+  A.innerHTML=hd(b,1)+`<div class="card q">${e(q.q)}</div>${q.g||''}<div class="card" style="text-align:left" id="an"></div><div class="row" style="border:0;gap:10px"><button class="b3" style="flex:1" id="rp">🔁 Main semula</button><button style="flex:1" id="ot">🎲 Contoh lain</button></div>`+nextBtn(b,1);
+  var an=gid('an');
+  function add(){if(k<q.s.length){an.insertAdjacentHTML('beforeend',`<div class="stp"><span class="nm">${k+1}</span><span>${e(q.s[k])}</span></div>`);snd(440+k*80,.1);k++}else{an.insertAdjacentHTML('beforeend',`<div class="stp ans2">✅ Jawapan: <b>${e(q.a)}</b></div>`);snd(880,.2);halt()}}
+  function play(){halt();an.innerHTML='';k=0;add();tmr=setInterval(add,matchMedia('(prefers-reduced-motion:reduce)').matches?400:1800)}
+  gid('rp').onclick=play;gid('ot').onclick=()=>s1(b);play()}
+function s2(b,n){n=n||0;var q=ex(b),k=0;
+  A.innerHTML=hd(b,2)+`<div class="card"><b>Contoh ${n+1} / 3</b></div><div class="card q">${e(q.q)}</div>${q.g||''}<div class="card" style="text-align:left" id="an"></div><button id="nb">👣 Tunjuk langkah 1</button>`;
+  var an=gid('an'),nb=gid('nb');
+  nb.onclick=()=>{if(k<q.s.length){an.insertAdjacentHTML('beforeend',`<div class="stp"><span class="nm">${k+1}</span><span>${e(q.s[k])}</span></div>`);k++;nb.textContent=k<q.s.length?'👣 Tunjuk langkah '+(k+1):'✅ Tunjuk jawapan'}else{an.insertAdjacentHTML('beforeend',`<div class="stp ans2">✅ Jawapan: <b>${e(q.a)}</b></div>`);nb.outerHTML=n<2?`<button class="b4" onclick="s2(${b},${n+1})">Contoh seterusnya ➡️</button>`:nextBtn(b,2)}}}
+function s3(b,n){n=n||0;var q=ex(b),h=0;
+  A.innerHTML=hd(b,3)+`<div class="card"><b>Soalan ${n+1} / 3</b></div><div class="card q">${e(q.q)}</div>${q.g||''}<div class="ans">${q.o.map((o,i)=>`<button data-i="${i}">${e(o)}</button>`).join('')}</div><button class="b3" id="ht">💡 Petunjuk</button><div id="fb"></div>`;
+  var bs=[...document.querySelectorAll('.ans button')],fb=gid('fb'),ht=gid('ht'),mx=Math.max(1,q.s.length-1);
+  ht.onclick=()=>{if(h<mx){h++;fb.innerHTML=`<div class="fb"><b>💡 Petunjuk ${h}</b><div class="cara">${q.s.slice(0,h).map((x,j)=>(j+1)+'. '+e(x)).join('<br>')}</div></div>`}if(h>=mx)ht.disabled=1};
+  bs.forEach(bt=>bt.onclick=()=>{var i=+bt.dataset.i;
+    if(q.o[i]==q.a){bt.classList.add('ok');bs.forEach(x=>x.disabled=1);ht.remove();snd(660,.15);fb.innerHTML=cr(q)+(n<2?`<button class="nx" onclick="s3(${b},${n+1})">Soalan seterusnya ➡️</button>`:nextBtn(b,3))}
+    else{bt.classList.add('no','sh');bt.disabled=1;snd(200,.3,'square');fb.innerHTML='<div class="fb"><b>Hampir! Cuba lagi 💪</b> Tekan 💡 jika perlukan petunjuk.</div>'}})}
+function s4(b){C={b:b,q:build(b).slice(0,10),i:0,s:0,t0:Date.now(),w:[],mode:'lat'};show()}
+function endL(){var n=C.q.length,ok=C.s>=n*.7;done(C.b,4);snd(ok?880:300,.4);
+  A.innerHTML=`<div class="card"><div class="big">${ok?'🌟':'📘'}</div><h1>Latihan Selesai</h1><p>Markah: <b>${C.s}/${n}</b></p><p>${ok?'Bagus! Jom main Mini Game.':'Tidak mengapa. Lihat semula contoh, kemudian cuba lagi.'}</p></div>`
+  +(C.w.length?`<div class="card"><b>Semak soalan yang salah (${C.w.length})</b>${C.w.map(q=>`<div class="row"><span>❌</span><span>${e(q.q)}<br><b>Jawapan: ${e(q.a)}</b>${q.g||''}</span></div>`).join('')}</div>`:'')
+  +`<button class="b4" onclick="step(${C.b},5)">🎮 Mini Game ➡️</button><button class="b3" onclick="step(${C.b},4)">🔁 Latihan baharu</button><button onclick="step(${C.b},2)">📝 Lihat contoh semula</button><button class="bk" onclick="lesson(${C.b})">📚 Menu Pelajaran</button>`;scrollTo(0,0)}
+function s5(b){var all=build(b),seen={},ps=[];
+  [all.filter(q=>q.q.length<=60&&q.a.length<=14),all.slice().sort((x,y)=>x.q.length-y.q.length)].forEach(l=>l.forEach(q=>{if(ps.length<4&&!seen[q.a]){seen[q.a]=1;ps.push(q)}}));
+  var Ls=ps.map((q,i)=>({t:q.q,i:i})),Rs=sh(ps.map((q,i)=>({t:q.a,i:i}))),sel=null,ok=0;
+  var tl=(x,s)=>`<button class="t" data-s="${s}" data-i="${x.i}">${e(x.t)}</button>`;
+  A.innerHTML=hd(b,5)+`<div class="card"><h2>Number Match</h2><p>Sentuh soalan, kemudian sentuh jawapan yang padan. Tiada had masa.</p></div><div class="mg"><div>${Ls.map(x=>tl(x,'l')).join('')}</div><div>${Rs.map(x=>tl(x,'r')).join('')}</div></div><div id="fb"></div>`;
+  document.querySelectorAll('.t').forEach(bt=>bt.onclick=()=>{
+    if(!sel||sel.s==bt.dataset.s){if(sel)sel.el.classList.remove('sel');sel={s:bt.dataset.s,i:+bt.dataset.i,el:bt};bt.classList.add('sel');return}
+    var a=sel.el;sel.el.classList.remove('sel');
+    if(sel.i==+bt.dataset.i){[a,bt].forEach(x=>{x.classList.add('ok');x.disabled=1});ok++;snd(660,.15);
+      if(ok==4)gid('fb').innerHTML=`<div class="fb"><b>Semua padan! 🎉</b></div><button class="b3" onclick="s5(${b})">🔁 Main lagi</button>`+nextBtn(b,5)}
+    else{[a,bt].forEach(x=>{x.classList.add('sh');setTimeout(()=>x.classList.remove('sh'),400)});snd(200,.3,'square')}
+    sel=null})}
+function s6(b){var l=H[b]||[],best=l.reduce((m,x)=>Math.max(m,x.s),0);
+  A.innerHTML=hd(b,6)+`<div class="card"><div class="big">🏅</div><h2>Ujian Penguasaan</h2><p>30 soalan baharu. Dapat 85% ke atas bermakna topik dikuasai.</p><p>${l.length?'Markah terbaik anda: <b>'+best+'/30</b>':'Belum cuba'}</p></div><button class="b4" onclick="go(${b})">▶️ Mula Ujian</button>`}
+
+menu();
+</script>
+</body>
+</html>
