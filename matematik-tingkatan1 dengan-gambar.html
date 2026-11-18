@@ -357,7 +357,7 @@ var H={};try{H=JSON.parse(localStorage.getItem('mt1_v1'))||{}}catch(x){}
 var A=document.getElementById('app'),C={};
 var tm=s=>Math.floor(s/60)+'m '+s%60+'s';
 var ac;function snd(f,d,t){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain();o.type=t||'sine';o.frequency.value=f;g.gain.value=.1;o.connect(g);g.connect(ac.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.stop(ac.currentTime+d)}catch(x){}}
-var HOME='https://leykaeducation.github.io/';
+var HOME='https://leykaeducation.github.io/portal-pembeli/';
 function menu(){var h='<button class="bk" style="align-self:flex-start" onclick="location.href=HOME">🏠 Halaman Utama </button><div class="card"><div class="big">📐</div><h1>Matematik Tingkatan 1</h1><p>Pilih bab. Setiap bab ada 7 langkah belajar dan ujian 30 soalan dengan cara kira.</p></div>';
   TT.forEach((t,i)=>{var b=i+1,l=H[b]||[],best=l.reduce((m,x)=>Math.max(m,x.s),0);h+=`<div class="card ch"><div class="tx"><b>Bab ${b}</b> ${t}<small>${l.length?l.length+' cubaan · Terbaik '+best+'/30':'Belum dimain'}</small></div><div class="bt"><button onclick="lesson(${b})">▶️</button><button class="b3" onclick="hist(${b})">📒</button></div></div>`});
   A.innerHTML=h;scrollTo(0,0)}
