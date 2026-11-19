@@ -106,5 +106,10 @@ function account(u){
 onAuthStateChanged(auth,u=>u?home(u):loginView());
 (()=>{const f=mk('div');f.id='fx';const E=['📚','✏️','⭐','🎒','✨','🔬','🎨','📐'];for(let i=0;i<14;i++){const s=mk('span','',E[i%E.length]);s.style.cssText=`left:${Math.random()*95}%;font-size:${20+Math.random()*24}px;animation-duration:${14+Math.random()*14}s;animation-delay:-${Math.random()*20}s`;f.append(s)}document.body.prepend(f)})();
 </script>
+  <div style="max-width:800px;margin:30px auto;padding:10px;">
+  <video controls playsinline preload="metadata" style="width:100%;border-radius:15px;">
+    <source src="./intro-leyka.mp4" type="video/mp4">
+  </video>
+</div>
 </body>
 </html>
