@@ -62,21 +62,15 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:26px 0 40px}
 
 <section id="video">
   <h2>Tonton Video Produk</h2>
-  <p class="sub">
-    Lihat bagaimana pelajar belajar sambil bermain.
-  </p>
+  <p class="sub">Lihat bagaimana pelajar belajar sambil bermain.</p>
 
-  <div class="video-container">
-    <video
-      controls
-      playsinline
-      preload="metadata"
-      width="100%"
-      style="max-width: 800px; border-radius: 15px;"
-    >
-      <source src="./intro-leyka.mp4" type="video/mp4">
-      Browser anda tidak menyokong video.
-    </video>
+  <div style="display:flex;justify-content:center;">
+    <div class="vid" style="max-width:800px;width:100%;padding:0;border-style:solid;">
+      <video controls playsinline preload="metadata" width="100%">
+        <source src="./intro-leyka.mp4" type="video/mp4">
+        Browser anda tidak menyokong video.
+      </video>
+    </div>
   </div>
 </section>
 
