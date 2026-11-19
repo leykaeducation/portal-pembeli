@@ -106,18 +106,5 @@ function account(u){
 onAuthStateChanged(auth,u=>u?home(u):loginView());
 (()=>{const f=mk('div');f.id='fx';const E=['📚','✏️','⭐','🎒','✨','🔬','🎨','📐'];for(let i=0;i<14;i++){const s=mk('span','',E[i%E.length]);s.style.cssText=`left:${Math.random()*95}%;font-size:${20+Math.random()*24}px;animation-duration:${14+Math.random()*14}s;animation-delay:-${Math.random()*20}s`;f.append(s)}document.body.prepend(f)})();
 </script>
-<section id="video">
-  <h2>Tonton Video Produk</h2>
-  <p class="sub">Lihat bagaimana pelajar belajar sambil bermain.</p>
-
-  <div style="display:flex;justify-content:center;">
-    <div class="vid" style="max-width:800px;width:100%;padding:0;border-style:solid;">
-      <video controls playsinline preload="metadata" width="100%">
-        <source src="./intro-leyka.mp4" type="video/mp4">
-        Browser anda tidak menyokong video.
-      </video>
-    </div>
-  </div>
-</section>
 </body>
 </html>
