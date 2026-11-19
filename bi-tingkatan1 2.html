@@ -131,7 +131,7 @@ function build0(c,av){var ks=CH[c-1][2].split(' '),own=[],all=[],M=[],S=[],seenM
 var H={};try{H=JSON.parse(localStorage.getItem('bi1_v1'))||{}}catch(x){}
 var A=document.getElementById('app'),C={},tm=s=>Math.floor(s/60)+'m '+s%60+'s';
 var ac;function snd(f,d,t){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain();o.type=t||'sine';o.frequency.value=f;g.gain.value=.1;o.connect(g);g.connect(ac.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.stop(ac.currentTime+d)}catch(x){}}
-var HOME='https://leykaeducation.github.io/';
+var HOME='https://leykaeducation.github.io/portal-pembeli/';
 var G={k:{},h:0,ft:0,be:0,bank:[],D:{},sn:{},lm:{}};try{Object.assign(G,JSON.parse(localStorage.getItem('bi1_v2'))||{})}catch(x){}
 var sv=()=>{try{localStorage.setItem('bi1_v2',JSON.stringify(G))}catch(x){}},tg=(k,c)=>pool(k,c).map(i=>(i.k=k,i));
 var SK=['Vocabulary','Grammar','Sentence Building','Subjective Answer','Essay Writing'],ENM=['Content','Grammar','Vocabulary','Sentence Structure','Organisation'];
