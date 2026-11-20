@@ -1,8 +1,22 @@
-<!DOCTYPE html>
-<html lang="ms">
-<head>
+<!doctype html><html><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html{visibility:hidden}</style>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import{getAuth,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import{getFirestore,doc,getDoc}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+const firebaseConfig={apiKey:"AIzaSyAKkAfDwes8Kt-DPL-aEY6zrphVU-RZL2o",authDomain:"latihan-interaktif-tingkatan-1.firebaseapp.com",projectId:"latihan-interaktif-tingkatan-1",appId:"1:765837133429:web:06ccdb98f7066701ce1a3c"};
+const PORTAL="https://leykaeducation.github.io/";
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
+const out=()=>location.replace(PORTAL);
+onAuthStateChanged(auth,async u=>{
+  if(!u)return out();
+  try{await getDoc(doc(db,"config","links"));document.documentElement.style.visibility="visible"}
+  catch(e){out()}
+});
+</script>
+
 <title>Matematik Tingkatan 1 – Latihan 13 Bab</title>
 <style>
 :root{--ink:#26264f;--card:#fff;--line:#d9d4ff;--pri:#6c5ce7;--ok:#16a34a;--bad:#e5484d;--sun:#ffb703;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
