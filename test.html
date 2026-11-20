@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ujian</title>
+<style>
+body{margin:0;padding:20px;font:18px/1.5 -apple-system,sans-serif;background:#1c35c9;color:#fff}
+.ok{color:#8ce99a}.bad{color:#ff8787}
+li{margin:8px 0;word-break:break-word}
+</style>
+</head>
+<body>
+<h2>Ujian Portal</h2>
+<ul id="r"><li class="ok">1. HTML dimuatkan: OK</li></ul>
+<script>
+var r=document.getElementById('r');
+function add(t,ok){var l=document.createElement('li');l.className=ok?'ok':'bad';l.textContent=t;r.appendChild(l)}
+add('2. JavaScript berjalan: OK',true);
+add('Pelayar: '+navigator.userAgent,true);
+fetch('./index.html',{cache:'no-store'}).then(function(x){
+  add('3. index.html status: '+x.status,x.ok);
+  return x.text()
+}).then(function(t){
+  add('   saiz: '+t.length+' aksara',t.length>1000000);
+  add('   ada DIAGNOSTIK: '+(t.indexOf('DIAGNOSTIK')>-1?'ya (versi baharu)':'tidak (versi lama)'),t.indexOf('DIAGNOSTIK')>-1);
+  add('   ada gambar ikon PNG: '+(t.indexOf('data:image/png;base64')>-1?'ya':'tidak'),t.indexOf('data:image/png;base64')>-1);
+}).catch(function(e){add('3. index.html gagal dibaca: '+e,false)});
+</script>
+<script type="module">
+try{
+  await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js');
+  add('4. Firebase dimuatkan dari gstatic: OK',true);
+}catch(e){add('4. Firebase GAGAL dimuatkan: '+e,false)}
+</script>
+</body>
+</html>
